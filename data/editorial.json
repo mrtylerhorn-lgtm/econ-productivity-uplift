@@ -1,0 +1,74 @@
+{
+ "copy": {
+  "verdict": "Not yet",
+  "bottomLine": "Output per hour is running above its old trend on both economy-wide measures, but not yet by more than chance could explain. The San Francisco Fed's measure of underlying efficiency shows no gain; it credits the extra output to more machines and people working harder. The clearest AI signal is in information, the industry that builds and sells computing. Office industries that use AI have sped up a little, but not clearly enough to count.",
+  "changed": "Latest releases: Q3 GDP (Oct 29) put inflation-adjusted spending on computers and related equipment 29% above a year earlier, with computer imports up 62%. This update adds noise, industry and measurement tests; the verdict stays at Not yet under both the new and the old rules.",
+  "caseFor": [
+   {
+    "h": "The pickup is broad.",
+    "body": "Output per hour has grown 2.1% a year since the end of 2023 in the nonfarm business sector and 2.7% for nonfinancial corporations, against 1.6% and 1.4% in 2004–19. Official BLS TFP has grown 1.2% a year since 2023, against 0.7%. Real income has grown faster than real GDP, so output isn't being overstated."
+   },
+   {
+    "h": "Where AI is built, productivity is surging.",
+    "body": "Output per hour in information has grown 9.9% a year since end-2023, against 6.0% in 2010–19: output up 8.2% a year while hours fell 1.5%. That speed-up is larger than in any 2010–19 stretch."
+   },
+   {
+    "h": "Office work is pulling ahead.",
+    "body": "Professional and business services have sped up 1.8 points more than retail, leisure and construction, each against its own 2010–19 pace. A year ago the gap was 0.3 points."
+   },
+   {
+    "h": "The 'no' rests on factory hours.",
+    "body": "The SF Fed credits the gains to working harder, a signal Klein finds comes almost entirely from manufacturing workweeks. Longer shifts at machine shops say little about whether coders and analysts are getting more done."
+   },
+   {
+    "h": "The 1990s say the data lags.",
+    "body": "Output per hour only took off around 1997, years after tech stocks were priced for a boom. Inflation-adjusted investment in computers and related equipment is up 56% in two years, and payoffs from new technology usually come after firms reorganize."
+   }
+  ],
+  "caseAgainst": [
+   {
+    "h": "Underlying efficiency hasn't moved.",
+    "body": "Strip out more machines, more skills and harder work, and this page's estimate from SF Fed figures puts underlying efficiency at about −0.1% a year since end-2023. In the 1997–2003 boom it grew about 2.1% a year."
+   },
+   {
+    "h": "The headline pace is within normal noise.",
+    "body": "Chance alone would put nonfarm output per hour this far above trend about 22% of the time. Ten quarters in, it is up 5.4%, against 8.1% at the same point in the 1990s, and every 10-quarter stretch of that boom was faster."
+   },
+   {
+    "h": "More machines and longer hours explain a lot.",
+    "body": "In the SF Fed's Q2 2026 figures, more capital and skills per hour added 1.7 points to 2.3% labor-productivity growth and working harder added another 1.7, while efficiency subtracted 1.1. Factory production workers average 42.0 hours a week, up 1.2 in two years."
+   },
+   {
+    "h": "The office signal is thin.",
+    "body": "Retail's 2-point slowdown supplies much of the office-versus-hands-on gap; drop any one hands-on industry and it shrinks to 1.1 points. Some 2010–19 stretches showed gaps as large. Information's surge reflects building and selling AI, not using it."
+   }
+  ]
+ },
+ "calendar": [
+  [
+   "2026-11-05",
+   "Productivity and Costs, Q3 preliminary (BLS)",
+   "Output per hour, both measures"
+  ],
+  [
+   "2026-11-06",
+   "Employment Situation, October (BLS)",
+   "Factory hours; industry hours"
+  ],
+  [
+   "2026-11-25",
+   "GDP, Q3 second estimate (BEA)",
+   "Income-side check (GDI); investment revisions"
+  ],
+  [
+   "Nov–Dec",
+   "SF Fed TFP update (no fixed schedule)",
+   "Underlying efficiency"
+  ],
+  [
+   "2026-12-23",
+   "GDP by industry, Q3 (BEA)",
+   "AI-exposed vs hands-on industries"
+  ]
+ ]
+}

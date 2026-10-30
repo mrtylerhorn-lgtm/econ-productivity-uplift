@@ -1,0 +1,20 @@
+data as of 2026-10-30
+FACTS (the narrative must agree with these):
+  verdict: Not yet  (tests for AI: 0/3 {'pace': False, 'efficiency': False, 'industries': False}); under pre-Oct-30 rules: Not yet
+  nonfarm business: 2.12%/yr since 2023Q4 to 2026Q2 vs trend 1.56; z 0.76, chance 22%; yoy 2.24; 20.0% of overlapping 2004-19 windows as fast; 1997-2003 min 2.75; since 2019Q4 2.06
+  nonfinancial corps: 2.71%/yr vs 1.36; z 1.06, chance 14%; yoy 3.08; 5.5% of windows as fast
+  1990s path at +10q: now 105.4, boom 108.1, trend 103.9
+  income check through 2026Q2: GDI 2.66 vs GDP 2.35
+  SF Fed util-adj since 2023: -0.1; four-quarter TFP 1.42, util-adj -0.07
+  BLS TFP 2023-2025: 1.18 vs 2004-19 0.7, 1997-2003 1.49
+  workweek Sep 2026: 42.0 (year ago 41.0, two years ago 40.8, 2018 peak 42.4)
+  industries through 2026Q2: users-vs-hands-on speed-up gap 1.81 (year ago 0.31; leave-one-out min 1.09; 6% of 2010-19 windows as wide, max 1.87); producers [{'key': 'info', 'name': 'Information', 'speed': 3.87, 'maxWindow1019': 2.77}]
+     [producers] Information: 9.86 vs 2010-19 5.99 (speed-up 3.87); output 8.2, hours -1.51
+     [users] Professional & business services: 2.54 vs 2010-19 1.33 (speed-up 1.21); output 2.44, hours -0.1
+     [handson] Retail trade: 0.9 vs 2010-19 2.93 (speed-up -2.04); output 0.9, hours 0.0
+     [handson] Leisure & hospitality: 0.03 vs 2010-19 0.34 (speed-up -0.31); output 0.61, hours 0.59
+     [handson] Construction: -0.05 vs 2010-19 -0.59 (speed-up 0.54); output 1.2, hours 1.25
+     [other] Education & health services: 1.22 vs 2010-19 0.2 (speed-up 1.01); output 3.6, hours 2.35
+     [other] Manufacturing: 2.09 vs 2010-19 0.29 (speed-up 1.79); output 1.75, hours -0.33
+  investment 2026Q3: real IPE yoy 29.1% (2y 55.9%), software 12.8%, computer imports 62.2% (2y 132.1%), contrib to GDP growth 0.93pp avg 4q
+  rates: daily 2.67 on 2026-10-28; Sep 2026 avg 2.64 (year ago 1.75)

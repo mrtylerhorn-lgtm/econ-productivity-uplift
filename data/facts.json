@@ -1,0 +1,498 @@
+{
+ "nfb": {
+  "last": "2026Q2",
+  "n": 10,
+  "now": 2.12,
+  "trend": 1.56,
+  "yoy": 2.24,
+  "yoyPrev": 2.08,
+  "since2019": 2.06,
+  "since2022": 2.51,
+  "last4": 2.24,
+  "z": 0.76,
+  "chance": 22,
+  "se": 0.74,
+  "shareFaster": 20.0,
+  "w0419": [
+   1.57,
+   1.61,
+   1.45,
+   1.41,
+   1.35,
+   1.27,
+   1.63,
+   1.08,
+   1.55,
+   1.37,
+   1.2,
+   1.74,
+   2.4,
+   2.9,
+   3.33,
+   3.02,
+   2.83,
+   3.37,
+   3.02,
+   2.61,
+   2.86,
+   2.32,
+   1.59,
+   1.15,
+   0.82,
+   0.66,
+   0.37,
+   0.31,
+   0.08,
+   0.67,
+   1.03,
+   0.76,
+   0.83,
+   0.97,
+   0.63,
+   0.98,
+   1.33,
+   1.24,
+   1.1,
+   0.98,
+   0.62,
+   1.09,
+   1.11,
+   0.83,
+   0.99,
+   1.08,
+   1.18,
+   1.2,
+   1.45,
+   1.4,
+   1.3,
+   1.5,
+   1.47,
+   1.86,
+   2.22
+  ],
+  "w9703": [
+   3.17,
+   3.64,
+   3.64,
+   3.14,
+   3.76,
+   3.34,
+   3.57,
+   2.78,
+   3.17,
+   2.83,
+   3.2,
+   3.68,
+   3.14,
+   3.62,
+   2.75,
+   3.19,
+   3.29,
+   4.43,
+   4.12
+  ],
+  "min9703": 2.75
+ },
+ "nfc": {
+  "last": "2026Q2",
+  "n": 10,
+  "now": 2.71,
+  "trend": 1.36,
+  "yoy": 3.08,
+  "yoyPrev": 3.15,
+  "since2019": 2.36,
+  "since2022": 2.62,
+  "last4": 3.08,
+  "z": 1.06,
+  "chance": 14,
+  "se": 1.28,
+  "shareFaster": 5.5,
+  "w0419": [
+   2.24,
+   2.35,
+   1.95,
+   1.59,
+   1.73,
+   0.72,
+   0.87,
+   1.11,
+   0.5,
+   1.22,
+   0.97,
+   -0.58,
+   0.36,
+   1.02,
+   2.14,
+   2.81,
+   2.32,
+   2.9,
+   2.13,
+   1.32,
+   2.04,
+   3.07,
+   1.83,
+   1.69,
+   0.82,
+   -0.03,
+   0.53,
+   0.37,
+   1.06,
+   0.47,
+   0.32,
+   0.59,
+   0.89,
+   0.67,
+   0.7,
+   1.64,
+   0.96,
+   0.96,
+   0.52,
+   1.19,
+   0.55,
+   0.68,
+   0.77,
+   0.65,
+   0.64,
+   0.27,
+   0.65,
+   0.74,
+   0.97,
+   1.17,
+   2.1,
+   1.92,
+   1.53,
+   1.54,
+   1.61
+  ],
+  "w9703": [
+   3.3,
+   3.24,
+   3.11,
+   3.42,
+   2.99,
+   3.27,
+   2.8,
+   1.95,
+   2.31,
+   1.61,
+   1.73,
+   2.34,
+   2.52,
+   2.05,
+   2.59,
+   2.42,
+   3.04,
+   3.93,
+   3.97
+  ],
+  "min9703": 1.61
+ },
+ "path": {
+  "n": 10,
+  "now": 105.4,
+  "boom": 108.1,
+  "trend": 103.9
+ },
+ "income": {
+  "last": "2026Q2",
+  "gdp": 2.35,
+  "gdi": 2.66,
+  "gap": 0.31
+ },
+ "sf": {
+  "since2023": -0.1,
+  "fourQTfp": 1.42,
+  "fourQUtilAdj": -0.07,
+  "lastQ": "2026Q2"
+ },
+ "decomp": [
+  {
+   "q": "2025Q4",
+   "lp": 2.43,
+   "tfp": 0.78,
+   "util": 0.72,
+   "utilAdj": 0.05,
+   "inputs": 1.65
+  },
+  {
+   "q": "2026Q1",
+   "lp": 1.11,
+   "tfp": 0.87,
+   "util": 2.32,
+   "utilAdj": -1.45,
+   "inputs": 0.24
+  },
+  {
+   "q": "2026Q2",
+   "lp": 2.31,
+   "tfp": 0.62,
+   "util": 1.73,
+   "utilAdj": -1.11,
+   "inputs": 1.69
+  }
+ ],
+ "blsTfp": {
+  "lastYear": 2025,
+  "since2023": 1.18,
+  "trend": 0.7,
+  "boom": 1.49,
+  "lastYearGrowth": 0.83,
+  "prevYearGrowth": 1.53
+ },
+ "work": {
+  "last": "Sep 2026",
+  "now": 42.0,
+  "yearAgo": 41.0,
+  "twoYearsAgo": 40.8,
+  "peak2018": 42.4
+ },
+ "sectors": {
+  "last": "2026Q2",
+  "gap": 1.81,
+  "gapYearAgo": 0.31,
+  "gapLeaveOneOut": 1.09,
+  "gapMax1019": 1.87,
+  "gapMedian1019": -0.76,
+  "shareWider": 6,
+  "producers": [
+   {
+    "key": "info",
+    "name": "Information",
+    "speed": 3.87,
+    "maxWindow1019": 2.77
+   }
+  ],
+  "rows": [
+   {
+    "key": "info",
+    "name": "Information",
+    "group": "producers",
+    "last": "2026Q2",
+    "now": 9.86,
+    "trend": 5.99,
+    "diff": 3.87,
+    "va": 8.2,
+    "hrs": -1.51
+   },
+   {
+    "key": "pbs",
+    "name": "Professional & business services",
+    "group": "users",
+    "last": "2026Q2",
+    "now": 2.54,
+    "trend": 1.33,
+    "diff": 1.21,
+    "va": 2.44,
+    "hrs": -0.1
+   },
+   {
+    "key": "retail",
+    "name": "Retail trade",
+    "group": "handson",
+    "last": "2026Q2",
+    "now": 0.9,
+    "trend": 2.93,
+    "diff": -2.04,
+    "va": 0.9,
+    "hrs": 0.0
+   },
+   {
+    "key": "leisure",
+    "name": "Leisure & hospitality",
+    "group": "handson",
+    "last": "2026Q2",
+    "now": 0.03,
+    "trend": 0.34,
+    "diff": -0.31,
+    "va": 0.61,
+    "hrs": 0.59
+   },
+   {
+    "key": "construction",
+    "name": "Construction",
+    "group": "handson",
+    "last": "2026Q2",
+    "now": -0.05,
+    "trend": -0.59,
+    "diff": 0.54,
+    "va": 1.2,
+    "hrs": 1.25
+   },
+   {
+    "key": "health",
+    "name": "Education & health services",
+    "group": "other",
+    "last": "2026Q2",
+    "now": 1.22,
+    "trend": 0.2,
+    "diff": 1.01,
+    "va": 3.6,
+    "hrs": 2.35
+   },
+   {
+    "key": "mfg",
+    "name": "Manufacturing",
+    "group": "other",
+    "last": "2026Q2",
+    "now": 2.09,
+    "trend": 0.29,
+    "diff": 1.79,
+    "va": 1.75,
+    "hrs": -0.33
+   }
+  ]
+ },
+ "invest": {
+  "last": "2026Q3",
+  "ipeYoy": 29.1,
+  "ipeYoyPrev": 20.8,
+  "ipe2y": 55.9,
+  "swYoy": 12.8,
+  "impYoy": 62.2,
+  "imp2y": 132.1,
+  "contrib4q": 0.93,
+  "ipeNom": 934
+ },
+ "rates": {
+  "daily": 2.67,
+  "dailyDate": "2026-10-28",
+  "monthly": 2.64,
+  "month": "Sep 2026",
+  "yearAgo": 1.75,
+  "band": [
+   3.5,
+   4.5
+  ]
+ },
+ "scorecard": [
+  {
+   "id": "nfb",
+   "group": "Is productivity growing faster?",
+   "name": "Output per hour, nonfarm business",
+   "lean": "mixed",
+   "counted": true,
+   "reading": "2.1%/yr",
+   "detail": "Since the end of 2023, against 1.6% in 2004–19. Given how noisy quarterly data are, chance alone would produce a gap this large about 22% of the time; a reliable signal needs 5% or less.",
+   "trend": {
+    "dir": "up",
+    "text": "Growth over the past year: 2.2%, up from 2.1% a year earlier"
+   }
+  },
+  {
+   "id": "nfc",
+   "group": "Is productivity growing faster?",
+   "name": "Output per hour, nonfinancial corporations",
+   "lean": "mixed",
+   "counted": false,
+   "reading": "2.7%/yr",
+   "detail": "Since the end of 2023, against 1.4% in 2004–19. Given how noisy quarterly data are, chance alone would produce a gap this large about 14% of the time; a reliable signal needs 5% or less. This measure leaves out the self-employed and the harder-to-measure parts of the economy.",
+   "trend": {
+    "dir": "flat",
+    "text": "Growth over the past year: 3.1%, little changed from 3.1% a year earlier"
+   }
+  },
+  {
+   "id": "inc",
+   "group": "Is productivity growing faster?",
+   "name": "Income-side check",
+   "lean": "pass",
+   "counted": false,
+   "reading": "+0.3 pts",
+   "detail": "Real income (GDI) minus real output (GDP) growth. GDI has grown 2.7% a year since end-2023, against 2.4% for GDP, through Q2 2026. Income is keeping pace, so output isn't obviously overstated.",
+   "trend": null
+  },
+  {
+   "id": "sf",
+   "group": "Is it efficiency, or more effort and machines?",
+   "name": "Underlying efficiency (SF Fed)",
+   "lean": "against",
+   "counted": true,
+   "reading": "-0.1%/yr",
+   "detail": "Since end-2023, after removing more machines, more skills and working harder (this page's estimate from SF Fed figures). It grew about 2.1% a year in the 1997–2003 boom.",
+   "trend": null
+  },
+  {
+   "id": "bls",
+   "group": "Is it efficiency, or more effort and machines?",
+   "name": "Official TFP (BLS, annual)",
+   "lean": "for",
+   "counted": false,
+   "reading": "1.2%/yr",
+   "detail": "2023–2025, against 0.7% in 2004–19 and 1.5% in 1997–2003. No adjustment for working harder, so it overstates efficiency in a hot economy.",
+   "trend": {
+    "dir": "down",
+    "text": "Growth in 2025: 0.8%, down from 1.5% a year earlier"
+   }
+  },
+  {
+   "id": "work",
+   "group": "Is it efficiency, or more effort and machines?",
+   "name": "Working harder (factory hours)",
+   "lean": "caution",
+   "counted": false,
+   "reading": "42.0 hrs",
+   "detail": "Weekly hours of factory production workers, Sep 2026, against 40.8 two years earlier (2018 peak 42.4). Longer weeks suggest extra effort and machine time are flattering the numbers.",
+   "trend": {
+    "dir": "up",
+    "text": "Latest: 42.0 hrs, up from 41.0 hrs a year earlier"
+   }
+  },
+  {
+   "id": "sec",
+   "group": "Is it showing up where AI is used?",
+   "name": "AI users vs hands-on industries",
+   "lean": "mixed",
+   "counted": true,
+   "reading": "+1.8 pts",
+   "detail": "How much more professional & business services sped up than retail, leisure and construction, each measured against its own 2010–19 pace. 6% of 2010–19 stretches showed a gap at least as large, and dropping any one hands-on industry leaves +1.1 pts. To count, the gap must beat every 2010–19 stretch and stay above 1 point when any one hands-on industry is dropped.",
+   "trend": {
+    "dir": "up",
+    "text": "Gap: 1.8 pts, up from 0.3 pts a year earlier"
+   }
+  },
+  {
+   "id": "prod",
+   "group": "Is it showing up where AI is used?",
+   "name": "AI producers: information",
+   "lean": "context",
+   "counted": false,
+   "reading": "+3.9 pts",
+   "detail": "Speed-up in output per hour since end-2023 against its own 2010–19 pace, bigger than in any 2010–19 stretch (max +2.8). This industry includes data centers and software publishers, which build and sell AI, so it shows AI production rather than use.",
+   "trend": null
+  },
+  {
+   "id": "inv",
+   "group": "Context",
+   "name": "Tech equipment investment (inflation-adjusted)",
+   "lean": "context",
+   "counted": false,
+   "reading": "+29%",
+   "detail": "Real spending on computers and related equipment over the past year to Q3 2026. Imports of computers rose 62%, so much of it is built abroad. More machines can lift output per hour without any efficiency gain.",
+   "trend": {
+    "dir": "up",
+    "text": "Growth over the past year: 29.1%, up from 20.8% a year earlier"
+   }
+  },
+  {
+   "id": "rates",
+   "group": "Context",
+   "name": "Inflation-adjusted interest rates",
+   "lean": "context",
+   "counted": false,
+   "reading": "2.7%",
+   "detail": "10-year TIPS yield on 2026-10-28, against 3.5–4.5% in the late-1990s boom. A genuine boom tends to push it up, but deficits and Fed policy move it too.",
+   "trend": {
+    "dir": "up",
+    "text": "Sep 2026 average: 2.6%, up from 1.8% a year earlier"
+   }
+  }
+ ],
+ "tests": {
+  "pace": false,
+  "efficiency": false,
+  "industries": false
+ },
+ "testsFor": 0,
+ "verdict": "Not yet",
+ "verdictOldRules": "Not yet"
+}

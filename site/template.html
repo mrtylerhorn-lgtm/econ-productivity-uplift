@@ -1,0 +1,468 @@
+<title>Productivity Smoke</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Literata:opsz,wght@7..72,400;7..72,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an instrument panel. Verdict, then the evidence scorecard, then both cases, then readouts; technical notes folded below. */
+:root{
+  --bg:#f2f4f3; --panel:#ffffff; --ink:#15211f; --muted:#5b6866; --line:#d5dcda;
+  --accent:#0f6b63; --signal:#c27a12;
+  --for:#0f8a5f; --against:#b4495a; --mixed:#4f7fa8; --caution:#c27a12; --context:#7b8784;
+  --lvl1:#4f7fa8;
+  --f-display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"Literata", Georgia, "Times New Roman", serif;
+  --f-data:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1514; --panel:#172120; --ink:#e3ebe9; --muted:#93a29f; --line:#2a3836;
+  --accent:#4fc2b5; --signal:#e9a43f; --for:#45c48f; --against:#e57f8f; --mixed:#79a9d6; --caution:#e9a43f; --context:#8d9b98; --lvl1:#79a9d6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1514; --panel:#172120; --ink:#e3ebe9; --muted:#93a29f; --line:#2a3836;
+  --accent:#4fc2b5; --signal:#e9a43f; --for:#45c48f; --against:#e57f8f; --mixed:#79a9d6; --caution:#e9a43f; --context:#8d9b98; --lvl1:#79a9d6; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:44px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+.mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px}
+.mast h1{font-size:1.25rem;font-weight:700;letter-spacing:.01em}
+.label,.mast .asof{font-family:var(--f-data);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:32px;align-items:start}
+.hero .q{font-family:var(--f-display);font-size:1.05rem;color:var(--muted);margin-bottom:6px}
+.hero .v{font-family:var(--f-display);font-weight:700;font-size:clamp(2.6rem,7vw,4.4rem);line-height:1;color:var(--accent)}
+.tally{margin-top:10px;font-family:var(--f-data);font-size:.85rem;color:var(--muted)}
+.bl{margin-top:16px;max-width:62ch}
+.bl b{font-family:var(--f-display);font-weight:700;margin-right:.4em}
+.bl p{margin:0;font-size:1.12rem}
+.changed{margin-top:14px;max-width:62ch;font-size:.95rem;color:var(--muted)}
+.meter{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:grid;gap:10px}
+.meter ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.meter li{display:flex;align-items:center;gap:10px;font-family:var(--f-data);font-size:.8rem;color:var(--muted)}
+.meter li i{width:28px;height:10px;border-radius:2px;background:var(--line)}
+.meter li.on{color:var(--ink);font-weight:500}
+.meter li.on i{background:var(--accent)}
+.sec-head{display:grid;gap:6px;margin-bottom:14px}
+.sec-head h2{font-size:1.35rem;font-weight:700}
+.sec-head p{margin:0;max-width:65ch;color:var(--muted);font-size:.98rem}
+.score{background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.score .grp{padding:12px 18px 6px;font-family:var(--f-data);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line)}
+.score .grp:first-child{border-top:0}
+.row{display:grid;grid-template-columns:minmax(0,1.3fr) 120px minmax(0,2.4fr);gap:6px 20px;align-items:baseline;padding:10px 18px 14px}
+.row+.row{border-top:1px dashed var(--line)}
+.row .nm{display:grid;gap:6px;justify-items:start}
+.row h3{font-size:.98rem;font-weight:500}
+.row .rd{font-family:var(--f-data);font-size:1.25rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.row .dt{margin:0;font-size:.92rem;max-width:62ch}
+.row .tr{display:block;margin-top:4px;font-family:var(--f-data);font-size:.75rem;color:var(--muted)}
+.pill{font-family:var(--f-data);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+.k-for{color:var(--for)}.k-against{color:var(--against)}.k-mixed{color:var(--mixed)}.k-caution{color:var(--caution)}.k-context,.k-pass{color:var(--context)}
+.key{margin:10px 2px 0;font-size:.85rem;color:var(--muted)}
+.key span{font-family:var(--f-data);font-weight:500}
+@media (max-width:760px){.row{grid-template-columns:1fr}}
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.case{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:12px;align-content:start}
+.case h3{font-size:1.05rem;font-weight:700}
+.case .tag{font-family:var(--f-data);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.case ol{margin:0;padding-left:1.2em;display:grid;gap:10px}
+.case li{font-size:.94rem}
+.case li b{font-family:var(--f-display);font-weight:500}
+@media (max-width:760px){.cases{grid-template-columns:1fr}}
+section.chart{display:grid;gap:10px}
+section.chart h2{font-size:1.35rem;font-weight:700}
+section.chart .sub{margin:0;max-width:65ch;color:var(--muted);font-size:.98rem}
+.answer{margin:0;max-width:65ch;font-family:var(--f-display);font-size:1.05rem}
+.note{margin:0;max-width:65ch;color:var(--muted);font-size:.85rem}
+.fig{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 10px 8px;overflow-x:auto}
+.fig svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--f-data);font-size:.75rem;color:var(--muted);padding:0 6px 6px}
+.legend span::before{content:"";display:inline-block;width:14px;height:3px;margin-right:6px;vertical-align:middle;background:var(--c)}
+.legend span.dash::before{background:repeating-linear-gradient(90deg,var(--c) 0 4px,transparent 4px 7px)}
+.legend span.dot::before{width:9px;height:9px;border-radius:50%}
+svg text{font-family:var(--f-data);font-size:11.5px;fill:var(--muted)}
+svg text.halo{paint-order:stroke;stroke:var(--panel);stroke-width:4px;stroke-linejoin:round}
+svg .grid{stroke:var(--line);stroke-width:1}
+details{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:0 16px}
+details+details{margin-top:10px}
+summary{cursor:pointer;padding:14px 0;font-family:var(--f-display);font-weight:500}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+details .body{padding-bottom:16px;max-width:72ch;font-size:.95rem}
+details .body li{margin-bottom:6px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;font-family:var(--f-data);font-size:.8rem;font-variant-numeric:tabular-nums;width:100%}
+th,td{text-align:right;padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:500}
+a{color:var(--accent)}
+footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr}}
+</style>
+
+<script type="application/json" id="tracker-data">__DATA__</script>
+
+<div class="wrap">
+  <header class="mast">
+    <h1>Productivity Smoke</h1>
+    <span class="asof" id="asof"></span>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="q">Is AI showing up in U.S. productivity?</div>
+      <div class="v" id="verdict"></div>
+      <div class="tally" id="tally"></div>
+      <div class="bl"><p><b>Bottom line</b><span id="bottom"></span></p></div>
+      <div class="changed" id="changed"></div>
+    </div>
+    <div class="meter" aria-label="Evidence scale">
+      <span class="label">Evidence scale</span>
+      <ol id="scale"></ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="label">The evidence</span>
+      <h2>Scorecard</h2>
+      <p>Each test is computed from the latest data with fixed rules. The three tests marked "counts" decide the verdict; the others are cross-checks and context.</p>
+    </div>
+    <div class="score" id="score"></div>
+    <p class="key">Lean: <span class="k-for">points to AI</span> · <span class="k-mixed">mixed</span> · <span class="k-against">points against</span> · <span class="k-caution">caution, may flatter the numbers</span> · <span class="k-context">context or check</span></p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="label">Two readings of the same data</span>
+      <h2>The strongest case each way</h2>
+      <p>Rewritten after each update from the numbers on this page. Each side is argued as well as its best advocates would argue it.</p>
+    </div>
+    <div class="cases">
+      <article class="case"><span class="tag k-for">The case for</span><h3>AI is already lifting productivity</h3><ol id="caseFor"></ol></article>
+      <article class="case"><span class="tag k-against">The case against</span><h3>It isn't showing up yet</h3><ol id="caseAgainst"></ol></article>
+    </div>
+  </section>
+
+  <section class="chart">
+    <span class="label">Readout 1 · Output per hour</span>
+    <h2>Are we on the 1990s path?</h2>
+    <p class="sub">Output per hour in the nonfarm business sector, set to 100 at the start of each stretch. The 1990s boom is counted from late 1996. The current stretch starts at the end of 2023, the point Matthew Klein uses because that is when the SF Fed's efficiency measure stopped rising.</p>
+    <div class="fig"><div class="legend" id="lg1"></div><svg id="c1"></svg></div>
+    <p class="answer" id="ans1"></p>
+  </section>
+
+  <section class="chart">
+    <span class="label">Readout 2 · Signal or noise?</span>
+    <h2>How unusual is today's pace?</h2>
+    <p class="sub">Productivity growth bounces around, so a few good years can be luck. Each dot is the average growth rate over a 10-quarter stretch, the same length as the current one: grey from the slow years of 2004–19, blue from the 1997–2003 boom. The bar marks today. The stretches overlap, so the dots show the spread of outcomes, not odds; the odds below come from a standard noise test.</p>
+    <div class="fig"><div class="legend" id="lg2"></div><svg id="c2"></svg></div>
+    <p class="answer" id="ans2"></p>
+  </section>
+
+  <section class="chart">
+    <span class="label">Readout 3 · Where is it showing up?</span>
+    <h2>Industries that use AI vs hands-on ones</h2>
+    <p class="sub">If AI is the cause, output per hour should speed up most in office work and least in hands-on work. Each line runs from an industry's 2010–19 growth rate (hollow dot) to its rate since the end of 2023 (solid dot). Information is shown apart: it includes data centers and software publishers, which make AI rather than just use it. Industry output comes from BEA; hours from the BLS payroll survey.</p>
+    <div class="fig"><div class="legend" id="lg3"></div><svg id="c3"></svg></div>
+    <p class="note" id="note3"></p>
+  </section>
+
+  <section class="chart">
+    <span class="label">Readout 4 · Smarter or harder?</span>
+    <h2>Underlying efficiency vs output per hour</h2>
+    <p class="sub">Average yearly growth in output per hour, next to the San Francisco Fed's measure of underlying efficiency. That measure removes the effect of more machines, more skilled workers, and people working harder. In the 1990s, both sped up together. Since the end of 2023, only output per hour has.</p>
+    <div class="fig"><div class="legend" id="lg4"></div><svg id="c4"></svg></div>
+    <p class="note" id="note4"></p>
+    <h3 style="font-size:1.05rem;margin-top:10px">What made up each quarter's productivity growth</h3>
+    <p class="sub">The SF Fed's split of labor-productivity growth (annualized) into more and better inputs per hour, working harder, and underlying efficiency.</p>
+    <div class="fig"><div class="legend" id="lg4b"></div><svg id="c4b"></svg></div>
+  </section>
+
+  <section class="chart">
+    <span class="label">Readout 5 · Working harder</span>
+    <h2>Factory workers are putting in longer weeks</h2>
+    <p class="sub">Average weekly hours for production and nonsupervisory workers in manufacturing. The SF Fed uses changes in hours per worker, which in practice mostly means factories, to gauge how hard people and machines are being pushed. It counts that as "working harder", not efficiency. Most AI use is in offices, not factories.</p>
+    <div class="fig"><svg id="c5"></svg></div>
+  </section>
+
+  <section class="chart">
+    <span class="label">Readout 6 · The spending</span>
+    <h2>Tech investment, and how much of it is imported</h2>
+    <p class="sub">Inflation-adjusted business investment in information-processing equipment and in software, with real imports of computers, peripherals and parts, each set to 100 at the end of 2019. Imports rising faster than investment means much of the hardware is built abroad. More machines can lift output per hour without any gain in efficiency.</p>
+    <div class="fig"><div class="legend" id="lg6"></div><svg id="c6"></svg></div>
+  </section>
+
+  <section class="chart">
+    <span class="label">Readout 7 · The price of money</span>
+    <h2>Inflation-adjusted interest rates vs the 1990s boom</h2>
+    <p class="sub" id="sub7"></p>
+    <div class="fig"><svg id="c7"></svg></div>
+  </section>
+
+  <section>
+    <span class="label">For the technically inclined</span>
+    <h2 style="font-size:1.35rem;margin:6px 0 14px">Under the hood</h2>
+    <details>
+      <summary>How the verdict is decided</summary>
+      <div class="body" id="rules"></div>
+    </details>
+    <details>
+      <summary>Does the start date matter?</summary>
+      <div class="body"><p>Average yearly growth in output per hour from different starting points to the latest quarter. The pickup does not depend on picking the end of 2023.</p><div class="tbl"><table id="startTbl"></table></div></div>
+    </details>
+    <details>
+      <summary>Measurement cross-checks</summary>
+      <div class="body"><p>Different ways of measuring output and efficiency, since the end of 2023 against 2004–19. If the pickup came from a quirk in one series, the others would disagree.</p><div class="tbl"><table id="xTbl"></table></div>
+        <p>The nonfinancial corporate measure covers employees of corporations outside finance. It leaves out the self-employed, government, and owner-occupied housing, whose output is hard to measure. Real GDI and GDP should match in principle; when income grows faster than output, the official output figures may be too low.</p></div>
+    </details>
+    <details>
+      <summary>Growth accounting: the latest SF Fed quarters</summary>
+      <div class="body">
+        <p>Annualized quarterly growth rates, percent. Labor productivity here is the SF Fed's business-output measure, which averages the product and income sides of GDP, so it differs from the BLS headline. Inputs per hour is labor productivity minus TFP: the contribution of more capital per hour and a more skilled workforce. Utilization-adjusted TFP ("underlying efficiency") equals TFP minus utilization.</p>
+        <div class="tbl"><table id="tfpTbl"></table></div>
+        <p id="fourQ"></p>
+      </div>
+    </details>
+    <details>
+      <summary>How the utilization adjustment works, and why it might mislead</summary>
+      <div class="body">
+        <p>The SF Fed method (Basu, Fernald and Kimball; Fernald 2014) uses hours per worker as a stand-in for unseen effort and for how long machines run. Industries are weighted by how sensitive they are to the business cycle, not by headcount. Klein, using John Fernald's industry data, found that almost all of the recent utilization signal comes from manufacturing, and that the fabricated-metals workweek tracks it most closely.</p>
+        <p>Can factory overtime tell us anything about software that writes code or folds proteins? Klein's first guess was no. Still, the method has a strong record through past cycles, including the pandemic. The industry data in Readout 3 point the other way: the biggest gains are in offices, not factories.</p>
+        <p>Timing matters too. In the 1990s, output per hour did not accelerate until 1997, years after tech stocks were already priced for a boom.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How this tracker could be wrong</summary>
+      <div class="body"><ul>
+        <li><b>The industry test is rough.</b> Information is kept out of the counted test because it includes data centers, software publishers and telecom, which make and sell computing; capital spending and layoffs there can raise output per hour without anyone else getting more efficient. The "AI users" proxy, professional and business services, also includes office support, cleaning and staffing; the narrower professional, scientific and technical services industry has no matching hours series on FRED. Finance and insurance, a heavy AI user, is missing for the same reason. Education, often rated highly exposed to AI, is grouped with health care, so it is left out of the test.</li>
+        <li><b>Industry data is rough.</b> BEA's quarterly industry output is heavily revised, and payroll hours leave out the self-employed, so the industry figures can differ from the national ones.</li>
+        <li><b>Ten quarters is short.</b> Productivity growth is noisy, and early estimates are revised. Readout 2 shows how often chance alone produced similar stretches.</li>
+        <li><b>GDP may miss what AI produces.</b> Free services, quality gains and in-house software are hard to price, which would make measured productivity too low. Others argue the measurement gap is too small to matter (Syverson 2017).</li>
+        <li><b>The J-curve.</b> Firms adopting a new general-purpose technology first spend on training and reorganizing, which can hold measured productivity down before it rises (Brynjolfsson, Rock and Syverson).</li>
+        <li><b>Other explanations.</b> The post-pandemic shake-up of jobs and firms, a shift in who is working, and more capital per worker can all raise output per hour without AI.</li>
+        <li><b>Not yet tracked.</b> Business AI adoption (Census BTOS) and data-center construction aren't published in a form this page can update automatically.</li>
+      </ul></div>
+    </details>
+    <details>
+      <summary>Release calendar</summary>
+      <div class="body"><div class="tbl"><table id="cal"></table></div><p>The page refreshes every Saturday morning, Tokyo time, picking up that week's U.S. releases.</p></div>
+    </details>
+    <details>
+      <summary>Sources and notes</summary>
+      <div class="body">
+        <div class="tbl"><table id="srcTbl"></table></div>
+        <p>Underlying efficiency: <a href="https://www.frbsf.org/research-and-insights/data-and-indicators/total-factor-productivity-tfp/" target="_blank" rel="noopener">SF Fed TFP series</a>. Its period averages in Readout 4 are as reported by Matthew C. Klein (August 2026). The framework follows Klein's two-part analysis of productivity and interest rates. The 1990s real-yield band is his estimate. All figures are subject to revision.</p>
+      </div>
+    </details>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const D = JSON.parse(document.getElementById('tracker-data').textContent);
+const C = D.copy, X = D.derived, S = D.series;
+const $ = id => document.getElementById(id);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmtDate = s => new Date(s+'T00:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const last = a => a[a.length-1];
+const sgn = (v,d=1) => (v<0?'−':'')+Math.abs(v).toFixed(d);
+const qLab = s => s.replace(/(\d{4})Q(\d)/,'Q$2 $1');
+const LEAN = {for:'Points to AI',against:'Points against',mixed:'Mixed',caution:'Caution',context:'Context',pass:'Check passed'};
+
+$('asof').textContent = 'Updated ' + fmtDate(D.asOf);
+$('verdict').textContent = X.verdict;
+$('tally').textContent = `${X.testsFor} of 3 deciding tests point to AI`+(X.verdictOldRules!==X.verdict?` · under the rules used before Oct 30, 2026: ${X.verdictOldRules}`:'');
+$('bottom').textContent = C.bottomLine;
+$('changed').textContent = C.changed;
+const levels = ['Showing up','Early signs','Not yet','No evidence'];
+$('scale').innerHTML = levels.map(l=>`<li class="${l===X.verdict?'on':''}"><i></i>${l}</li>`).join('');
+
+let html='', grp='';
+X.scorecard.forEach(r=>{
+  if(r.group!==grp){grp=r.group; html+=`<div class="grp">${esc(grp)}</div>`;}
+  const tr = r.trend ? `<span class="tr">${r.trend.dir==='up'?'▲':r.trend.dir==='down'?'▼':'■'} ${esc(r.trend.text)}</span>` : '';
+  html+=`<div class="row"><div class="nm"><h3>${esc(r.name)}</h3><span class="pill k-${r.lean}">${LEAN[r.lean]}${r.counted?' · counts':''}</span></div><div class="rd">${esc(r.reading)}</div><p class="dt">${esc(r.detail)}${tr}</p></div>`;
+});
+$('score').innerHTML = html;
+['caseFor','caseAgainst'].forEach(k=>{$(k).innerHTML = C[k].map(x=>`<li><b>${esc(x.h)}</b> ${esc(x.body)}</li>`).join('');});
+
+let W=900,H=320;const M={l:46,r:22,t:16,b:30};
+const narrow=()=>W<560;
+function axes(xTicks,yTicks,ys,yFmt){
+  let g='';
+  yTicks.forEach(v=>{const y=ys(v);g+=`<line class="grid" x1="${M.l}" x2="${W-M.r}" y1="${y}" y2="${y}"/><text x="${M.l-6}" y="${y+4}" text-anchor="end">${yFmt(v)}</text>`});
+  xTicks.forEach(([x,lab])=>{const anchor=x>W-M.r-24?'end':(x<M.l+24?'start':'middle');const ls=String(lab).split('\n');const y0=H-8-(ls.length-1)*13;g+=`<text x="${x}" y="${y0}" text-anchor="${anchor}">${ls.map((s,j)=>`<tspan x="${x}" dy="${j?13:0}">${s}</tspan>`).join('')}</text>`});
+  return g;
+}
+const scale=(d0,d1,r0,r1)=>v=>r0+(v-d0)/(d1-d0)*(r1-r0);
+const path=pts=>pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+function ticks(lo,hi,step){const t=[];for(let v=Math.ceil(lo/step-1e-9)*step;v<=hi+1e-9;v+=step)t.push(+v.toFixed(6));return t}
+function setSvg(id,inner,alt,h){const s=$(id);const hh=h||H;s.setAttribute('viewBox',`0 0 ${W} ${hh}`);s.setAttribute('width',W);s.setAttribute('height',hh);s.setAttribute('role','img');if(alt)s.setAttribute('aria-label',alt);s.innerHTML=inner}
+function legend(id,items){$(id).innerHTML=items.map(([lab,c,kind])=>`<span class="${kind||''}" style="--c:${c}">${lab}</span>`).join('')}
+const qIndex=s=>{const [y,q]=s.split('Q');return +y*4+(+q-1)};
+const qmap=k=>{const s=S[k],q0=qIndex(s.start);return s.values.map((v,i)=>[q0+i,v])};
+
+function draw(){
+  const fig=document.querySelector('.fig');
+  W=Math.max(300,Math.round(fig.clientWidth-20)); H=narrow()?250:320;
+  const accent=css('--accent'),signal=css('--signal'),muted=css('--muted'),lvl1=css('--lvl1'),cAg=css('--against'),ink=css('--ink'),mixed=css('--mixed'),panel=css('--panel');
+
+  // 1: boom comparison
+  const o=S.oph, base=qIndex(o.start), lastQ=base+o.values.length-1;
+  const val=q=>o.values[q-base];
+  const trendRate=X.nfb.trend;
+  const q90=qIndex('1996Q4'), qNow=qIndex('2023Q4'), N=28;
+  const s90=[],sNow=[],trend=[];
+  for(let i=0;i<=N;i++){ if(q90+i<=lastQ) s90.push([i,val(q90+i)/val(q90)*100]); trend.push([i,100*Math.pow(1+trendRate/100,i/4)]); }
+  for(let i=0;qNow+i<=lastQ;i++) sNow.push([i,val(qNow+i)/val(qNow)*100]);
+  const y1max=Math.ceil(Math.max(...s90.map(p=>p[1]))/5)*5;
+  let xs=scale(0,N,M.l,W-M.r), ys=scale(98,y1max,H-M.b,M.t);
+  let g=axes(ticks(0,N,narrow()?8:4).map(v=>[xs(v),v===0?'start':'+'+v/4+'y']),ticks(100,y1max,narrow()?10:5),ys,v=>v);
+  g+=`<path d="${path(trend.map(p=>[xs(p[0]),ys(p[1])]))}" fill="none" stroke="${muted}" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  g+=`<path d="${path(s90.map(p=>[xs(p[0]),ys(p[1])]))}" fill="none" stroke="${lvl1}" stroke-width="2"/>`;
+  g+=`<path d="${path(sNow.map(p=>[xs(p[0]),ys(p[1])]))}" fill="none" stroke="${accent}" stroke-width="3"/>`;
+  const e=last(sNow), e90=s90[e[0]];
+  g+=`<line x1="${xs(e[0])}" x2="${xs(e[0])}" y1="${ys(e90[1])}" y2="${ys(e[1])}" stroke="${muted}" stroke-dasharray="2 3"/>`;
+  g+=`<circle cx="${xs(e[0])}" cy="${ys(e90[1])}" r="3.5" fill="${lvl1}"/><text x="${xs(e[0])-8}" y="${ys(e90[1])-8}" text-anchor="end" class="halo" style="fill:${lvl1}">${e90[1].toFixed(1)}</text>`;
+  g+=`<circle cx="${xs(e[0])}" cy="${ys(e[1])}" r="4.5" fill="${accent}"/><text x="${xs(e[0])+8}" y="${ys(e[1])+18}" class="halo" style="fill:${accent};font-weight:500">${e[1].toFixed(1)} now</text>`;
+  setSvg('c1',g,`Output per hour indexed to 100. ${e[0]} quarters in, the current stretch is at ${e[1].toFixed(1)}; the 1990s boom was at ${e90[1].toFixed(1)} at the same point.`);
+  legend('lg1',[['From Q4 2023 (now)',accent],['From Q4 1996 (1990s boom)',lvl1],[`2004–19 trend (${trendRate.toFixed(1)}%/yr)`,muted,'dash']]);
+  $('ans1').textContent=`${e[1]>=e90[1]?'So far, yes':'Not so far'}: ${e[0]} quarters in, output per hour is up ${(e[1]-100).toFixed(1)}%, against ${(e90[1]-100).toFixed(1)}% at the same point in the 1990s boom and ${(trend[e[0]][1]-100).toFixed(1)}% on the old trend.`;
+
+  // 2: strip chart of rolling windows
+  const rowsS=[['Nonfarm business',X.nfb],['Nonfinancial corporations',X.nfc]];
+  const allv=rowsS.flatMap(([,b])=>[...b.w0419,...b.w9703,b.now]);
+  const lo=Math.floor(Math.min(...allv)-0.3), hi=Math.ceil(Math.max(...allv)+0.3);
+  const ML2=narrow()?M.l-30:190, H2=narrow()?250:210, top=narrow()?30:22, rowH=(H2-top-34)/2;
+  const xs2=scale(lo,hi,ML2,W-M.r);
+  g='';
+  ticks(lo,hi,1).forEach(v=>{const x=xs2(v);g+=`<line class="grid" x1="${x}" x2="${x}" y1="${top-10}" y2="${H2-30}"/><text x="${x}" y="${H2-12}" text-anchor="middle">${v}%</text>`;});
+  rowsS.forEach(([name,b],i)=>{
+    const yc=top+rowH*i+rowH/2+(narrow()?10:0);
+    g+= narrow()?`<text x="${ML2}" y="${yc-rowH/2+2}" style="fill:${ink}">${name}</text>`:`<text x="${ML2-14}" y="${yc+4}" text-anchor="end" style="fill:${ink}">${name}</text>`;
+    const jit=k=>((k*37)%11-5)*1.6;
+    b.w0419.forEach((v,k)=>{g+=`<circle cx="${xs2(v)}" cy="${yc+jit(k)}" r="3.2" fill="${muted}" opacity=".5"/>`;});
+    b.w9703.forEach((v,k)=>{g+=`<circle cx="${xs2(v)}" cy="${yc+jit(k+3)}" r="3.2" fill="${lvl1}" opacity=".85"/>`;});
+    const x=xs2(b.now);
+    g+=`<line x1="${x}" x2="${x}" y1="${yc-14}" y2="${yc+14}" stroke="${accent}" stroke-width="3"/><text x="${x}" y="${yc+28}" text-anchor="middle" class="halo" style="fill:${accent};font-weight:500">${b.now.toFixed(1)} now</text>`;
+  });
+  setSvg('c2',g,`Ten-quarter average productivity growth. Nonfarm business now ${X.nfb.now}%: ${X.nfb.shareFaster}% of 2004–19 stretches were at least as fast. Nonfinancial corporations now ${X.nfc.now}%: ${X.nfc.shareFaster}%.`,H2);
+  legend('lg2',[['2004–19 stretches',muted,'dot'],['1997–2003 boom stretches',lvl1,'dot'],['Today',accent]]);
+  $('ans2').textContent=`Not unusual yet. Given how noisy the data are, chance alone would put output per hour this far above its old trend about ${X.nfb.chance}% of the time for nonfarm business and ${X.nfc.chance}% for nonfinancial corporations. A reliable signal needs 5% or less. Every stretch of the 1990s boom was faster than today.`;
+
+  // 3: sector dumbbells
+  const R=X.sectors.rows, rowh=narrow()?44:34, H3=40+R.length*rowh;
+  const vals=R.flatMap(r=>[r.now,r.trend]); const lo3=Math.floor(Math.min(...vals,0)-0.5), hi3=Math.ceil(Math.max(...vals)+0.5);
+  const ML3=narrow()?16:240; const xs3=scale(lo3,hi3,ML3,W-M.r);
+  g='';
+  ticks(lo3,hi3,narrow()?4:2).forEach(v=>{const x=xs3(v);g+=`<line class="grid" x1="${x}" x2="${x}" y1="8" y2="${H3-26}"/><text x="${x}" y="${H3-8}" text-anchor="middle">${v}%</text>`;});
+  g+=`<line x1="${xs3(0)}" x2="${xs3(0)}" y1="8" y2="${H3-26}" stroke="${muted}"/>`;
+  R.forEach((r,i)=>{
+    const y=14+i*rowh+(narrow()?22:10);
+    const c={users:accent,producers:signal,handson:mixed}[r.group]||muted;
+    g+= narrow()?`<text x="${ML3}" y="${y-12}" style="fill:${ink}">${esc(r.name)}</text>`:`<text x="${ML3-14}" y="${y+4}" text-anchor="end" style="fill:${ink}">${esc(r.name)}</text>`;
+    g+=`<line x1="${xs3(r.trend)}" x2="${xs3(r.now)}" y1="${y}" y2="${y}" stroke="${c}" stroke-width="2.5"/>`;
+    g+=`<circle cx="${xs3(r.trend)}" cy="${y}" r="4.5" fill="${panel}" stroke="${c}" stroke-width="2"/><circle cx="${xs3(r.now)}" cy="${y}" r="5" fill="${c}"/>`;
+    const right=r.now>=r.trend; g+=`<text x="${xs3(r.now)+(right?9:-9)}" y="${y+4}" text-anchor="${right?'start':'end'}" class="halo" style="fill:${c}">${sgn(r.now)}</text>`;
+  });
+  setSvg('c3',g,'Output per hour growth by industry, 2010–19 versus since end-2023. '+R.map(r=>`${r.name}: ${r.trend}% to ${r.now}%`).join('; '),H3);
+  legend('lg3',[['AI producers',signal,'dot'],['AI users (proxy)',accent,'dot'],['Hands-on',mixed,'dot'],['Other',muted,'dot']]);
+  const info=R.find(r=>r.group==='producers');
+  $('note3').textContent=`Professional and business services sped up ${sgn(X.sectors.gap)} points more than the three hands-on industries, through ${qLab(X.sectors.last)}. ${X.sectors.shareWider.toFixed(0)}% of 2010–19 stretches showed a gap at least that large, and much of it comes from retail slowing; dropping any one hands-on industry leaves ${sgn(X.sectors.gapLeaveOneOut)}.`+(info?` ${info.name} output has grown ${sgn(info.va)}% a year while its hours changed ${sgn(info.hrs)}% a year.`:'');
+
+  // 4: period bars
+  const qn=s=>s==='latest'?lastQ:qIndex(s);
+  const cg=(a,b)=>(Math.pow(val(b)/val(a),4/(b-a))-1)*100;
+  const P=D.tfp.periods.map(([lab,a,b,tfp,tl])=>[narrow()?lab.replace(/^Since /,'Since\n'):lab,+cg(qn(a),qn(b)).toFixed(1),tfp,tl]);
+  const Mb=M.b; if(narrow()) M.b=44;
+  const ys4=scale(-0.6,4,H-M.b,M.t);
+  const band=(W-M.l-M.r)/P.length, bw=Math.min(54,band*0.3);
+  g=axes(P.map((p,i)=>[M.l+band*(i+0.5),p[0]]),ticks(0,4,1),ys4,v=>v+'%');
+  g+=`<line x1="${M.l}" x2="${W-M.r}" y1="${ys4(0)}" y2="${ys4(0)}" stroke="${muted}"/>`;
+  P.forEach((p,i)=>{const cx=M.l+band*(i+0.5);
+    [[p[1],lvl1,-1,null],[p[2],accent,1,p[3]]].forEach(([v,c,side,lab])=>{
+      const x=cx+side*(bw/2+2)-bw/2, y=ys4(Math.max(v,0)), h=Math.abs(ys4(v)-ys4(0));
+      g+=`<rect x="${x}" y="${y}" width="${bw}" height="${Math.max(h,1.5)}" fill="${c}" rx="2"/><text x="${x+bw/2}" y="${v<0?ys4(v)+13:y-6}" text-anchor="middle">${lab||sgn(v)}</text>`;});
+  });
+  setSvg('c4',g,'Average yearly growth by period. '+P.map(p=>`${p[0].replace('\n',' ')}: output per hour ${p[1]}%, underlying efficiency ${p[3]||p[2]+'%'}`).join('; ')+'.');
+  M.b=Mb;
+  legend('lg4',[['Output per hour',lvl1],['Underlying efficiency',accent]]);
+
+  // 4b: decomposition
+  const Q=X.decomp, comps=[['inputs','More capital and skills per hour',mixed],['util','Working harder (effort and machine hours)',signal],['utilAdj','Underlying efficiency',accent]];
+  const hiB=Math.ceil(Math.max(...Q.map(r=>Math.max(r.inputs,0)+Math.max(r.util,0)+Math.max(r.utilAdj,0)),...Q.map(r=>r.lp))+0.5);
+  const loB=Math.floor(Math.min(0,...Q.map(r=>Math.min(r.inputs,0)+Math.min(r.util,0)+Math.min(r.utilAdj,0)))-0.3);
+  const ysB=scale(loB,hiB,H-M.b,M.t), bandB=(W-M.l-M.r)/Q.length, bwB=Math.min(70,bandB*0.45);
+  g=axes(Q.map((r,i)=>[M.l+bandB*(i+0.5),qLab(r.q)]),ticks(loB,hiB,1),ysB,v=>v+'%');
+  g+=`<line x1="${M.l}" x2="${W-M.r}" y1="${ysB(0)}" y2="${ysB(0)}" stroke="${muted}"/>`;
+  Q.forEach((r,i)=>{const x=M.l+bandB*(i+0.5)-bwB/2; let up=0, dn=0;
+    comps.forEach(([k,,c])=>{const v=r[k]; if(v>=0){g+=`<rect x="${x}" y="${ysB(up+v)}" width="${bwB}" height="${ysB(up)-ysB(up+v)}" fill="${c}"/>`;up+=v;}else{g+=`<rect x="${x}" y="${ysB(dn)}" width="${bwB}" height="${ysB(dn+v)-ysB(dn)}" fill="${c}"/>`;dn+=v;}});
+    g+=`<line x1="${x-5}" x2="${x+bwB+5}" y1="${ysB(r.lp)}" y2="${ysB(r.lp)}" stroke="${ink}" stroke-width="2.5"/><text x="${x+bwB+9}" y="${ysB(r.lp)+4}" text-anchor="start" class="halo" style="fill:${ink};font-weight:500">${sgn(r.lp)}</text>`;
+  });
+  setSvg('c4b',g,'SF Fed decomposition of labor productivity growth. '+Q.map(r=>`${qLab(r.q)}: total ${r.lp}%, inputs ${r.inputs}, working harder ${r.util}, efficiency ${r.utilAdj}`).join('; '));
+  legend('lg4b',[...comps.map(([,l,c])=>[l,c]),['Total',ink]]);
+
+  function monthly(id,ser,fromYear,yr,step,fmt,color,extra,alt){
+    const [sy,sm]=ser.start.split('-').map(Number);
+    const pts=ser.values.map((v,i)=>[sy+(sm-1+i)/12,v]).filter(p=>p[0]>=fromYear);
+    const x0=fromYear,x1=last(pts)[0]+0.1;
+    const xs=scale(x0,x1,M.l,W-M.r), ys=scale(yr[0],yr[1],H-M.b,M.t);
+    const span=x1-x0, every=narrow()?(span>12?6:4):(span>12?3:2);
+    let g=axes(ticks(Math.ceil(x0),x1,every).map(y=>[xs(y),String(y)]),ticks(yr[0],yr[1],step),ys,fmt);
+    if(extra)g+=extra(xs,ys);
+    g+=`<path d="${path(pts.map(p=>[xs(p[0]),ys(p[1])]))}" fill="none" stroke="${color}" stroke-width="2.2"/>`;
+    const e=last(pts);g+=`<circle cx="${xs(e[0])}" cy="${ys(e[1])}" r="4.5" fill="${color}"/><text x="${xs(e[0])-8}" y="${ys(e[1])-10}" text-anchor="end" class="halo" style="fill:${color};font-weight:500">${fmt(e[1])}</text>`;
+    setSvg(id,g,alt+` Latest value ${fmt(e[1])}.`);
+  }
+  monthly('c5',S.awhman,2015,[38,43],1,v=>v.toFixed(1),signal,null,'Weekly hours of factory production workers since 2015.');
+  monthly('c7',S.fii10,2003,[-1.5,5],1,v=>v.toFixed(1)+'%',accent,(xs,ys)=>
+    `<rect x="${M.l}" y="${ys(4.5)}" width="${W-M.r-M.l}" height="${ys(3.5)-ys(4.5)}" fill="${lvl1}" opacity=".16"/><text x="${M.l+8}" y="${ys(4.5)+15}" style="fill:${lvl1}">${narrow()?'1990s boom range':"1997–2000 boom range (Klein's estimate)"}</text>`,
+    '10-year TIPS yield, monthly averages since 2003, with the 3.5–4.5% range of the late-1990s boom shaded.');
+
+  // 6: investment indexes
+  const I=[['ipe_real','Computers & related equipment',signal],['software_real','Software',accent],['imports_computers','Imports of computers & parts',cAg]];
+  const b19=qIndex('2019Q4');
+  const lines=I.map(([k,l,c])=>{const m=qmap(k);const bv=m.find(p=>p[0]===b19)[1];return [l,c,m.map(([q,v])=>[q/4,v/bv*100])];});
+  const allI=lines.flatMap(l=>l[2].map(p=>p[1]));
+  const ymax6=Math.ceil(Math.max(...allI)/50)*50, ymin6=Math.floor(Math.min(...allI)/50)*50;
+  const x0=lines[0][2][0][0], x1=last(lines[0][2])[0]+0.1;
+  const xs6=scale(x0,x1,M.l,W-M.r), ys6=scale(ymin6,ymax6,H-M.b,M.t);
+  g=axes(ticks(Math.ceil(x0),x1,narrow()?4:2).map(y=>[xs6(y),String(y)]),ticks(ymin6,ymax6,50),ys6,v=>v);
+  g+=`<line x1="${M.l}" x2="${W-M.r}" y1="${ys6(100)}" y2="${ys6(100)}" stroke="${muted}" stroke-dasharray="3 3"/>`;
+  const ends=lines.map(([l,c,pts])=>({c,e:last(pts),y:ys6(last(pts)[1])-8})).sort((a,b)=>a.y-b.y);
+  for(let i=1;i<ends.length;i++) if(ends[i].y-ends[i-1].y<14) ends[i].y=ends[i-1].y+14;
+  lines.forEach(([l,c,pts])=>{g+=`<path d="${path(pts.map(p=>[xs6(p[0]),ys6(p[1])]))}" fill="none" stroke="${c}" stroke-width="2.2"/>`;const e=last(pts);g+=`<circle cx="${xs6(e[0])}" cy="${ys6(e[1])}" r="4" fill="${c}"/>`;});
+  ends.forEach(({c,e,y})=>{g+=`<text x="${xs6(e[0])-10}" y="${y}" text-anchor="end" class="halo" style="fill:${c};font-weight:500">${Math.round(e[1])}</text>`;});
+  setSvg('c6',g,'Real tech investment and computer imports indexed to 100 at end-2019. '+lines.map(([l,,p])=>`${l}: ${Math.round(last(p)[1])}`).join('; '));
+  legend('lg6',[...lines.map(([l,c])=>[l,c]),['End-2019 = 100',muted,'dash']]);
+}
+draw();
+let rT;const redraw=()=>{clearTimeout(rT);rT=setTimeout(draw,80)};
+try{new ResizeObserver(redraw).observe(document.querySelector('.wrap'));}catch(e){addEventListener('resize',redraw)}
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+
+$('note4').textContent=D.tfp.periodsNote||'';
+$('sub7').textContent=`Yield on 10-year inflation-protected Treasurys (TIPS), monthly averages through ${X.rates.month}. The shaded band is the 3.5–4.5% range Klein estimates for the late-1990s boom. A genuine productivity boom tends to push this rate up, because new investments promise higher returns. Deficits, Fed policy and global savings move it too.`;
+const T=(id,head,rows)=>{$(id).innerHTML='<tr>'+head.map(h=>`<th>${h}</th>`).join('')+'</tr>'+rows.map(r=>'<tr>'+r.map(c=>`<td>${c}</td>`).join('')+'</tr>').join('');};
+T('startTbl',['Starting point','Nonfarm business','Nonfinancial corps'],[
+  ['End of 2019 (pre-pandemic)',X.nfb.since2019.toFixed(2),X.nfc.since2019.toFixed(2)],['End of 2022',X.nfb.since2022.toFixed(2),X.nfc.since2022.toFixed(2)],['End of 2023',X.nfb.now.toFixed(2),X.nfc.now.toFixed(2)],['Latest four quarters',X.nfb.last4.toFixed(2),X.nfc.last4.toFixed(2)],['2004–19 trend',X.nfb.trend.toFixed(2),X.nfc.trend.toFixed(2)]]);
+T('xTbl',['Measure','Since end-2023','2004–19','Through'],[
+  ['Output per hour, nonfarm business',X.nfb.now.toFixed(2),X.nfb.trend.toFixed(2),qLab(X.nfb.last)],
+  ['Output per hour, nonfinancial corps',X.nfc.now.toFixed(2),X.nfc.trend.toFixed(2),qLab(X.nfc.last)],
+  ['Real GDP growth',X.income.gdp.toFixed(2),'—',qLab(X.income.last)],
+  ['Real GDI growth',X.income.gdi.toFixed(2),'—',qLab(X.income.last)],
+  ['TFP, BLS official (annual)',X.blsTfp.since2023.toFixed(2),X.blsTfp.trend.toFixed(2),String(X.blsTfp.lastYear)],
+  ['Underlying efficiency, SF Fed',sgn(X.sf.since2023,2),'0.60',qLab(X.sf.lastQ)]]);
+T('tfpTbl',['Quarter','Labor prod.','Inputs/hour','TFP','Utilization','Util.-adj. TFP'],
+  X.decomp.map(r=>[r.q,r.lp.toFixed(2),r.inputs.toFixed(2),r.tfp.toFixed(2),r.util.toFixed(2),r.utilAdj.toFixed(2)]));
+$('fourQ').textContent=(D.tfp.fourQNote||`Over the four quarters to ${X.sf.lastQ}: TFP ${X.sf.fourQTfp.toFixed(2)}%, utilization-adjusted TFP ${X.sf.fourQUtilAdj.toFixed(2)}%.`)+` Source vintage: ${D.tfp.vintage}.`;
+$('rules').innerHTML=`<p>The verdict comes from three deciding tests, each scored by a fixed rule. The rules were last changed on Oct 30, 2026; until then the verdict used the efficiency test alone (under those rules today: ${X.verdictOldRules}).</p><ol>
+<li><b>Pace.</b> Output per hour in the nonfarm business sector since the end of 2023 must be above its 2004–19 trend by more than chance would explain. The test compares the gap with the quarter-to-quarter noise of 2004–19 and passes when chance alone would produce it no more than 5% of the time. Today: ${X.nfb.chance}%. The nonfinancial corporate measure (${X.nfc.chance}%) is a cross-check.</li>
+<li><b>Efficiency.</b> The SF Fed's underlying efficiency must average at least 1.0% a year since the end of 2023, well above its 2004–19 pace of about 0.6%. Today: ${sgn(X.sf.since2023)}%.</li>
+<li><b>Industries.</b> Professional and business services, the AI-user proxy, must have sped up at least 1 point more than retail, leisure and construction, each measured against its own 2010–19 pace. The gap must also beat every 10-quarter stretch of 2010–19 and still exceed 1 point if any one hands-on industry is dropped. Today: ${sgn(X.sectors.gap)} points; ${X.sectors.shareWider.toFixed(0)}% of 2010–19 stretches were as large; without any one industry, at least ${sgn(X.sectors.gapLeaveOneOut)}.</li></ol>
+<p><b>No evidence:</b> output per hour is no faster than its 2004–19 trend. <b>Not yet:</b> faster, but fewer than two tests pass. <b>Early signs:</b> two of three. <b>Showing up:</b> all three, and the factory workweek is no longer lengthening.</p>
+<p>The bars are deliberately high. Ten quarters of data are few, and the industry figures are revised heavily, so a test passes only when the signal is clear of normal noise. Official BLS TFP, the income-side check, AI-producing industries and the factory workweek are shown as cross-checks but don't decide the verdict.</p>`;
+$('cal').innerHTML='<tr><th>Date</th><th>Release</th><th>What it updates</th></tr>'+D.calendar.map(r=>`<tr><td>${esc(r[0])}</td><td style="text-align:left">${esc(r[1])}</td><td style="text-align:left">${esc(r[2])}</td></tr>`).join('');
+$('srcTbl').innerHTML='<tr><th>Series</th><th style="text-align:left">Source ID</th><th>Data through</th></tr>'+Object.values(S).map(s=>{const n=s.values.length-1;let end;if(s.freq==='Q'){const q=qIndex(s.start)+n;end=`Q${q%4+1} ${Math.floor(q/4)}`;}else if(s.freq==='M'){const [y,m]=s.start.split('-').map(Number);const k2=y*12+m-1+n;end=`${MON[k2%12]} ${Math.floor(k2/12)}`;}else end=String(+s.start+n);return `<tr><td>${esc(s.title.length>64?s.title.slice(0,62)+'…':s.title)}</td><td style="text-align:left"><a href="https://fred.stlouisfed.org/series/${esc(s.id)}" target="_blank" rel="noopener">${esc(s.id)}</a></td><td>${end}</td></tr>`;}).join('');
+$('foot').textContent=`Data through: output per hour ${qLab(X.nfb.last)}; GDP and investment ${qLab(X.invest.last)}; industry data ${qLab(X.sectors.last)}; TIPS ${fmtDate(X.rates.dailyDate)}. The verdict and scorecard are computed from the data by fixed rules; the narrative is drafted automatically each Saturday.`;
+</script>
