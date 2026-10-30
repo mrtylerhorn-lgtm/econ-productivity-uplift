@@ -137,7 +137,15 @@ try:
     T["sinceEnd2023"] = {"utilAdj": since, "method": f"average of SF Fed quarterly utilization-adjusted TFP growth, 2024Q1–{ql(lastq)}"}
     per = [["1984–96", "1984Q1", "1996Q4"], ["1997–2003", "1996Q4", "2003Q4"], ["2004–19", "2003Q4", "2019Q4"], ["Since end-2023", "2023Q4", "latest"]]
     T["periods"] = [[lab, a, b, round(avg(3, qi(a), lastq if b == "latest" else qi(b)), 1), None] for lab, a, b in per]
-    vint = um.group(1) if um else hdr.get("Last-Modified", "unknown date")
+    produced = None
+    for ws in wb.worksheets:
+        for row in ws.iter_rows(max_row=30, values_only=True):
+            for c in row:
+                mm = re.search(r"Produced on\s+([A-Z][a-z]+ \d{1,2},? \d{4})", str(c or ""))
+                if mm: produced = mm.group(1); break
+            if produced: break
+        if produced: break
+    vint = produced or (um.group(1) if um else hdr.get("Last-Modified", "unknown date"))
     T["vintage"] = f"SF Fed quarterly TFP file, updated {vint} (data through {ql(lastq)})"
     T["source"] = "file"
     T["periodsNote"] = (f"Output-per-hour bars are computed from the BLS series. Underlying-efficiency bars are averages of the SF Fed's "
