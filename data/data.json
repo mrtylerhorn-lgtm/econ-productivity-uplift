@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-30",
+ "asOf": "2026-10-31",
  "series": {
   "oph": {
    "id": "OPHNFB",
@@ -180,7 +180,7 @@
     120.017
    ],
    "updated": "2026-08-06 7:38 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "ophnfc": {
    "id": "PRS88003093",
@@ -361,7 +361,7 @@
     121.363
    ],
    "updated": "2026-09-03 7:38 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "gdpc1": {
    "id": "GDPC1",
@@ -543,7 +543,7 @@
     24611.077
    ],
    "updated": "2026-10-29 8:03 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "gdi_real": {
    "id": "A261RX1Q020SBEA",
@@ -724,7 +724,7 @@
     24550.051
    ],
    "updated": "2026-09-30 7:59 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "tfp_bls_annual": {
    "id": "MFPNFBS",
@@ -813,7 +813,7 @@
     108.441
    ],
    "updated": "2026-03-23 2:42 PM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "awhman": {
    "id": "AWHMAN",
@@ -965,7 +965,7 @@
     42.0
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "fii10": {
    "id": "FII10",
@@ -1261,7 +1261,7 @@
     2.64
    ],
    "updated": "2026-10-01 3:16 PM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "ipe_nom": {
    "id": "Y034RC1Q027SBEA",
@@ -1319,7 +1319,7 @@
     933.903
    ],
    "updated": "2026-10-29 8:04 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "ipe_real": {
    "id": "Y034RX1Q020SBEA",
@@ -1377,7 +1377,7 @@
     854.918
    ],
    "updated": "2026-10-29 8:04 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "software_real": {
    "id": "B985RX1Q020SBEA",
@@ -1435,7 +1435,7 @@
     985.703
    ],
    "updated": "2026-10-29 8:03 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "imports_computers": {
    "id": "B852RX1Q020SBEA",
@@ -1493,7 +1493,7 @@
     635.007
    ],
    "updated": "2026-10-29 8:03 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "contrib_ipe": {
    "id": "Y034RY2Q224SBEA",
@@ -1551,7 +1551,7 @@
     0.86
    ],
    "updated": "2026-10-29 8:04 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "contrib_software": {
    "id": "B985RY2Q224SBEA",
@@ -1609,7 +1609,7 @@
     0.23
    ],
    "updated": "2026-10-29 8:03 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "va_info": {
    "id": "RVAI",
@@ -1701,7 +1701,7 @@
     2089.8
    ],
    "updated": "2026-09-30 7:39 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "hrs_info": {
    "id": "CES5000000016",
@@ -1958,7 +1958,7 @@
     92.3
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "va_pbs": {
    "id": "RVAPBS",
@@ -2050,7 +2050,7 @@
     3501.7
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "hrs_pbs": {
    "id": "CES6000000016",
@@ -2307,7 +2307,7 @@
     129.0
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "va_retail": {
    "id": "RVAR",
@@ -2399,7 +2399,7 @@
     1356.7
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "hrs_retail": {
    "id": "CES4200000016",
@@ -2656,7 +2656,7 @@
     96.4
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "va_health": {
    "id": "RVAESHS",
@@ -2748,7 +2748,7 @@
     2238.9
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "hrs_health": {
    "id": "CES6500000016",
@@ -3005,7 +3005,7 @@
     149.6
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "va_leisure": {
    "id": "RVAAERAF",
@@ -3097,7 +3097,7 @@
     881.3
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "hrs_leisure": {
    "id": "CES7000000016",
@@ -3354,7 +3354,7 @@
     123.5
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "va_construction": {
    "id": "RVAC",
@@ -3446,7 +3446,7 @@
     870.0
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "hrs_construction": {
    "id": "CES2000000016",
@@ -3703,7 +3703,7 @@
     113.0
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "va_mfg": {
    "id": "RVAMA",
@@ -3795,7 +3795,7 @@
     2470.6
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   },
   "hrs_mfg": {
    "id": "CES3000000016",
@@ -4052,7 +4052,7 @@
     92.5
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-10-30"
+   "fetched": "2026-10-31"
   }
  },
  "sectors": [
@@ -4181,7 +4181,7 @@
   "source": "file"
  },
  "tipsLatestDaily": {
-  "date": "2026-10-28",
-  "value": 2.67
+  "date": "2026-10-29",
+  "value": 2.63
  }
 }

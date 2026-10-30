@@ -378,8 +378,8 @@
   "ipeNom": 934
  },
  "rates": {
-  "daily": 2.67,
-  "dailyDate": "2026-10-28",
+  "daily": 2.63,
+  "dailyDate": "2026-10-29",
   "monthly": 2.64,
   "month": "Sep 2026",
   "yearAgo": 1.75,
@@ -503,8 +503,8 @@
    "name": "Inflation-adjusted interest rates",
    "lean": "context",
    "counted": false,
-   "reading": "2.7%",
-   "detail": "10-year TIPS yield on 2026-10-28, against 3.5–4.5% in the late-1990s boom. A genuine boom tends to push it up, but deficits and Fed policy move it too.",
+   "reading": "2.6%",
+   "detail": "10-year TIPS yield on 2026-10-29, against 3.5–4.5% in the late-1990s boom. A genuine boom tends to push it up, but deficits and Fed policy move it too.",
    "trend": {
     "dir": "up",
     "text": "Sep 2026 average: 2.6%, up from 1.8% a year earlier"

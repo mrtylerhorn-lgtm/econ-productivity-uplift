@@ -1,4 +1,4 @@
-data as of 2026-10-30
+data as of 2026-10-31
 FACTS (the narrative must agree with these):
   verdict: Not yet  (tests for AI: 0/3 {'pace': False, 'efficiency': False, 'industries': False}); under pre-Oct-30 rules: Not yet
   nonfarm business: 2.12%/yr since 2023Q4 to 2026Q2 vs trend 1.56; z 0.76, chance 22%; yoy 2.24; 20.0% of overlapping 2004-19 windows as fast; 1997-2003 min 2.75; since 2019Q4 2.06
@@ -17,4 +17,4 @@ FACTS (the narrative must agree with these):
      [other] Education & health services: 1.22 vs 2010-19 0.2 (speed-up 1.01); output 3.6, hours 2.35
      [other] Manufacturing: 2.09 vs 2010-19 0.29 (speed-up 1.79); output 1.75, hours -0.33
   investment 2026Q3: real IPE yoy 29.1% (2y 55.9%), software 12.8%, computer imports 62.2% (2y 132.1%), contrib to GDP growth 0.93pp avg 4q
-  rates: daily 2.67 on 2026-10-28; Sep 2026 avg 2.64 (year ago 1.75)
+  rates: daily 2.63 on 2026-10-29; Sep 2026 avg 2.64 (year ago 1.75)
