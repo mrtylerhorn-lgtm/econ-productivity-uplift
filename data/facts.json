@@ -200,12 +200,36 @@
   "gap": 0.31
  },
  "sf": {
-  "since2023": -0.1,
+  "since2023": 0.1,
   "fourQTfp": 1.42,
   "fourQUtilAdj": -0.07,
   "lastQ": "2026Q2"
  },
  "decomp": [
+  {
+   "q": "2025Q1",
+   "lp": 0.86,
+   "tfp": -0.93,
+   "util": 0.94,
+   "utilAdj": -1.87,
+   "inputs": 1.79
+  },
+  {
+   "q": "2025Q2",
+   "lp": 4.11,
+   "tfp": 2.31,
+   "util": 1.0,
+   "utilAdj": 1.31,
+   "inputs": 1.8
+  },
+  {
+   "q": "2025Q3",
+   "lp": 4.18,
+   "tfp": 3.39,
+   "util": 1.17,
+   "utilAdj": 2.22,
+   "inputs": 0.79
+  },
   {
    "q": "2025Q4",
    "lp": 2.43,
@@ -407,8 +431,8 @@
    "name": "Underlying efficiency (SF Fed)",
    "lean": "against",
    "counted": true,
-   "reading": "-0.1%/yr",
-   "detail": "Since end-2023, after removing more machines, more skills and working harder (this page's estimate from SF Fed figures). It grew about 2.1% a year in the 1997–2003 boom.",
+   "reading": "+0.1%/yr",
+   "detail": "Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures). It grew about 2.1% a year in the 1997–2003 boom.",
    "trend": null
   },
   {

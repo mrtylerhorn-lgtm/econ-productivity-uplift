@@ -179,7 +179,8 @@
     119.594,
     120.017
    ],
-   "updated": "2026-08-06 7:38 AM CDT"
+   "updated": "2026-08-06 7:38 AM CDT",
+   "fetched": "2026-10-30"
   },
   "ophnfc": {
    "id": "PRS88003093",
@@ -359,7 +360,8 @@
     120.703,
     121.363
    ],
-   "updated": "2026-09-03 7:38 AM CDT"
+   "updated": "2026-09-03 7:38 AM CDT",
+   "fetched": "2026-10-30"
   },
   "gdpc1": {
    "id": "GDPC1",
@@ -540,7 +542,8 @@
     24408.011,
     24611.077
    ],
-   "updated": "2026-10-29 8:03 AM CDT"
+   "updated": "2026-10-29 8:03 AM CDT",
+   "fetched": "2026-10-30"
   },
   "gdi_real": {
    "id": "A261RX1Q020SBEA",
@@ -720,7 +723,8 @@
     24390.358,
     24550.051
    ],
-   "updated": "2026-09-30 7:59 AM CDT"
+   "updated": "2026-09-30 7:59 AM CDT",
+   "fetched": "2026-10-30"
   },
   "tfp_bls_annual": {
    "id": "MFPNFBS",
@@ -808,7 +812,8 @@
     107.546,
     108.441
    ],
-   "updated": "2026-03-23 2:42 PM CDT"
+   "updated": "2026-03-23 2:42 PM CDT",
+   "fetched": "2026-10-30"
   },
   "awhman": {
    "id": "AWHMAN",
@@ -959,7 +964,8 @@
     41.8,
     42.0
    ],
-   "updated": "2026-10-02 8:26 AM CDT"
+   "updated": "2026-10-02 8:26 AM CDT",
+   "fetched": "2026-10-30"
   },
   "fii10": {
    "id": "FII10",
@@ -1254,7 +1260,8 @@
     2.4,
     2.64
    ],
-   "updated": "2026-10-01 3:16 PM CDT"
+   "updated": "2026-10-01 3:16 PM CDT",
+   "fetched": "2026-10-30"
   },
   "ipe_nom": {
    "id": "Y034RC1Q027SBEA",
@@ -1311,7 +1318,8 @@
     836.42,
     933.903
    ],
-   "updated": "2026-10-29 8:04 AM CDT"
+   "updated": "2026-10-29 8:04 AM CDT",
+   "fetched": "2026-10-30"
   },
   "ipe_real": {
    "id": "Y034RX1Q020SBEA",
@@ -1368,7 +1376,8 @@
     789.69,
     854.918
    ],
-   "updated": "2026-10-29 8:04 AM CDT"
+   "updated": "2026-10-29 8:04 AM CDT",
+   "fetched": "2026-10-30"
   },
   "software_real": {
    "id": "B985RX1Q020SBEA",
@@ -1425,7 +1434,8 @@
     963.285,
     985.703
    ],
-   "updated": "2026-10-29 8:03 AM CDT"
+   "updated": "2026-10-29 8:03 AM CDT",
+   "fetched": "2026-10-30"
   },
   "imports_computers": {
    "id": "B852RX1Q020SBEA",
@@ -1482,7 +1492,8 @@
     551.841,
     635.007
    ],
-   "updated": "2026-10-29 8:03 AM CDT"
+   "updated": "2026-10-29 8:03 AM CDT",
+   "fetched": "2026-10-30"
   },
   "contrib_ipe": {
    "id": "Y034RY2Q224SBEA",
@@ -1539,7 +1550,8 @@
     0.19,
     0.86
    ],
-   "updated": "2026-10-29 8:04 AM CDT"
+   "updated": "2026-10-29 8:04 AM CDT",
+   "fetched": "2026-10-30"
   },
   "contrib_software": {
    "id": "B985RY2Q224SBEA",
@@ -1596,7 +1608,8 @@
     0.33,
     0.23
    ],
-   "updated": "2026-10-29 8:03 AM CDT"
+   "updated": "2026-10-29 8:03 AM CDT",
+   "fetched": "2026-10-30"
   },
   "va_info": {
    "id": "RVAI",
@@ -1687,7 +1700,8 @@
     2044.4,
     2089.8
    ],
-   "updated": "2026-09-30 7:39 AM CDT"
+   "updated": "2026-09-30 7:39 AM CDT",
+   "fetched": "2026-10-30"
   },
   "hrs_info": {
    "id": "CES5000000016",
@@ -1943,7 +1957,8 @@
     93.2,
     92.3
    ],
-   "updated": "2026-10-02 8:26 AM CDT"
+   "updated": "2026-10-02 8:26 AM CDT",
+   "fetched": "2026-10-30"
   },
   "va_pbs": {
    "id": "RVAPBS",
@@ -2034,7 +2049,8 @@
     3484.7,
     3501.7
    ],
-   "updated": "2026-09-30 7:40 AM CDT"
+   "updated": "2026-09-30 7:40 AM CDT",
+   "fetched": "2026-10-30"
   },
   "hrs_pbs": {
    "id": "CES6000000016",
@@ -2290,7 +2306,8 @@
     129.4,
     129.0
    ],
-   "updated": "2026-10-02 8:26 AM CDT"
+   "updated": "2026-10-02 8:26 AM CDT",
+   "fetched": "2026-10-30"
   },
   "va_retail": {
    "id": "RVAR",
@@ -2381,7 +2398,8 @@
     1372.5,
     1356.7
    ],
-   "updated": "2026-09-30 7:40 AM CDT"
+   "updated": "2026-09-30 7:40 AM CDT",
+   "fetched": "2026-10-30"
   },
   "hrs_retail": {
    "id": "CES4200000016",
@@ -2637,7 +2655,8 @@
     95.1,
     96.4
    ],
-   "updated": "2026-10-02 8:26 AM CDT"
+   "updated": "2026-10-02 8:26 AM CDT",
+   "fetched": "2026-10-30"
   },
   "va_health": {
    "id": "RVAESHS",
@@ -2728,7 +2747,8 @@
     2227.6,
     2238.9
    ],
-   "updated": "2026-09-30 7:40 AM CDT"
+   "updated": "2026-09-30 7:40 AM CDT",
+   "fetched": "2026-10-30"
   },
   "hrs_health": {
    "id": "CES6500000016",
@@ -2984,7 +3004,8 @@
     149.5,
     149.6
    ],
-   "updated": "2026-10-02 8:26 AM CDT"
+   "updated": "2026-10-02 8:26 AM CDT",
+   "fetched": "2026-10-30"
   },
   "va_leisure": {
    "id": "RVAAERAF",
@@ -3075,7 +3096,8 @@
     880.6,
     881.3
    ],
-   "updated": "2026-09-30 7:40 AM CDT"
+   "updated": "2026-09-30 7:40 AM CDT",
+   "fetched": "2026-10-30"
   },
   "hrs_leisure": {
    "id": "CES7000000016",
@@ -3331,7 +3353,8 @@
     122.9,
     123.5
    ],
-   "updated": "2026-10-02 8:26 AM CDT"
+   "updated": "2026-10-02 8:26 AM CDT",
+   "fetched": "2026-10-30"
   },
   "va_construction": {
    "id": "RVAC",
@@ -3422,7 +3445,8 @@
     863.1,
     870.0
    ],
-   "updated": "2026-09-30 7:40 AM CDT"
+   "updated": "2026-09-30 7:40 AM CDT",
+   "fetched": "2026-10-30"
   },
   "hrs_construction": {
    "id": "CES2000000016",
@@ -3678,7 +3702,8 @@
     113.4,
     113.0
    ],
-   "updated": "2026-10-02 8:26 AM CDT"
+   "updated": "2026-10-02 8:26 AM CDT",
+   "fetched": "2026-10-30"
   },
   "va_mfg": {
    "id": "RVAMA",
@@ -3769,7 +3794,8 @@
     2450.3,
     2470.6
    ],
-   "updated": "2026-09-30 7:40 AM CDT"
+   "updated": "2026-09-30 7:40 AM CDT",
+   "fetched": "2026-10-30"
   },
   "hrs_mfg": {
    "id": "CES3000000016",
@@ -4025,7 +4051,8 @@
     92.4,
     92.5
    ],
-   "updated": "2026-10-02 8:26 AM CDT"
+   "updated": "2026-10-02 8:26 AM CDT",
+   "fetched": "2026-10-30"
   }
  },
  "sectors": [
@@ -4066,8 +4093,29 @@
   }
  ],
  "tfp": {
-  "vintage": "SF Fed, updated Oct 8, 2026 (data through 2026Q2)",
+  "vintage": "SF Fed quarterly TFP file, updated 1/13/2026 (data through 2026Q2)",
   "quarters": [
+   [
+    "2025Q1",
+    0.86,
+    -0.93,
+    0.94,
+    -1.87
+   ],
+   [
+    "2025Q2",
+    4.11,
+    2.31,
+    1.0,
+    1.31
+   ],
+   [
+    "2025Q3",
+    4.18,
+    3.39,
+    1.17,
+    2.22
+   ],
    [
     "2025Q4",
     2.43,
@@ -4120,16 +4168,17 @@
     "Since end-2023",
     "2023Q4",
     "latest",
-    -0.1,
+    0.1,
     null
    ]
   ],
-  "periodsNote": "Output-per-hour bars are computed from the BLS series. Underlying efficiency is the SF Fed's utilization-adjusted TFP; the first three bars are its figures as reported by Matthew C. Klein (August 2026). The last bar is this page's estimate through 2026Q2: Klein's essentially flat reading from end-2023 to early 2026, plus the SF Fed's Q2 reading of −1.11% (annualized). It mixes two data vintages.",
+  "periodsNote": "Output-per-hour bars are computed from the BLS series. Underlying-efficiency bars are averages of the SF Fed's quarterly utilization-adjusted TFP growth, all from its latest file (data through 2026Q2).",
   "sinceEnd2023": {
-   "utilAdj": -0.1,
-   "method": "Klein flat 2023Q4–2026Q1, then SF Fed quarterly readings: sum(q/4 for quarters after 2026Q1) / years since 2023Q4"
+   "utilAdj": 0.1,
+   "method": "average of SF Fed quarterly utilization-adjusted TFP growth, 2024Q1–2026Q2"
   },
-  "fourQNote": "The SF Fed's summary puts growth over the four quarters to 2026Q2 at 1.42% for TFP and −0.07% for utilization-adjusted TFP. Its table shows only three of those four quarters, so the summary can't be checked against the quarterly figures here."
+  "fourQNote": null,
+  "source": "file"
  },
  "tipsLatestDaily": {
   "date": "2026-10-28",

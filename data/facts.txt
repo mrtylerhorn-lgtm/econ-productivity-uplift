@@ -5,7 +5,7 @@ FACTS (the narrative must agree with these):
   nonfinancial corps: 2.71%/yr vs 1.36; z 1.06, chance 14%; yoy 3.08; 5.5% of windows as fast
   1990s path at +10q: now 105.4, boom 108.1, trend 103.9
   income check through 2026Q2: GDI 2.66 vs GDP 2.35
-  SF Fed util-adj since 2023: -0.1; four-quarter TFP 1.42, util-adj -0.07
+  SF Fed util-adj since 2023: 0.1; four-quarter TFP 1.42, util-adj -0.07
   BLS TFP 2023-2025: 1.18 vs 2004-19 0.7, 1997-2003 1.49
   workweek Sep 2026: 42.0 (year ago 41.0, two years ago 40.8, 2018 peak 42.4)
   industries through 2026Q2: users-vs-hands-on speed-up gap 1.81 (year ago 0.31; leave-one-out min 1.09; 6% of 2010-19 windows as wide, max 1.87); producers [{'key': 'info', 'name': 'Information', 'speed': 3.87, 'maxWindow1019': 2.77}]
