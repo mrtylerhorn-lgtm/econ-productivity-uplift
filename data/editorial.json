@@ -2,7 +2,7 @@
  "copy": {
   "verdict": "Not yet",
   "bottomLine": "Output per hour is running above its old trend on both economy-wide measures, but not yet by more than chance could explain. The San Francisco Fed's measure of underlying efficiency shows no gain; it credits the extra output to more machines and people working harder. The clearest AI signal is in information, the industry that builds and sells computing. Office industries that use AI have sped up a little, but not clearly enough to count.",
-  "changed": "Latest releases: Q3 GDP (Oct 29) put inflation-adjusted spending on computers and related equipment 29% above a year earlier, with computer imports up 62%. This update adds noise, industry and measurement tests; the verdict stays at Not yet under both the new and the old rules.",
+  "changed": "Latest releases: Q3 GDP (Oct 29) put inflation-adjusted spending on computers and related equipment 29% above a year earlier, with computer imports up 62%. Underlying efficiency now comes straight from the SF Fed's Oct 1 data file: about 0.1% a year since end-2023, still essentially flat. The verdict stays at Not yet.",
   "caseFor": [
    {
     "h": "The pickup is broad.",
@@ -28,7 +28,7 @@
   "caseAgainst": [
    {
     "h": "Underlying efficiency hasn't moved.",
-    "body": "Strip out more machines, more skills and harder work, and this page's estimate from SF Fed figures puts underlying efficiency at about −0.1% a year since end-2023. In the 1997–2003 boom it grew about 2.1% a year."
+    "body": "Strip out more machines, more skills and harder work, and the SF Fed's figures show underlying efficiency growing about 0.1% a year since end-2023, essentially flat. In the 1997–2003 boom it grew about 2.1% a year."
    },
    {
     "h": "The headline pace is within normal noise.",
