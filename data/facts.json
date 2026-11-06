@@ -7252,6 +7252,26 @@
      "producer": true
     },
     {
+     "key": "finance",
+     "name": "Finance & insurance",
+     "use": 65.6,
+     "speed": 3.85,
+     "now": 3.41,
+     "trend": -0.44,
+     "last": "2026Q2",
+     "producer": false
+    },
+    {
+     "key": "pst",
+     "name": "Professional, scientific & technical",
+     "use": 65.5,
+     "speed": 2.28,
+     "now": 3.73,
+     "trend": 1.45,
+     "last": "2026Q2",
+     "producer": false
+    },
+    {
      "key": "health",
      "name": "Education & health",
      "use": 38.1,
@@ -7273,18 +7293,18 @@
     }
    ],
    "fit": {
-    "n": 8,
-    "slope10": 0.88,
-    "r": 0.78,
-    "intercept": -2.88,
-    "chance": 1
+    "n": 10,
+    "slope10": 0.9,
+    "r": 0.82,
+    "intercept": -2.97,
+    "chance": 0
    },
    "fitExInfo": {
-    "n": 7,
-    "slope10": 1.12,
-    "r": 0.6,
-    "intercept": -3.76,
-    "chance": 8
+    "n": 9,
+    "slope10": 0.98,
+    "r": 0.77,
+    "intercept": -3.28,
+    "chance": 1
    },
    "surveyDate": "2026-07-01"
   },
