@@ -164,6 +164,11 @@ try:
     vint = produced or (um.group(1) if um else hdr.get("Last-Modified", "unknown date"))
     T["vintage"] = f"SF Fed quarterly TFP file, updated {vint} (data through {ql(lastq)})"
     T["source"] = "file"
+    # noise yardstick for the efficiency test: spread of quarterly util-adjusted TFP growth in 2004-19
+    import statistics as _st
+    q0419 = [Q[i][3] for i in range(qi("2004Q1"), qi("2019Q4") + 1) if i in Q]
+    T["noise"] = {"avg0419": round(sum(q0419) / len(q0419), 3), "sdQ0419": round(_st.pstdev(q0419), 3),
+                  "nSince2023": lastq - qi("2023Q4"), "since2023Exact": round(avg(3, qi("2023Q4"), lastq), 3)}
     T["periodsNote"] = (f"Output-per-hour bars are computed from the BLS series. Underlying-efficiency bars are averages of the SF Fed's "
                         f"quarterly utilization-adjusted TFP growth, all from its latest file (data through {ql(lastq)}).")
     T["fourQNote"] = None
