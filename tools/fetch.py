@@ -72,11 +72,12 @@ for key, s in D["series"].items():
         n = max(vals) + 1
         while n > 0 and vals.get(n - 1) is None: n -= 1           # drop trailing missing
         new = [vals.get(i) for i in range(n)]
-        assert None not in new, f"gap in {s['id']}: missing at {label(s['freq'], s['start'], new.index(None))}"
+        gaps = [label(s['freq'], s['start'], i) for i, v in enumerate(new) if v is None]
+        assert not gaps or set(gaps) <= set(s.get("allowGaps", [])), f"gap in {s['id']}: missing at {gaps[0]}"
         old = s["values"]
         assert len(new) >= len(old), f"{s['id']} shrank from {len(old)} to {len(new)} observations"
-        revised = [i for i in range(len(old)) if abs(new[i] - old[i]) > 1e-9]
-        big = [i for i in revised if abs(new[i] - old[i]) > 0.005 * max(abs(old[i]), 1)]
+        revised = [i for i in range(len(old)) if (new[i] is None) != (old[i] is None) or (new[i] is not None and abs(new[i] - old[i]) > 1e-9)]
+        big = [i for i in revised if new[i] is not None and old[i] is not None and abs(new[i] - old[i]) > 0.005 * max(abs(old[i]), 1)]
         added = len(new) - len(old)
         s["values"] = new; s["fetched"] = str(today)
         if added or revised:

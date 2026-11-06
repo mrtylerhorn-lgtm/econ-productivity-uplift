@@ -25,10 +25,10 @@ def qs(i): return f"{i // 4}Q{i % 4 + 1}"
 def qp(s): y, q = s.split("Q"); return f"Q{q} {y}"
 def qser(k):
     s = S[k]; assert s["freq"] == "Q", k; q0 = qi(s["start"])
-    return {q0 + i: v for i, v in enumerate(s["values"])}
+    return {q0 + i: v for i, v in enumerate(s["values"]) if v is not None}
 def mser(k):
     s = S[k]; assert s["freq"] == "M", k; y, m = map(int, s["start"].split("-")); m0 = y * 12 + m - 1
-    return {m0 + i: v for i, v in enumerate(s["values"])}
+    return {m0 + i: v for i, v in enumerate(s["values"]) if v is not None}
 def ms(i): return f"{['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][i % 12]} {i // 12}"
 def m2q(m):
     out = {}
@@ -209,7 +209,7 @@ derived = dict(nfb=nfb, nfc=nfc, path=dict(n=n, now=r1(path_now), boom=r1(path_9
 
 # ---------- checks ----------
 for k, s in S.items():
-    assert all(isinstance(x, (int, float)) for x in s["values"]), k
+    assert all(isinstance(x, (int, float)) or (x is None and s.get("allowGaps")) for x in s["values"]), k
     if not s["values"]:
         assert DATA_ONLY, f"series {k} ({s['id']}) has no data; check data/fetch-log.md"
         print(f"WARNING: series {k} ({s['id']}) has no data")

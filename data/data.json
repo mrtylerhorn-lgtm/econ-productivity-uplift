@@ -4387,7 +4387,10 @@
    "freq": "M",
    "values": [],
    "updated": "",
-   "start": "2000-01"
+   "start": "2000-01",
+   "allowGaps": [
+    "2025-10"
+   ]
   },
   "unemp_grads_25plus": {
    "id": "CGBD25O",
@@ -4396,7 +4399,10 @@
    "freq": "M",
    "values": [],
    "updated": "",
-   "start": "2000-01"
+   "start": "2000-01",
+   "allowGaps": [
+    "2025-10"
+   ]
   },
   "unemp_2024": {
    "id": "LNS14000036",
@@ -4405,7 +4411,10 @@
    "freq": "M",
    "values": [],
    "updated": "",
-   "start": "2000-01"
+   "start": "2000-01",
+   "allowGaps": [
+    "2025-10"
+   ]
   },
   "emp_private": {
    "id": "USPRIV",
@@ -5742,7 +5751,10 @@
    "freq": "M",
    "values": [],
    "updated": "",
-   "start": "2000-01"
+   "start": "2000-01",
+   "allowGaps": [
+    "2025-10"
+   ]
   },
   "occ_mgmt": {
    "id": "LNU02032202",
@@ -5751,7 +5763,10 @@
    "freq": "M",
    "values": [],
    "updated": "",
-   "start": "2000-01"
+   "start": "2000-01",
+   "allowGaps": [
+    "2025-10"
+   ]
   },
   "jolts_open_pbs": {
    "id": "JTS540099JOR",
@@ -7040,7 +7055,10 @@
    "freq": "Q",
    "values": [],
    "updated": "",
-   "start": "2000Q1"
+   "start": "2000Q1",
+   "allowGaps": [
+    "2025Q4"
+   ]
   },
   "pay_office": {
    "id": "LEU0254552200Q",
@@ -7049,7 +7067,10 @@
    "freq": "Q",
    "values": [],
    "updated": "",
-   "start": "2000Q1"
+   "start": "2000Q1",
+   "allowGaps": [
+    "2025Q4"
+   ]
   },
   "pay_sales": {
    "id": "LEU0254550300Q",
@@ -7058,7 +7079,10 @@
    "freq": "Q",
    "values": [],
    "updated": "",
-   "start": "2000Q1"
+   "start": "2000Q1",
+   "allowGaps": [
+    "2025Q4"
+   ]
   },
   "pay_all": {
    "id": "LEU0252881500Q",
@@ -7067,7 +7091,10 @@
    "freq": "Q",
    "values": [],
    "updated": "",
-   "start": "2000Q1"
+   "start": "2000Q1",
+   "allowGaps": [
+    "2025Q4"
+   ]
   },
   "ahe_private": {
    "id": "CES0500000003",
