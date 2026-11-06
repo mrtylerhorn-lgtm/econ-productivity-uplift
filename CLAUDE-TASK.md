@@ -1,4 +1,4 @@
-Write this week's commentary for the "Econ Productivity Uplift" tracker (page title "Productivity Smoke"), a public page on whether AI is showing up in U.S. productivity data, and republish it.
+Write this week's commentary for the "Econ Productivity Uplift" tracker, a public page on whether AI is showing up in U.S. productivity data, and republish it.
 
 A GitHub Action has already fetched the data and computed every number, the scorecard and the verdict. Your job is the words, the release calendar and the publish. You never fetch data series yourself and never edit data/data.json, the template or the tools.
 
