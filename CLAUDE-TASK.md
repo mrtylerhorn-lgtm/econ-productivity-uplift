@@ -1,6 +1,6 @@
 Write this week's commentary for the "Econ Productivity Uplift" tracker and republish it. The tracker is a public page asking "Is AI changing the U.S. economy yet?" It answers through five stages, each computed from data by fixed rules: Adoption, Money, Work, Output (productivity) and Who gains.
 
-A GitHub Action has already fetched the data and computed every number, test, stage status and verdict. Your job is the words, the release calendar and the publish. You never fetch data series yourself and never edit data/data.json, the template or the tools.
+A GitHub Action has already fetched the data and computed every number, test, significance tier, stage status and verdict. Your job is the words, the release calendar and the publish. You never fetch data series yourself and never edit data/data.json, the template or the tools.
 
 REPO: mrtylerhorn-lgtm/econ-productivity-uplift (public, read-only for this task). LIVE PAGE: https://claude.ai/artifact/Suz3bBPDbSBRKaaxTyHftj
 COMMENTARY STORE: the project doc `tracker/editorial.json` in this task's Claude project (Projects tool). This, not the repo, holds the latest commentary. Never commit or push to the repo.
@@ -22,7 +22,7 @@ COMMENTARY STORE: the project doc `tracker/editorial.json` in this task's Claude
    Check https://www.bls.gov/schedule/ and https://www.bea.gov/news/schedule with WebFetch (add a throwaway ?cb=… query). Never guess a date, and drop past dates. Save with `python3 tools/update.py set calendar '<JSON>'`.
 5. Write the narrative from facts.txt and fetch-log.md with `python3 tools/update.py set copy.FIELD '<JSON>'`:
    - `copy.verdict`: exactly the Output verdict facts.txt gives.
-   - `copy.headline`: one line of at most 20 words answering the page's question across the stages, e.g. "Use and spending are surging. Jobs are shifting at the edges. Productivity hasn't clearly broken out." It must agree with the STAGES line.
+   - `copy.headline`: one line of at most 20 words answering the page's question across the stages, e.g. "Use is spreading and spending is surging. Jobs and productivity show hints, but nothing yet clear of noise." It must agree with the STAGES line, including its clear/suggestive counts.
    - `copy.bottomLine`: 3–4 short sentences, the so-what for a non-economist. Cover where AI shows up in the economy now, the biggest thing still missing, and what to watch next.
    - `copy.changed`: 1–2 sentences starting "Latest releases:". Name each release with its date and what it changed. If any stage status or the verdict moved, say so and why. If nothing new came out, say "Latest releases: no new data this week." and name the next release. If fetch-log lists problems, say which source wasn't updated.
    - `copy.caseFor` and `copy.caseAgainst`: 3–5 items each, as [{"h": short claim, "body": ≤55 words}]. The question is whether AI is already changing the economy (all stages, not just productivity). Write each side as its most capable honest advocate would argue it. Lead with the strongest evidence, and no strawmen. Every number must come from facts.txt, at the rounding the page shows. Don't hedge inside a case (the other column does that), but never overstate what a number shows. Keep points that are still true, and refresh their numbers.
@@ -45,14 +45,14 @@ COMMENTARY STORE: the project doc `tracker/editorial.json` in this task's Claude
   - "Underlying efficiency", not "real efficiency".
   - "Inflation-adjusted interest rates", not "real rates".
   - The factory-hours series is "factory production workers".
-  - Information-processing equipment is "computers and related equipment".
-  - The pay test compares "management, business and financial" workers with "office and administrative support" workers.
-  - Period labels: "1997–2003", "2004–19", "2002–19" (work tests), "2010–19" (industry trend), "since the end of 2023".
-- Every work signal has other possible causes. Tech hiring fell from 2023 as interest rates rose. A strong market for non-graduates narrows graduates' edge. The labor share swings with the business cycle. Never write as if a work or income signal proves AI is the cause.
+  - Information-processing equipment is "information-processing equipment" (computers, communications gear and instruments), not just "computers".
+  - The pay test compares "management, business and financial" workers (managers plus accountants, analysts and HR specialists, a rough proxy for coordinators) with "office and administrative support" workers.
+  - Period labels: "1997–2003", "2004–19", "2002–19" (work-test history), "2010–19" (industry trend), "since the end of 2023". Tech investment data begin in 1959; the labor share series begins in 1947 (say "lowest on record", not "lowest since 1947").
+- Every work signal has other possible causes. Tech hiring fell from 2023 as interest rates rose. Graduates' edge swings with the cycle and was already small at the end of 2023, so the test is its change since then, not its level. The labor share is pay per hour over output per hour, so it dips after a fast productivity quarter, and it swings with the business cycle. Much of the tech-investment jump is data-center building, and the ratio is in current dollars. Never write as if a work or income signal proves AI is the cause.
 - Industry groups are fixed:
   - information = "AI producers" (shown, not counted)
   - professional & business services = "AI users" proxy
   - retail, leisure and construction = hands-on
-- Never change the rules, groups, template or tools. The output rules were frozen on 2026-10-30 and the stage rules added on 2026-11-06. If the data seems to call for a change, say so in your final message instead.
-- Report significance the way facts.txt does ("chance alone would produce this about X% of the time"). Don't call a result unusual unless its test passes.
+- Never change the rules, groups, template or tools. The output tests were set on 2026-10-30; the significance tiers and stage rules on 2026-11-06. If the data seems to call for a change, say so in your final message instead.
+- Significance tiers (facts.txt TIERS line): chance 5% or less is a "clear signal", 5–20% "suggestive", above 20% or the wrong direction "no signal". Use these words, give the number ("chance alone would produce this about X% of the time"), and never call a suggestive result clear, reliable, significant or unusual. Stage statuses move only on clear signals; you may say what is suggestive.
 - Check every "highest since …", "lowest since …" or "wider than any …" claim against facts.txt.
