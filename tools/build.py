@@ -209,7 +209,10 @@ derived = dict(nfb=nfb, nfc=nfc, path=dict(n=n, now=r1(path_now), boom=r1(path_9
 
 # ---------- checks ----------
 for k, s in S.items():
-    assert s["values"] and all(isinstance(x, (int, float)) for x in s["values"]), k
+    assert all(isinstance(x, (int, float)) for x in s["values"]), k
+    if not s["values"]:
+        assert DATA_ONLY, f"series {k} ({s['id']}) has no data; check data/fetch-log.md"
+        print(f"WARNING: series {k} ({s['id']}) has no data")
 for r in T["quarters"]: assert abs(r[2] - r[3] - r[4]) < 0.06, ("util-adj check", r)
 C = D["copy"]
 if not DATA_ONLY:

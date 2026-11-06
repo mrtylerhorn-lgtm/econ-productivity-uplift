@@ -48,6 +48,21 @@ def fred_csv(fid, extra=""):
 for key, s in D["series"].items():
     try:
         rows = fred_csv(s["id"])
+        if not s.get("title"):
+            try:
+                pg, _ = get(f"https://fred.stlouisfed.org/series/{s['id']}")
+                m_ = re.search(r"<title>(.*?)</title>", pg.decode("utf-8", "replace"), re.S)
+                if m_: s["title"] = re.sub(r"\s*\|.*$", "", m_.group(1)).replace("&amp;", "&").strip()
+            except Exception: pass
+        if s["freq"] == "X":   # irregular survey dates: keep (date, value) pairs as published
+            obs = [(d, float(v)) for d, v in rows if v.strip() not in (".", "")]
+            assert obs, f"no observations for {s['id']}"
+            old = list(zip(s.get("dates", []), s["values"]))
+            if obs != old:
+                newd = [d for d, _ in obs if d not in set(s.get("dates", []))]
+                log.append(f"- **{key}** ({s['id']}): " + (f"{len(newd)} new observation(s), latest {obs[-1][0]} = {obs[-1][1]}" if newd else "revised values"))
+            s["dates"] = [d for d, _ in obs]; s["values"] = [v for _, v in obs]; s["fetched"] = str(today)
+            continue
         vals = {}
         for d, v in rows:
             i = idx_of(s["freq"], s["start"], d)

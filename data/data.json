@@ -4055,6 +4055,303 @@
    ],
    "updated": "2026-10-02 8:26 AM CDT",
    "fetched": "2026-11-06"
+  },
+  "ai_use_work": {
+   "id": "RPSGENAIUSAGESHAREWORK",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "values": [],
+   "updated": "",
+   "dates": []
+  },
+  "ai_daily_work": {
+   "id": "RPSGENAIUSAGESHAREEDLWWOR",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "values": [],
+   "updated": "",
+   "dates": []
+  },
+  "ai_timesave": {
+   "id": "RPSGENAITSALL",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "values": [],
+   "updated": "",
+   "dates": []
+  },
+  "ai_use_mgmt": {
+   "id": "RPSGENAIUSAGESHAREOCC1",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "values": [],
+   "updated": "",
+   "dates": []
+  },
+  "ai_use_comp": {
+   "id": "RPSGENAIUSAGESHAREOCC3",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "values": [],
+   "updated": "",
+   "dates": []
+  },
+  "ai_use_office": {
+   "id": "RPSGENAIUSAGESHAREOCC17",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "values": [],
+   "updated": "",
+   "dates": []
+  },
+  "ai_use_transport": {
+   "id": "RPSGENAIUSAGESHAREOCC22",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "values": [],
+   "updated": "",
+   "dates": []
+  },
+  "software_nom": {
+   "id": "B985RC1Q027SBEA",
+   "title": "",
+   "units": "",
+   "freq": "Q",
+   "values": [],
+   "updated": "",
+   "start": "2015Q1"
+  },
+  "comp_employees": {
+   "id": "COE",
+   "title": "",
+   "units": "",
+   "freq": "Q",
+   "values": [],
+   "updated": "",
+   "start": "2015Q1"
+  },
+  "unemp_grads_2024": {
+   "id": "CGBD2024",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2000-01"
+  },
+  "unemp_grads_25plus": {
+   "id": "CGBD25O",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2000-01"
+  },
+  "unemp_2024": {
+   "id": "LNS14000036",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2000-01"
+  },
+  "emp_private": {
+   "id": "USPRIV",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2000-01"
+  },
+  "emp_compsys": {
+   "id": "CES6054150001",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2000-01"
+  },
+  "emp_consulting": {
+   "id": "CES6054160001",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2000-01"
+  },
+  "emp_info": {
+   "id": "USINFO",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2000-01"
+  },
+  "occ_office": {
+   "id": "LNU02032207",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2000-01"
+  },
+  "occ_mgmt": {
+   "id": "LNU02032202",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2000-01"
+  },
+  "jolts_open_pbs": {
+   "id": "JTS540099JOR",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2001-01"
+  },
+  "jolts_open_all": {
+   "id": "JTSJOR",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2001-01"
+  },
+  "jolts_hire_pbs": {
+   "id": "JTS540099HIR",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2001-01"
+  },
+  "jolts_hire_all": {
+   "id": "JTSHIR",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2001-01"
+  },
+  "pay_mgmt": {
+   "id": "LEU0254524700Q",
+   "title": "",
+   "units": "",
+   "freq": "Q",
+   "values": [],
+   "updated": "",
+   "start": "2000Q1"
+  },
+  "pay_office": {
+   "id": "LEU0254552200Q",
+   "title": "",
+   "units": "",
+   "freq": "Q",
+   "values": [],
+   "updated": "",
+   "start": "2000Q1"
+  },
+  "pay_sales": {
+   "id": "LEU0254550300Q",
+   "title": "",
+   "units": "",
+   "freq": "Q",
+   "values": [],
+   "updated": "",
+   "start": "2000Q1"
+  },
+  "pay_all": {
+   "id": "LEU0252881500Q",
+   "title": "",
+   "units": "",
+   "freq": "Q",
+   "values": [],
+   "updated": "",
+   "start": "2000Q1"
+  },
+  "ahe_private": {
+   "id": "CES0500000003",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2007-01"
+  },
+  "ahe_info": {
+   "id": "CES5000000003",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2007-01"
+  },
+  "ahe_pbs": {
+   "id": "CES6000000003",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2007-01"
+  },
+  "ahe_retail": {
+   "id": "CES4200000003",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2007-01"
+  },
+  "ahe_leisure": {
+   "id": "CES7000000003",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2007-01"
+  },
+  "labor_share": {
+   "id": "PRS85006173",
+   "title": "",
+   "units": "",
+   "freq": "Q",
+   "values": [],
+   "updated": "",
+   "start": "1984Q1"
+  },
+  "biz_apps_hp": {
+   "id": "BAHBATOTALSAUS",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "values": [],
+   "updated": "",
+   "start": "2005-01"
   }
  },
  "sectors": [
