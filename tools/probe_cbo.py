@@ -1,27 +1,22 @@
-"""One-off: find CBO's January 2020 potential GDP data and print nonfarm business productivity rows."""
-import re, io, urllib.request, openpyxl
-UA = {"User-Agent": "Mozilla/5.0 (econ-productivity-uplift data probe)"}
-def get(u):
-    with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=90) as r: return r.read()
+"""One-off: look for CBO's January 2020 nonfarm business potential productivity projections in CBO's public GitHub repos."""
+import subprocess, os, re, glob, json, urllib.request
 out = []
-pages = ["https://www.cbo.gov/data/budget-economic-data", "https://www.cbo.gov/about/products/budget-economic-data"]
-links = set()
-for p in pages:
-    try:
-        h = get(p).decode("utf-8", "replace")
-        for href in re.findall(r'href="([^"]+\.xlsx)"', h): links.add(href if href.startswith("http") else "https://www.cbo.gov" + href)
-    except Exception as e: out.append(f"page {p}: {e}")
-cand = sorted(l for l in links if "2020-01" in l)
-out.append("xlsx links with 2020-01:\n" + "\n".join(cand))
-for l in cand:
-    try:
-        wb = openpyxl.load_workbook(io.BytesIO(get(l)), read_only=True, data_only=True)
-        out.append(f"\n## {l}\nsheets: {wb.sheetnames}")
-        for ws in wb.worksheets:
-            rows = list(ws.iter_rows(values_only=True))
-            for i, r in enumerate(rows):
-                txt = " ".join(str(c) for c in r if c is not None)
-                if re.search(r"productivity", txt, re.I) or (i < 12 and ws.title.lower().startswith(("annual", "quarterly"))):
-                    out.append(f"[{ws.title} r{i}] " + " | ".join("" if c is None else (f"{c:.3f}" if isinstance(c, float) else str(c))[:18] for c in r[:40]))
-    except Exception as e: out.append(f"{l}: {e}")
+def sh(c): return subprocess.run(c, shell=True, capture_output=True, text=True, timeout=600)
+for repo in ["US-CBO/eval-projections", "US-CBO/eco-proj", "US-CBO/budget-and-economic-data"]:
+    r = sh(f"git clone -q --depth 1 https://github.com/{repo} /tmp/{repo.split('/')[1]}")
+    out.append(f"## {repo}: rc={r.returncode} {r.stderr.strip()[:200]}")
+    d = f"/tmp/{repo.split('/')[1]}"
+    if os.path.isdir(d):
+        files = [f for f in glob.glob(d + "/**/*", recursive=True) if os.path.isfile(f) and "/.git/" not in f]
+        out.append(f"{len(files)} files; sample: " + ", ".join(os.path.relpath(f, d) for f in files[:40]))
+        hits = sh(f"grep -ril 'productivity' {d} --include=*.csv --include=*.md --include=*.txt | head -20").stdout
+        out.append("files mentioning productivity:\n" + hits)
+        for f in hits.split()[:6]:
+            g = sh(f"grep -i 'productivity' '{f}' | head -8").stdout
+            out.append(f"--- {os.path.relpath(f, d)}\n{g[:1500]}")
+try:
+    req = urllib.request.Request("https://api.github.com/orgs/US-CBO/repos?per_page=100", headers={"User-Agent": "probe"})
+    repos = json.load(urllib.request.urlopen(req, timeout=60))
+    out.append("US-CBO repos: " + ", ".join(r["name"] for r in repos))
+except Exception as e: out.append(f"repo list: {e}")
 open("probe/cbo.md", "w").write("\n".join(out) + "\n"); print("\n".join(out)[:20000])
