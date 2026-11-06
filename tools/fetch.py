@@ -137,7 +137,7 @@ try:
     for row in rows[h_i + 1:]:
         lab = row[0]
         if lab is None: continue
-        m2 = re.match(r"\s*(\d{4})\s*[:Qq]+\s*Q?(\d)", str(lab))
+        m2 = re.match(r"^\s*(\d{4}):Q(\d)\s*$", str(lab))   # exact quarter labels only; the file also has summary-period rows
         if not m2: continue
         vals = [row[col[k]] for k in ("dlp", "dtfp", "dutil", "dtfp_util")]
         if any(not isinstance(v, (int, float)) for v in vals): continue
@@ -154,7 +154,7 @@ try:
     T["fourQ"] = {"tfp": round(avg(1, lastq - 4, lastq), 2), "utilAdj": round(avg(3, lastq - 4, lastq), 2)}
     since = round(avg(3, qi("2023Q4"), lastq), 1)
     T["sinceEnd2023"] = {"utilAdj": since, "method": f"average of SF Fed quarterly utilization-adjusted TFP growth, 2024Q1–{ql(lastq)}"}
-    per = [["1984–96", "1984Q1", "1996Q4"], ["1997–2003", "1996Q4", "2003Q4"], ["2004–19", "2003Q4", "2019Q4"], ["Since end-2023", "2023Q4", "latest"]]
+    per = [["1984–95", "1983Q4", "1995Q4"], ["1996–2003", "1995Q4", "2003Q4"], ["2004–19", "2003Q4", "2019Q4"], ["Since end-2023", "2023Q4", "latest"]]
     T["periods"] = [[lab, a, b, round(avg(3, qi(a), lastq if b == "latest" else qi(b)), 1), None] for lab, a, b in per]
     produced = None
     for ws in wb.worksheets:
@@ -174,17 +174,36 @@ try:
                   "nSince2023": lastq - qi("2023Q4"), "since2023Exact": round(avg(3, qi("2023Q4"), lastq), 3)}
     # growth accounting, every quarter: dLP = alpha*(dk - dhours) + (1-alpha)*dLQ + dutil + dtfp_util
     need = ("dlp", "dk", "dhours", "dlq", "alpha", "dutil", "dtfp_util")
+    # capital by type (sheet "Capital-input-details"): information-processing equipment and software, with their income weights
+    ITK = {}
+    for ws in wb.worksheets:
+        if "capital" not in ws.title.lower(): continue
+        crow = list(ws.iter_rows(values_only=True))
+        for c_i, row in enumerate(crow[:40]):
+            cn = [str(c).strip().lower() if c is not None else "" for c in row]
+            def find(prefix): return next((j for j, n in enumerate(cn) if n.startswith(prefix)), None)
+            j = dict(dk_ipe=find("dk_info_processing"), dk_sw=find("dk_software"), w_ipe=find("wgt_info_processing"), w_sw=find("wgt_software"))
+            if None in j.values(): continue
+            for r in crow[c_i + 1:]:
+                mm4 = re.match(r"^\s*(\d{4}):Q(\d)\s*$", str(r[0] or ""))
+                if not mm4: continue
+                v = {k: r[jj] for k, jj in j.items()}
+                if all(isinstance(x, (int, float)) for x in v.values()): ITK[f"{mm4.group(1)}Q{mm4.group(2)}"] = v
+            break
+    if not ITK: problems.append("- **SF Fed TFP**: capital-by-type sheet not found; IT capital not split out")
     if all(n in names for n in need):
         ci = {n: names.index(n) for n in need}; comp = []
         for row in rows[h_i + 1:]:
-            m3 = re.match(r"\s*(\d{4})\s*[:Qq]+\s*Q?(\d)", str(row[0] or ""))
+            m3 = re.match(r"^\s*(\d{4}):Q(\d)\s*$", str(row[0] or ""))
             if not m3: continue
             v = {n: row[ci[n]] for n in need}
             if any(not isinstance(x, (int, float)) for x in v.values()): continue
             cap = v["alpha"] * (v["dk"] - v["dhours"]); lq = (1 - v["alpha"]) * v["dlq"]
-            comp.append([f"{m3.group(1)}Q{m3.group(2)}", round(v["dlp"], 3), round(cap, 3), round(lq, 3), round(v["dutil"], 3), round(v["dtfp_util"], 3)])
+            qk = f"{m3.group(1)}Q{m3.group(2)}"; itk = ITK.get(qk)
+            itc = (v["alpha"] * (itk["w_ipe"] * (itk["dk_ipe"] - v["dhours"]) + itk["w_sw"] * (itk["dk_sw"] - v["dhours"]))) if itk else None
+            comp.append([qk, round(v["dlp"], 3), round(cap, 3), round(lq, 3), round(v["dutil"], 3), round(v["dtfp_util"], 3), None if itc is None else round(itc, 3)])
         T["components"] = comp
-        T["componentsCols"] = ["quarter", "labor productivity (business output)", "capital deepening", "labor quality", "utilization", "underlying efficiency"]
+        T["componentsCols"] = ["quarter", "labor productivity (business output)", "capital deepening", "labor quality", "utilization", "underlying efficiency", "of which IT capital deepening (info-processing equipment + software)"]
     else:
         problems.append(f"- **SF Fed TFP**: growth-accounting columns missing ({[n for n in need if n not in names]})")
     T["periodsNote"] = (f"Output-per-hour bars are computed from the BLS series. Underlying-efficiency bars are averages of the SF Fed's "
