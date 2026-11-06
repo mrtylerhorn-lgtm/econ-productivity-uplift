@@ -241,164 +241,10 @@ bench = dict(last=qs(Lo), betPace=r2(bet_pace), betNeed=r2(need), latestQ=r1(lq_
 bh = mser("biz_apps_hp"); Eb = max(bh)
 firms = dict(last=ms(Eb), now=round(avg_n(bh, Eb, 12)), at2023=round(avg_n(bh, MB, 12)), at2019=round(avg_n(bh, 2019 * 12 + 11, 12)))
 
-# ---------- scorecard (fixed rules) ----------
-jobs_gap = mn(f"{jobs['diff']:+.1f}")
-def lean_pace(x): return tier(x["chance"], x["now"] > x["trend"])
-L_nfb, L_nfc = lean_pace(nfb), lean_pace(nfc)
-# efficiency noise test: same z-test as output per hour, using the spread of quarterly SF Fed figures in 2004-19
-TN = T["noise"]; se_sf = TN["sdQ0419"] / math.sqrt(TN["nSince2023"]); z_sf = (TN["since2023Exact"] - TN["avg0419"]) / se_sf
-sf.update(trend=r2(TN["avg0419"]), z=r2(z_sf), chance=round(0.5 * math.erfc(z_sf / math.sqrt(2)) * 100))
-L_inc = "caution" if inc["gap"] < -0.5 else "pass"
-L_sf = tier(sf["chance"], TN["since2023Exact"] > TN["avg0419"])
-L_bls = "context"   # annual, no utilization adjustment and no noise test: shown as a cross-check only
-L_work = "caution" if work["now"] - work["twoYearsAgo"] >= 0.5 else "pass"
-# industry test: chance = share of 2010-19 stretches with a gap as wide; must also stay positive when any one hands-on industry is dropped
-sectors["chance"] = sectors["shareWider"]
-L_sec = tier(sectors["shareWider"], gap_now > 0 and loo > 0)
-
-def arrow(now, prev, unit="%", what="Past year"):
-    if prev is None: return None
-    d = round(now, 1) - round(prev, 1); w = "up" if d > 0.05 else ("down" if d < -0.05 else "little changed")
-    return dict(dir="up" if d > 0.05 else ("down" if d < -0.05 else "flat"), text=f"{what}: {now:.1f}{unit}, {w} from {prev:.1f}{unit} a year earlier")
-
-def tier_txt(lean): return {"for": "That is a clear signal (5% or less).", "mixed": "That is suggestive (between 5% and 20%), not yet clear.", "against": "That is within normal noise (above 20%)."}[lean]
-def chance_txt(x, lean):
-    return f"Given how noisy quarterly data are, chance alone would produce a gap this large about {x['chance']}% of the time. " + tier_txt(lean)
-ub = users[0]["name"] if users else "AI users"
-P0 = sectors["producers"][0] if sectors["producers"] else None
-G_AD, G_MO, G_WK, G_OUT, G_WHO, G_CX = ("Adoption: are people using it?", "Money: are firms investing?", "Work: are jobs and pay shifting?",
-                                         "Output: is productivity rising faster?", "Who gains?", "Context")
-def mdate(d): y, mo = int(d[:4]), int(d[5:7]); return f"{['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][mo-1]} {y}"
-score = [
- dict(id="adopt", group=G_AD, name="Workers using generative AI at work", lean="context", counted=False,
-      reading=f"{int(aw['now']+0.5)}%", detail=f"Share of employed adults aged 18–64 who used generative AI for work in the past week, St. Louis Fed survey, {mdate(aw['date'])}" + (f", down from {int(adopt_prev+0.5)}% in the reading before. Survey readings bounce, so the trend below averages two." if adopt_prev - aw['now'] >= 1 else ".") + f" Highest in computer and math jobs ({int(adopt['ai_use_comp']['now']+0.5)}%) and management ({int(adopt['ai_use_mgmt']['now']+0.5)}%); lower in office support ({int(adopt['ai_use_office']['now']+0.5)}%) and transportation ({int(adopt['ai_use_transport']['now']+0.5)}%). Time it saves equals about {adopt['ai_timesave']['now']:.1f}% of all hours worked, by users' own estimates.",
-      trend=arrow(aw["avg2"], aw["yearAgoAvg2"], "%", "Average of the last two readings")),
- dict(id="money", group=G_MO, name="Tech investment relative to payroll", lean="context", counted=False,
-      reading=f"{money['ratio']:.1f}%", detail=f"Business spending on information-processing equipment (computers, communications gear and instruments) and software, as a share of total employee pay, {qp(money['last'])}. Before 2023 the peak was {money['maxPre2023']:.1f}% ({qp(money['maxPre2023Q'])}). Much of the recent jump is data-center building, and these are dollar figures, so part of the rise is prices.",
-      trend=arrow(money["ratio"], money["yearAgo"], "%", "Latest")),
- dict(id="inv", group=G_MO, name="Tech equipment investment (inflation-adjusted)", lean="context", counted=False,
-      reading=mn(f"{inv['ipeYoy']:+.0f}%"), detail=f"Real spending on information-processing equipment over the past year to {qp(inv['last'])}. Imports of computers rose {inv['impYoy']:.0f}%, so much of it is built abroad. More machines can lift output per hour without any efficiency gain.",
-      trend=arrow(inv["ipeYoy"], inv["ipeYoyPrev"], "%", "Growth over the past year")),
- dict(id="grads", group=G_WK, name="Young graduates' job-finding edge", lean=L_grads, counted=True,
-      reading=mn(f"{grads['change']:+.1f} pts"), detail=f"Change since Dec 2023 in how much better college graduates aged 20–24 do than all 20–24-year-olds (unemployment, 12-month averages, to {grads['last']}). Graduates now average {grads['young']:.1f}% against {grads['allYoung']:.1f}%, an edge of {-grads['edge']:.1f} points; it was {-grads['edge2023']:.1f} at the end of 2023, already smaller than in any month of 2002–19. " + (f"Narrowing of {grads['change']:.1f} points over {grads['months']} months: {grads['chance']}% of same-length stretches from {grads['histStart']} to Dec 2019 narrowed as much. " if grads['chance'] is not None else "The edge has not narrowed since then. ") + tier_txt(L_grads) + " The edge also swings with the business cycle.",
-      trend=arrow(-grads["edge"], -grads["edgeYearAgo"], " pts", "Graduates' edge")),
- dict(id="jobs", group=G_WK, name="Jobs in computer systems design", lean=L_jobs, counted=True,
-      reading=mn(f"{jobs['compsys']:+.1f}%"), detail=mn(f"Change since Dec 2023, to {jobs['last']}, against {jobs['private']:+.1f}% for all private jobs; information jobs {jobs['info']:+.1f}%. ") + (f"The gap with all private jobs ({jobs_gap} points) was as bad in {jobs['chance']}% of same-length stretches from {jobs['histStart']} to Dec 2019, all of them right after the dot-com bust. " if jobs['chance'] is not None else "It has kept pace with all private jobs. ") + tier_txt(L_jobs) + " Tech hiring also slumped in 2023 as interest rates rose, before most firms used AI.",
-      trend=arrow(jobs["diff"], jobs["diffYearAgo"], " pts", "Gap vs all private jobs")),
- dict(id="pay", group=G_WK, name="Management, business & financial pay vs office support", lean=L_pay, counted=True,
-      reading=mn(f"{pay['change']:+.1f}%"), detail=f"Change since late 2023 in median weekly pay of management, business and financial workers relative to office and administrative support workers, to {qp(pay['last'])}. One theory (Imas, Koh and Legg, 2026) predicts people who coordinate work gain while routine specialists lose; this group mixes managers with accountants and analysts, so it is a rough proxy. " + (f"So far office pay has grown faster ({pay['officeGrowth']:.1f}% a year vs {pay['mgmtGrowth']:.1f}%), the opposite. " if pay["change"] <= 0 else f"{pay['chance']}% of same-length stretches from {pay['histStart']} to 2019 saw a rise as large. ") + tier_txt(L_pay),
-      trend=None),
- dict(id="nfb", group=G_OUT, name="Output per hour, nonfarm business", lean=L_nfb, counted=True,
-      reading=f"{nfb['now']:.1f}%/yr", detail=f"Since the end of 2023, against {nfb['trend']:.1f}% in 2004–19. {chance_txt(nfb, L_nfb)}",
-      trend=arrow(nfb["yoy"], nfb["yoyPrev"], "%", "Growth over the past year")),
- dict(id="nfc", group=G_OUT, name="Output per hour, nonfinancial corporations", lean=L_nfc, counted=False,
-      reading=f"{nfc['now']:.1f}%/yr", detail=f"Since the end of 2023, against {nfc['trend']:.1f}% in 2004–19. {chance_txt(nfc, L_nfc)} This measure leaves out the self-employed and the harder-to-measure parts of the economy.",
-      trend=arrow(nfc["yoy"], nfc["yoyPrev"], "%", "Growth over the past year")),
- dict(id="inc", group=G_OUT, name="Income-side check", lean=L_inc, counted=False,
-      reading=mn(f"{inc['gap']:+.1f} pts"), detail=f"Real income (GDI) minus real output (GDP) growth. GDI has grown {inc['gdi']:.1f}% a year since end-2023, against {inc['gdp']:.1f}% for GDP, through {qp(inc['last'])}. " + ("Income is keeping pace, so output isn't obviously overstated." if L_inc == "pass" else "Income is lagging, so output and productivity may be overstated."),
-      trend=None),
- dict(id="sf", group=G_OUT, name="Underlying efficiency (SF Fed)", lean=L_sf, counted=True,
-      reading=mn(f"{sf['since2023']:+.1f}%/yr"), detail=f"Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures), against {sf['trend']:.1f}% a year in 2004–19 and about {T['periods'][1][3]:.1f}% in the 1997–2003 boom. " + (f"Chance alone would produce a gain this large about {sf['chance']}% of the time. " if TN["since2023Exact"] > TN["avg0419"] else "It is below its 2004–19 pace. ") + tier_txt(L_sf),
-      trend=None),
- dict(id="bls", group=G_OUT, name="Official TFP (BLS, annual)", lean=L_bls, counted=False,
-      reading=f"{bls_tfp['since2023']:.1f}%/yr", detail=f"2023–{bls_tfp['lastYear']}, against {bls_tfp['trend']:.1f}% in 2004–19 and {bls_tfp['boom']:.1f}% in 1997–2003. No adjustment for working harder, so it overstates efficiency in a hot economy.",
-      trend=arrow(bls_tfp["lastYearGrowth"], bls_tfp["prevYearGrowth"], "%", f"Growth in {bls_tfp['lastYear']}")),
- dict(id="work", group=G_OUT, name="Working harder (factory hours)", lean=L_work, counted=False,
-      reading=f"{work['now']:.1f} hrs", detail=f"Weekly hours of factory production workers, {work['last']}, against {work['twoYearsAgo']:.1f} two years earlier (2018 peak {work['peak2018']:.1f}). A quick gauge of whether a hot economy is making people work harder; the SF Fed's adjustment uses a broader set of hours across industries.",
-      trend=arrow(work["now"], work["yearAgo"], " hrs", "Latest")),
- dict(id="sec", group=G_OUT, name="AI users vs hands-on industries", lean=L_sec, counted=True,
-      reading=mn(f"{sectors['gap']:+.1f} pts"), detail=mn(f"How much more {ub.lower()} sped up than retail, leisure and construction, each measured against its own 2010–19 pace. {sectors['shareWider']:.0f}% of 2010–19 stretches showed a gap at least as large, and dropping any one hands-on industry leaves {sectors['gapLeaveOneOut']:+.1f} pts. ") + tier_txt(L_sec),
-      trend=arrow(sectors["gap"], sectors["gapYearAgo"], " pts", "Gap")),
-]
-if P0:
-    score.append(dict(id="prod", group=G_OUT, name=f"AI producers: {P0['name'].lower()}", lean="context", counted=False,
-      reading=mn(f"{P0['speed']:+.1f} pts"), detail=mn(f"Speed-up in output per hour since end-2023 against its own 2010–19 pace, bigger than in any 2010–19 stretch (max {P0['maxWindow1019']:+.1f})." if P0["speed"] > P0["maxWindow1019"] else f"Speed-up in output per hour since end-2023 against its own 2010–19 pace (2010–19 max {P0['maxWindow1019']:+.1f}).") + " This industry includes data centers and software publishers, which build and sell AI, so it shows AI production rather than use.",
-      trend=None))
-score += [
- dict(id="share", group=G_WHO, name="Workers' share of business income", lean=L_share, counted=True,
-      reading=mn(f"{share['pace']:+.1f}%/yr"), detail=mn(f"Change in labor's share of nonfarm business income since the end of 2023, against {share['trend']:+.1f}% a year in 2004–19. ") + (f"It is the lowest on record (the series begins in {share['since']}). " if share["recordLow"] else "") + f"Chance alone would produce a decline this fast about {share['chance']}% of the time. " + tier_txt(L_share) + f" The share is pay per hour divided by output per hour, so a quarter of fast productivity growth pulls it down until pay catches up; it fell from {share['prevQ']:.1f} to {share['now']:.1f} last quarter. If machines substitute for people, more of the gains go to owners of capital.",
-      trend=None),
- dict(id="firms", group=G_CX, name="New businesses likely to hire", lean="context", counted=False,
-      reading=f"{firms['now']/1000:.0f}k/mo", detail=f"High-propensity business applications, 12-month average to {firms['last']}, against {firms['at2023']/1000:.0f}k at the end of 2023 and {firms['at2019']/1000:.0f}k in 2019. A wave of lean AI-native startups would show up here.",
-      trend=None),
- dict(id="rates", group=G_CX, name="Inflation-adjusted interest rates", lean="context", counted=False,
-      reading=f"{rates['daily']:.1f}%", detail=f"10-year TIPS yield on {rates['dailyDate']}. Markets tend to push this up when they expect faster growth, but deficits and Fed policy move it too. In the late-1990s boom it was about 3.5–4.5% (Klein's estimate).",
-      trend=arrow(rates["monthly"], rates["yearAgo"], "%", f"{rates['month']} average")),
-]
-
-# ---------- verdict (stage rules 2026-11-06: every test scored by the same tiers; status needs clear signals) ----------
-faster = nfb["now"] > nfb["trend"]
-out_leans = {"pace": L_nfb, "efficiency": L_sf, "industries": L_sec}
-tests = {k: v == "for" for k, v in out_leans.items()}
-n_for = sum(tests.values()); n_sug = sum(v == "mixed" for v in out_leans.values())
-if not faster: verdict = "No evidence"
-elif n_for == 3 and L_work != "caution": verdict = "Showing up"
-elif n_for >= 2: verdict = "Early signs"
-else: verdict = "Not yet"
-# the same structure under the Oct 30 test definitions, kept for comparison
-o_tests = [nfb["chance"] <= 5 and faster, sf["since2023"] >= 1.0, gap_now >= 1.0 and loo >= 1.0 and sectors["shareWider"] == 0]
-oct30 = "No evidence" if not faster else ("Showing up" if all(o_tests) and L_work != "caution" else ("Early signs" if sum(o_tests) >= 2 else "Not yet"))
-def stage_tone(status_good, leans): return "for" if status_good else ("mixed" if any(v in ("for", "mixed") for v in leans) else "against")
-def cs_txt(nc, ns): return f"{nc} clear · {ns} suggestive"
-# rules in use before 2026-10-30 (efficiency only), kept for comparison
-if not faster and sf["since2023"] <= 0: old = "No evidence"
-elif sf["since2023"] >= 1.5 and nfb["now"] >= 2.5 and L_work != "caution": old = "Showing up"
-elif sf["since2023"] >= 1.0 and sf["fourQTfp"] >= 1.0: old = "Early signs"
-else: old = "Not yet"
-
-derived = dict(nfb=nfb, nfc=nfc, path=dict(n=n, now=r1(path_now), boom=r1(path_90), trend=r1(path_trend)),
-               income=inc, sf=sf, decomp=decomp, blsTfp=bls_tfp, work=work, sectors=sectors, invest=inv, rates=rates,
-               scorecard=score, tests=tests, testsFor=n_for, testsSuggestive=n_sug, verdict=verdict, verdictOldRules=old, verdictOct30=oct30,
-               chances=dict(pace=nfb["chance"], efficiency=sf["chance"], industries=sectors["chance"], graduates=grads["chance"], exposedJobs=jobs["chance"], payStructure=pay["chance"], laborShare=share["chance"]),
-               adopt=adopt, money=money, grads=grads, jobs=jobs, pay=pay, share=share, bench=bench, firms=firms,
-               workTests=work_tests, workFor=nw, workSuggestive=nw_s, workLeans=work_leans, outLeans=out_leans,
-               stages=[dict(key="adopt", name="Adoption", q="Are people using it?", status=adopt_status, tone="context", reading=f"{int(aw['now']+0.5)}% of workers"),
-                       dict(key="money", name="Money", q="Are firms investing?", status=money_status, tone="context", reading=f"{money['ratio']:.1f}% of payroll"),
-                       dict(key="work", name="Work", q="Are jobs and pay shifting?", status=work_status, tone=stage_tone(nw >= 2, work_leans.values()), reading=cs_txt(nw, nw_s)),
-                       dict(key="output", name="Output", q="Is productivity rising faster?", status=verdict, tone=stage_tone(verdict in ("Early signs", "Showing up"), out_leans.values()), reading=cs_txt(n_for, n_sug)),
-                       dict(key="gains", name="Who gains", q="Is income shifting to capital?", status=gains_status, tone=L_share, reading=mn(f"labor share {share['pace']:+.1f}%/yr"))])
-
 # ---------- charts (redesign 2026-11-06): the six key charts and their data-driven headlines ----------
 def have(k): return bool(S.get(k, {}).get("values"))
 Z95, Z80 = 1.645, 0.8416
 charts = {}
-
-# recessions (NBER, via USREC) as [start, end] in decimal years
-rec = []
-if have("usrec"):
-    um = mser("usrec"); on = None
-    for m in sorted(um):
-        if um[m] == 1 and on is None: on = m
-        if um[m] == 0 and on is not None: rec.append([round(on / 12, 3), round(m / 12, 3)]); on = None
-    if on is not None: rec.append([round(on / 12, 3), round((max(um) + 1) / 12, 3)])
-charts["recessions"] = rec
-
-# 1. productivity: rolling 3-year growth since 1950, eras, noise band, what next quarter would take
-po = qser("oph"); Lp1 = max(po); q0 = min(po)
-roll = [[qs(q), r2(((po[q] / po[q - 12]) ** (1 / 3) - 1) * 100)] for q in range(q0 + 12, Lp1 + 1)]
-ERAS = [("1948–73", "1947Q4", "1973Q4"), ("1974–95", "1973Q4", "1995Q4"), ("1996–2003", "1995Q4", "2003Q4"),
-        ("2004–19", "2003Q4", "2019Q4"), ("2020–23", "2019Q4", "2023Q4"), ("Since 2023", "2023Q4", None)]
-def era_q(a, b, last): return qi(a), (last if b is None else qi(b))
-eras = [dict(label=l, a=a, b=b or qs(Lp1), pace=r2(cagr(po, *era_q(a, b, Lp1)))) for l, a, b in ERAS if qi(a) >= q0]
-gq = [((po[i] / po[i - 1]) ** 4 - 1) * 100 for i in range(TR_A + 1, TR_B + 1)]
-band12 = Z95 * st.pstdev(gq) / math.sqrt(12)
-n1 = nfb["n"] + 1; tgt = nfb["trend"] + Z95 * st.pstdev(gq) / math.sqrt(n1)
-need_q = ((po[BASE] * (1 + tgt / 100) ** (n1 / 4) / po[Lp1]) ** 4 - 1) * 100
-qtrs = [[qs(q), r2(((po[q] / po[q - 1]) ** 4 - 1) * 100)] for q in range(Lp1 - 15, Lp1 + 1)]
-charts["prod"] = dict(quarters=qtrs, latestQ=bench["latestQ"], shareQuartersAsFast=bench["shareQuartersAsFast"], avg0719=bench["avg0719"], roll=roll, eras=eras, last=qs(Lp1), latest3y=roll[-1][1], trend=nfb["trend"], bandLo=r2(nfb["trend"] - band12),
-                      bandHi=r2(nfb["trend"] + band12), since2023=nfb["now"], chance=nfb["chance"], nextQForClear=r1(need_q),
-                      boom=next(e["pace"] for e in eras if e["label"] == "1996–2003"), golden=next(e["pace"] for e in eras if e["label"] == "1948–73"))
-
-# 2. growth accounting by era (SF Fed quarterly components; averages of annualized quarterly growth)
-CP = {qi(r[0]): r[1:] for r in T.get("components", [])}
-if CP:
-    Lc = max(CP); acc = []
-    for l, a, b in ERAS:
-        A, B = era_q(a, b, Lc); qs_ = [q for q in range(A + 1, B + 1) if q in CP]
-        if len(qs_) < 4: continue
-        m = [sum(CP[q][j] for q in qs_) / len(qs_) for j in range(5)]
-        acc.append(dict(label=l, lp=r2(m[0]), capital=r2(m[1]), labor=r2(m[2]), util=r2(m[3]), eff=r2(m[4])))
-    charts["acct"] = dict(eras=acc, last=qs(Lc))
 
 # 3. industries: AI use vs productivity speed-up
 rps = {}
@@ -457,6 +303,192 @@ if _fx:   # robustness: drop each industry in turn and keep the worst case
     _fx.update(robustChance=_w[1]["chance"], robustDropped=_w[0], robustR=_w[1]["r"])
 charts["industries"] = dict(points=pts, fit=ols(pts), fitExInfo=_fx,
                             surveyDate=S["ai_ind_9"]["dates"][-1] if have("ai_ind_9") else None)
+
+
+# ---------- scorecard (fixed rules) ----------
+fp_slope = mn(f"{charts['industries']['fitExInfo']['slope10']:+.1f}") if charts["industries"]["fitExInfo"] else ""
+jobs_gap = mn(f"{jobs['diff']:+.1f}")
+def lean_pace(x): return tier(x["chance"], x["now"] > x["trend"])
+L_nfb, L_nfc = lean_pace(nfb), lean_pace(nfc)
+# efficiency noise test: same z-test as output per hour, using the spread of quarterly SF Fed figures in 2004-19
+TN = T["noise"]; se_sf = TN["sdQ0419"] / math.sqrt(TN["nSince2023"]); z_sf = (TN["since2023Exact"] - TN["avg0419"]) / se_sf
+sf.update(trend=r2(TN["avg0419"]), z=r2(z_sf), chance=round(0.5 * math.erfc(z_sf / math.sqrt(2)) * 100))
+L_inc = "caution" if inc["gap"] < -0.5 else "pass"
+L_sf = tier(sf["chance"], TN["since2023Exact"] > TN["avg0419"])
+L_bls = "context"   # annual, no utilization adjustment and no noise test: shown as a cross-check only
+L_work = "caution" if work["now"] - work["twoYearsAgo"] >= 0.5 else "pass"
+# industry test (from 2026-11-06): across industries (Information excluded, since it builds AI), does more AI use go with a bigger
+# productivity speed-up? chance = one-sided t-test on the slope, taking the worst case when any one industry is dropped
+_fp = charts["industries"]["fitExInfo"]
+sectors["chance"] = max(_fp["chance"], _fp["robustChance"]) if _fp else None
+L_sec = tier(sectors["chance"], bool(_fp) and _fp["slope10"] > 0)
+L_gap = tier(sectors["shareWider"], gap_now > 0 and loo > 0)   # the earlier two-group gap test, now shown as a cross-check
+
+def arrow(now, prev, unit="%", what="Past year"):
+    if prev is None: return None
+    d = round(now, 1) - round(prev, 1); w = "up" if d > 0.05 else ("down" if d < -0.05 else "little changed")
+    return dict(dir="up" if d > 0.05 else ("down" if d < -0.05 else "flat"), text=f"{what}: {now:.1f}{unit}, {w} from {prev:.1f}{unit} a year earlier")
+
+def tier_txt(lean): return {"for": "That is a clear signal (5% or less).", "mixed": "That is suggestive (between 5% and 20%), not yet clear.", "against": "That is within normal noise (above 20%)."}[lean]
+def chance_txt(x, lean):
+    return f"Given how noisy quarterly data are, chance alone would produce a gap this large about {x['chance']}% of the time. " + tier_txt(lean)
+ub = users[0]["name"] if users else "AI users"
+P0 = sectors["producers"][0] if sectors["producers"] else None
+G_AD, G_MO, G_WK, G_OUT, G_WHO, G_CX = ("Adoption: are people using it?", "Money: are firms investing?", "Work: are jobs and pay shifting?",
+                                         "Output: is productivity rising faster?", "Who gains?", "Context")
+def mdate(d): y, mo = int(d[:4]), int(d[5:7]); return f"{['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][mo-1]} {y}"
+score = [
+ dict(id="adopt", group=G_AD, name="Workers using generative AI at work", lean="context", counted=False,
+      reading=f"{int(aw['now']+0.5)}%", detail=f"Share of employed adults aged 18–64 who used generative AI for work in the past week, St. Louis Fed survey, {mdate(aw['date'])}" + (f", down from {int(adopt_prev+0.5)}% in the reading before. Survey readings bounce, so the trend below averages two." if adopt_prev - aw['now'] >= 1 else ".") + f" Highest in computer and math jobs ({int(adopt['ai_use_comp']['now']+0.5)}%) and management ({int(adopt['ai_use_mgmt']['now']+0.5)}%); lower in office support ({int(adopt['ai_use_office']['now']+0.5)}%) and transportation ({int(adopt['ai_use_transport']['now']+0.5)}%). Time it saves equals about {adopt['ai_timesave']['now']:.1f}% of all hours worked, by users' own estimates.",
+      trend=arrow(aw["avg2"], aw["yearAgoAvg2"], "%", "Average of the last two readings")),
+ dict(id="money", group=G_MO, name="Tech investment relative to payroll", lean="context", counted=False,
+      reading=f"{money['ratio']:.1f}%", detail=f"Business spending on information-processing equipment (computers, communications gear and instruments) and software, as a share of total employee pay, {qp(money['last'])}. Before 2023 the peak was {money['maxPre2023']:.1f}% ({qp(money['maxPre2023Q'])}). Much of the recent jump is data-center building, and these are dollar figures, so part of the rise is prices.",
+      trend=arrow(money["ratio"], money["yearAgo"], "%", "Latest")),
+ dict(id="inv", group=G_MO, name="Tech equipment investment (inflation-adjusted)", lean="context", counted=False,
+      reading=mn(f"{inv['ipeYoy']:+.0f}%"), detail=f"Real spending on information-processing equipment over the past year to {qp(inv['last'])}. Imports of computers rose {inv['impYoy']:.0f}%, so much of it is built abroad. More machines can lift output per hour without any efficiency gain.",
+      trend=arrow(inv["ipeYoy"], inv["ipeYoyPrev"], "%", "Growth over the past year")),
+ dict(id="grads", group=G_WK, name="Young graduates' job-finding edge", lean=L_grads, counted=True,
+      reading=mn(f"{grads['change']:+.1f} pts"), detail=f"Change since Dec 2023 in how much better college graduates aged 20–24 do than all 20–24-year-olds (unemployment, 12-month averages, to {grads['last']}). Graduates now average {grads['young']:.1f}% against {grads['allYoung']:.1f}%, an edge of {-grads['edge']:.1f} points; it was {-grads['edge2023']:.1f} at the end of 2023, already smaller than in any month of 2002–19. " + (f"Narrowing of {grads['change']:.1f} points over {grads['months']} months: {grads['chance']}% of same-length stretches from {grads['histStart']} to Dec 2019 narrowed as much. " if grads['chance'] is not None else "The edge has not narrowed since then. ") + tier_txt(L_grads) + " The edge also swings with the business cycle.",
+      trend=arrow(-grads["edge"], -grads["edgeYearAgo"], " pts", "Graduates' edge")),
+ dict(id="jobs", group=G_WK, name="Jobs in computer systems design", lean=L_jobs, counted=True,
+      reading=mn(f"{jobs['compsys']:+.1f}%"), detail=mn(f"Change since Dec 2023, to {jobs['last']}, against {jobs['private']:+.1f}% for all private jobs; information jobs {jobs['info']:+.1f}%. ") + (f"The gap with all private jobs ({jobs_gap} points) was as bad in {jobs['chance']}% of same-length stretches from {jobs['histStart']} to Dec 2019, all of them right after the dot-com bust. " if jobs['chance'] is not None else "It has kept pace with all private jobs. ") + tier_txt(L_jobs) + " Tech hiring also slumped in 2023 as interest rates rose, before most firms used AI.",
+      trend=arrow(jobs["diff"], jobs["diffYearAgo"], " pts", "Gap vs all private jobs")),
+ dict(id="pay", group=G_WK, name="Management, business & financial pay vs office support", lean=L_pay, counted=True,
+      reading=mn(f"{pay['change']:+.1f}%"), detail=f"Change since late 2023 in median weekly pay of management, business and financial workers relative to office and administrative support workers, to {qp(pay['last'])}. One theory (Imas, Koh and Legg, 2026) predicts people who coordinate work gain while routine specialists lose; this group mixes managers with accountants and analysts, so it is a rough proxy. " + (f"So far office pay has grown faster ({pay['officeGrowth']:.1f}% a year vs {pay['mgmtGrowth']:.1f}%), the opposite. " if pay["change"] <= 0 else f"{pay['chance']}% of same-length stretches from {pay['histStart']} to 2019 saw a rise as large. ") + tier_txt(L_pay),
+      trend=None),
+ dict(id="nfb", group=G_OUT, name="Output per hour, nonfarm business", lean=L_nfb, counted=True,
+      reading=f"{nfb['now']:.1f}%/yr", detail=f"Since the end of 2023, against {nfb['trend']:.1f}% in 2004–19. {chance_txt(nfb, L_nfb)}",
+      trend=arrow(nfb["yoy"], nfb["yoyPrev"], "%", "Growth over the past year")),
+ dict(id="nfc", group=G_OUT, name="Output per hour, nonfinancial corporations", lean=L_nfc, counted=False,
+      reading=f"{nfc['now']:.1f}%/yr", detail=f"Since the end of 2023, against {nfc['trend']:.1f}% in 2004–19. {chance_txt(nfc, L_nfc)} This measure leaves out the self-employed and the harder-to-measure parts of the economy.",
+      trend=arrow(nfc["yoy"], nfc["yoyPrev"], "%", "Growth over the past year")),
+ dict(id="inc", group=G_OUT, name="Income-side check", lean=L_inc, counted=False,
+      reading=mn(f"{inc['gap']:+.1f} pts"), detail=f"Real income (GDI) minus real output (GDP) growth. GDI has grown {inc['gdi']:.1f}% a year since end-2023, against {inc['gdp']:.1f}% for GDP, through {qp(inc['last'])}. " + ("Income is keeping pace, so output isn't obviously overstated." if L_inc == "pass" else "Income is lagging, so output and productivity may be overstated."),
+      trend=None),
+ dict(id="sf", group=G_OUT, name="Underlying efficiency (SF Fed)", lean=L_sf, counted=True,
+      reading=mn(f"{sf['since2023']:+.1f}%/yr"), detail=f"Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures), against {sf['trend']:.1f}% a year in 2004–19 and about {T['periods'][1][3]:.1f}% in the 1997–2003 boom. " + (f"Chance alone would produce a gain this large about {sf['chance']}% of the time. " if TN["since2023Exact"] > TN["avg0419"] else "It is below its 2004–19 pace. ") + tier_txt(L_sf),
+      trend=None),
+ dict(id="bls", group=G_OUT, name="Official TFP (BLS, annual)", lean=L_bls, counted=False,
+      reading=f"{bls_tfp['since2023']:.1f}%/yr", detail=f"2023–{bls_tfp['lastYear']}, against {bls_tfp['trend']:.1f}% in 2004–19 and {bls_tfp['boom']:.1f}% in 1997–2003. No adjustment for working harder, so it overstates efficiency in a hot economy.",
+      trend=arrow(bls_tfp["lastYearGrowth"], bls_tfp["prevYearGrowth"], "%", f"Growth in {bls_tfp['lastYear']}")),
+ dict(id="work", group=G_OUT, name="Working harder (factory hours)", lean=L_work, counted=False,
+      reading=f"{work['now']:.1f} hrs", detail=f"Weekly hours of factory production workers, {work['last']}, against {work['twoYearsAgo']:.1f} two years earlier (2018 peak {work['peak2018']:.1f}). A quick gauge of whether a hot economy is making people work harder; the SF Fed's adjustment uses a broader set of hours across industries.",
+      trend=arrow(work["now"], work["yearAgo"], " hrs", "Latest")),
+ dict(id="fp", group=G_OUT, name="Industries: more AI use, bigger speed-up?", lean=L_sec, counted=True,
+      reading=mn(f"{_fp['slope10']:+.1f} pts") if _fp else "n/a", detail=(f"Across {_fp['n']} industries (Information left out because it builds AI), each 10 points more AI use at work goes with {fp_slope} points faster productivity growth since the end of 2023, relative to each industry's 2010–19 pace (correlation {_fp['r']:.2f}). Chance alone would produce a slope that steep about {_fp['chance']}% of the time, and no more than {_fp['robustChance']}% when any one industry is dropped. " + tier_txt(L_sec) + " A link, not proof of cause.") if _fp else "Not enough industry data.",
+      trend=None),
+ dict(id="sec", group=G_OUT, name="AI users vs hands-on industries (earlier test)", lean=L_gap, counted=False,
+      reading=mn(f"{sectors['gap']:+.1f} pts"), detail=mn(f"How much more {ub.lower()} sped up than retail, leisure and construction, each measured against its own 2010–19 pace. {sectors['shareWider']:.0f}% of 2010–19 stretches showed a gap at least as large, and dropping any one hands-on industry leaves {sectors['gapLeaveOneOut']:+.1f} pts. ") + tier_txt(L_gap) + " Replaced as the counted industry test on Nov 6, 2026 by the cross-industry test above, which uses every industry with AI-use data.",
+      trend=arrow(sectors["gap"], sectors["gapYearAgo"], " pts", "Gap")),
+]
+if P0:
+    score.append(dict(id="prod", group=G_OUT, name=f"AI producers: {P0['name'].lower()}", lean="context", counted=False,
+      reading=mn(f"{P0['speed']:+.1f} pts"), detail=mn(f"Speed-up in output per hour since end-2023 against its own 2010–19 pace, bigger than in any 2010–19 stretch (max {P0['maxWindow1019']:+.1f})." if P0["speed"] > P0["maxWindow1019"] else f"Speed-up in output per hour since end-2023 against its own 2010–19 pace (2010–19 max {P0['maxWindow1019']:+.1f}).") + " This industry includes data centers and software publishers, which build and sell AI, so it shows AI production rather than use.",
+      trend=None))
+score += [
+ dict(id="share", group=G_WHO, name="Workers' share of business income", lean=L_share, counted=True,
+      reading=mn(f"{share['pace']:+.1f}%/yr"), detail=mn(f"Change in labor's share of nonfarm business income since the end of 2023, against {share['trend']:+.1f}% a year in 2004–19. ") + (f"It is the lowest on record (the series begins in {share['since']}). " if share["recordLow"] else "") + f"Chance alone would produce a decline this fast about {share['chance']}% of the time. " + tier_txt(L_share) + f" The share is pay per hour divided by output per hour, so a quarter of fast productivity growth pulls it down until pay catches up; it fell from {share['prevQ']:.1f} to {share['now']:.1f} last quarter. If machines substitute for people, more of the gains go to owners of capital.",
+      trend=None),
+ dict(id="firms", group=G_CX, name="New businesses likely to hire", lean="context", counted=False,
+      reading=f"{firms['now']/1000:.0f}k/mo", detail=f"High-propensity business applications, 12-month average to {firms['last']}, against {firms['at2023']/1000:.0f}k at the end of 2023 and {firms['at2019']/1000:.0f}k in 2019. A wave of lean AI-native startups would show up here.",
+      trend=None),
+ dict(id="rates", group=G_CX, name="Inflation-adjusted interest rates", lean="context", counted=False,
+      reading=f"{rates['daily']:.1f}%", detail=f"10-year TIPS yield on {rates['dailyDate']}. Markets tend to push this up when they expect faster growth, but deficits and Fed policy move it too. In the late-1990s boom it was about 3.5–4.5% (Klein's estimate).",
+      trend=arrow(rates["monthly"], rates["yearAgo"], "%", f"{rates['month']} average")),
+]
+
+# ---------- verdict (stage rules 2026-11-06: every test scored by the same tiers; status needs clear signals) ----------
+faster = nfb["now"] > nfb["trend"]
+out_leans = {"pace": L_nfb, "efficiency": L_sf, "industries": L_sec}
+tests = {k: v == "for" for k, v in out_leans.items()}
+n_for = sum(tests.values()); n_sug = sum(v == "mixed" for v in out_leans.values())
+if not faster: verdict = "No evidence"
+elif n_for == 3 and L_work != "caution": verdict = "Showing up"
+elif n_for >= 2: verdict = "Early signs"
+else: verdict = "Not yet"
+# the same structure under the Oct 30 test definitions, kept for comparison
+o_tests = [nfb["chance"] <= 5 and faster, sf["since2023"] >= 1.0, gap_now >= 1.0 and loo >= 1.0 and sectors["shareWider"] == 0]
+oct30 = "No evidence" if not faster else ("Showing up" if all(o_tests) and L_work != "caution" else ("Early signs" if sum(o_tests) >= 2 else "Not yet"))
+def stage_tone(status_good, leans): return "for" if status_good else ("mixed" if any(v in ("for", "mixed") for v in leans) else "against")
+def cs_txt(nc, ns): return f"{nc} clear · {ns} suggestive"
+# rules in use before 2026-10-30 (efficiency only), kept for comparison
+if not faster and sf["since2023"] <= 0: old = "No evidence"
+elif sf["since2023"] >= 1.5 and nfb["now"] >= 2.5 and L_work != "caution": old = "Showing up"
+elif sf["since2023"] >= 1.0 and sf["fourQTfp"] >= 1.0: old = "Early signs"
+else: old = "Not yet"
+
+derived = dict(nfb=nfb, nfc=nfc, path=dict(n=n, now=r1(path_now), boom=r1(path_90), trend=r1(path_trend)),
+               income=inc, sf=sf, decomp=decomp, blsTfp=bls_tfp, work=work, sectors=sectors, invest=inv, rates=rates,
+               scorecard=score, tests=tests, testsFor=n_for, testsSuggestive=n_sug, verdict=verdict, verdictOldRules=old, verdictOct30=oct30,
+               chances=dict(pace=nfb["chance"], efficiency=sf["chance"], industries=sectors["chance"], graduates=grads["chance"], exposedJobs=jobs["chance"], payStructure=pay["chance"], laborShare=share["chance"]),
+               adopt=adopt, money=money, grads=grads, jobs=jobs, pay=pay, share=share, bench=bench, firms=firms,
+               workTests=work_tests, workFor=nw, workSuggestive=nw_s, workLeans=work_leans, outLeans=out_leans,
+               stages=[dict(key="adopt", name="Adoption", q="Are people using it?", status=adopt_status, tone="context", reading=f"{int(aw['now']+0.5)}% of workers"),
+                       dict(key="money", name="Money", q="Are firms investing?", status=money_status, tone="context", reading=f"{money['ratio']:.1f}% of payroll"),
+                       dict(key="work", name="Work", q="Are jobs and pay shifting?", status=work_status, tone=stage_tone(nw >= 2, work_leans.values()), reading=cs_txt(nw, nw_s)),
+                       dict(key="output", name="Output", q="Is productivity rising faster?", status=verdict, tone=stage_tone(verdict in ("Early signs", "Showing up"), out_leans.values()), reading=cs_txt(n_for, n_sug)),
+                       dict(key="gains", name="Who gains", q="Is income shifting to capital?", status=gains_status, tone=L_share, reading=mn(f"labor share {share['pace']:+.1f}%/yr"))])
+
+# recessions (NBER, via USREC) as [start, end] in decimal years
+rec = []
+if have("usrec"):
+    um = mser("usrec"); on = None
+    for m in sorted(um):
+        if um[m] == 1 and on is None: on = m
+        if um[m] == 0 and on is not None: rec.append([round(on / 12, 3), round(m / 12, 3)]); on = None
+    if on is not None: rec.append([round(on / 12, 3), round((max(um) + 1) / 12, 3)])
+charts["recessions"] = rec
+
+# 1. productivity: rolling 3-year growth since 1950, eras, noise band, what next quarter would take
+po = qser("oph"); Lp1 = max(po); q0 = min(po)
+roll = [[qs(q), r2(((po[q] / po[q - 12]) ** (1 / 3) - 1) * 100)] for q in range(q0 + 12, Lp1 + 1)]
+ERAS = [("1948–73", "1947Q4", "1973Q4"), ("1974–95", "1973Q4", "1995Q4"), ("1996–2003", "1995Q4", "2003Q4"),
+        ("2004–19", "2003Q4", "2019Q4"), ("2020–23", "2019Q4", "2023Q4"), ("Since 2023", "2023Q4", None)]
+def era_q(a, b, last): return qi(a), (last if b is None else qi(b))
+eras = [dict(label=l, a=a, b=b or qs(Lp1), pace=r2(cagr(po, *era_q(a, b, Lp1)))) for l, a, b in ERAS if qi(a) >= q0]
+gq = [((po[i] / po[i - 1]) ** 4 - 1) * 100 for i in range(TR_A + 1, TR_B + 1)]
+band12 = Z95 * st.pstdev(gq) / math.sqrt(12)
+n1 = nfb["n"] + 1; tgt = nfb["trend"] + Z95 * st.pstdev(gq) / math.sqrt(n1)
+need_q = ((po[BASE] * (1 + tgt / 100) ** (n1 / 4) / po[Lp1]) ** 4 - 1) * 100
+qtrs = [[qs(q), r2(((po[q] / po[q - 1]) ** 4 - 1) * 100)] for q in range(Lp1 - 15, Lp1 + 1)]
+charts["prod"] = dict(quarters=qtrs, latestQ=bench["latestQ"], shareQuartersAsFast=bench["shareQuartersAsFast"], avg0719=bench["avg0719"], roll=roll, eras=eras, last=qs(Lp1), latest3y=roll[-1][1], trend=nfb["trend"], bandLo=r2(nfb["trend"] - band12),
+                      bandHi=r2(nfb["trend"] + band12), since2023=nfb["now"], chance=nfb["chance"], nextQForClear=r1(need_q),
+                      boom=next(e["pace"] for e in eras if e["label"] == "1996–2003"), golden=next(e["pace"] for e in eras if e["label"] == "1948–73"))
+
+# 2. growth accounting by era (SF Fed quarterly components; averages of annualized quarterly growth)
+CP = {qi(r[0]): r[1:] for r in T.get("components", [])}
+if CP:
+    Lc = max(CP); acc = []
+    for l, a, b in ERAS:
+        A, B = era_q(a, b, Lc); qs_ = [q for q in range(A + 1, B + 1) if q in CP]
+        if len(qs_) < 4: continue
+        m = [sum(CP[q][j] for q in qs_) / len(qs_) for j in range(5)]
+        acc.append(dict(label=l, lp=r2(m[0]), capital=r2(m[1]), labor=r2(m[2]), util=r2(m[3]), eff=r2(m[4])))
+    charts["acct"] = dict(eras=acc, last=qs(Lc))
+
+# 5b. occupations: AI use vs employment change relative to trend (CPS major groups, 12-month averages)
+def ai_occ(ns):   # average of the two latest readings; groups that span several survey occupations use a simple average (no weights published)
+    v = [sum(S[f"ai_occ_{n}"]["values"][-2:]) / 2 for n in ns if have(f"ai_occ_{n}")]
+    return sum(v) / len(v) if len(v) == len(ns) else None
+OCC = [("occ_mgmt", "Management, business & financial", [1, 2]), ("occ_prof", "Professional & related", [3, 4, 5, 6, 7, 8, 9, 10]),
+       ("occ_sales", "Sales", [16]), ("occ_office", "Office & admin support", [17]), ("occ_service", "Service", [11, 12, 13, 14, 15]),
+       ("occ_constr", "Construction & extraction", [19]), ("occ_install", "Installation & repair", [20]), ("occ_prod", "Production", [21]),
+       ("occ_transport", "Transportation & moving", [22])]
+opts = []
+for key, name, ns in OCC:
+    if not have(key): continue
+    em = mser(key); Eo = max(em); use = ai_occ(ns)
+    a23, a14, a19, now_ = avg_n(em, MB, 12), avg_n(em, 2014 * 12 + 11, 12), avg_n(em, 2019 * 12 + 11, 12), avg_n(em, Eo, 12)
+    if None in (a23, a14, a19, now_, use): continue
+    g_now = ((now_ / a23) ** (12 / (Eo - MB)) - 1) * 100; g_tr = ((a19 / a14) ** (1 / 5) - 1) * 100
+    opts.append(dict(key=key, name=name, use=r1(use), speed=r2(g_now - g_tr), now=r2(g_now), trend=r2(g_tr), last=ms(Eo), mixed=len(ns) > 1, producer=False))
+_ofit = ols(opts)
+if _ofit:
+    _od = [(p["name"], ols([q for q in opts if q is not p])) for p in opts]; _ow = max(_od, key=lambda d: d[1]["chance"] if d[1]["slope10"] < 0 else -1)
+    # for jobs the AI story predicts a NEGATIVE slope, so the one-sided chance is for a slope this negative
+    def neg_chance(f): return 100 - f["chance"]
+    _ofit.update(chanceNeg=neg_chance(_ofit), robustChanceNeg=max(neg_chance(d[1]) for d in _od))
+charts["occupations"] = dict(points=opts, fit=_ofit)
 
 # 4. AI-related investment: contribution to real GDP growth, by year, net of imported computers
 ce, cs_, gg = qser("contrib_ipe"), qser("contrib_software"), qser("gdp_growth")
@@ -527,7 +559,7 @@ with contextlib.redirect_stdout(buf):
     print(f"  SF Fed util-adj since 2023: {sf['since2023']} (exact {TN['since2023Exact']}) vs 2004-19 avg {sf['trend']}; z {sf['z']}, chance {sf['chance']}% -> {TIER_WORD[L_sf]}; four-quarter TFP {sf['fourQTfp']}, util-adj {sf['fourQUtilAdj']}")
     print(f"  BLS TFP {2023}-{bls_tfp['lastYear']}: {bls_tfp['since2023']} vs 2004-19 {bls_tfp['trend']}, 1997-2003 {bls_tfp['boom']}")
     print(f"  workweek {work['last']}: {work['now']} (year ago {work['yearAgo']}, two years ago {work['twoYearsAgo']}, 2018 peak {work['peak2018']})")
-    print(f"  industries through {sectors['last']}: users-vs-hands-on speed-up gap {sectors['gap']} (year ago {sectors['gapYearAgo']}; leave-one-out min {sectors['gapLeaveOneOut']}; {sectors['shareWider']}% of 2010-19 windows as wide, max {sectors['gapMax1019']}) -> {TIER_WORD[L_sec]}; producers {sectors['producers']}")
+    print(f"  industries through {sectors['last']}: users-vs-hands-on speed-up gap {sectors['gap']} (year ago {sectors['gapYearAgo']}; leave-one-out min {sectors['gapLeaveOneOut']}; {sectors['shareWider']}% of 2010-19 windows as wide, max {sectors['gapMax1019']}) -> {TIER_WORD[L_gap]} (earlier test, cross-check only; the counted industry test is chart 3's slope: {sectors['chance']}% -> {TIER_WORD[L_sec]}); producers {sectors['producers']}")
     for x in sectors["rows"]: print(f"     [{x['group']}] {x['name']}: {x['now']} vs 2010-19 {x['trend']} (speed-up {x['diff']}); output {x['va']}, hours {x['hrs']}")
     print(f"  investment {inv['last']}: real IPE yoy {inv['ipeYoy']}% (2y {inv['ipe2y']}%), software {inv['swYoy']}%, computer imports {inv['impYoy']}% (2y {inv['imp2y']}%), contrib to GDP growth {inv['contrib4q']}pp avg 4q")
     print(f"  STAGES: " + " | ".join(f"{s['name']}: {s['status']} ({s['reading']})" for s in derived["stages"]))
@@ -546,6 +578,8 @@ with contextlib.redirect_stdout(buf):
     print(f"     3 industries: AI use vs speed-up, excluding Information: n {_I.get('n')}, slope {_I.get('slope10')} pts per 10 pts of use, r {_I.get('r')}, chance {_I.get('chance')}%, worst case dropping one industry {_I.get('robustChance')}% (dropping {_I.get('robustDropped')}); points " + ", ".join(f"{p['name']} {p['use']}%/{p['speed']:+}" for p in _K['industries']['points']))
     _L4 = _K['capex']['last4']; print(f"     4 tech investment, 4 quarters to {_K['capex']['last']}: equipment {_L4['ipe']} + software {_L4['sw']} + computer imports {_L4['imp']} pts of GDP growth {_L4['gdp']}; 2000 peak equipment+software {_K['capex']['peak2000']}")
     if "grads" in _K: print(f"     5 unemployment 12m avg {_K['grads']['last']}: grads 20-24 {_K['grads']['young']}, all 20-24 {_K['grads']['allYoung']}, all workers {_K['grads']['all']}; grads minus all workers {_K['grads']['gap']} (2000-19 max {_K['grads']['gapMax0019']})")
+    _O = _K["occupations"]["fit"] or {}
+    print(f"     5b occupations: AI use vs employment growth since Dec 2023 minus 2015-19 trend: n {_O.get('n')}, slope {_O.get('slope10')} pts per 10 pts of use, r {_O.get('r')}, chance of a slope this negative {_O.get('chanceNeg')}%, worst case dropping one {_O.get('robustChanceNeg')}%; points " + ", ".join(f"{p['name']} {p['use']}%/{p['speed']:+}" for p in _K['occupations']['points']))
     print(f"     6 labor share {_K['share']['now']} (record low {_K['share']['recordLow']})")
     print(f"     watch: next-quarter productivity growth needed for a clear pace signal {_K['watch']['nextQForClear']}% annualized; efficiency needed next quarter to become suggestive {_K['watch']['effNextQForSuggestive']}%")
     print(f"  new businesses (high-propensity applications, 12m avg) {firms['last']}: {firms['now']} (end-2023 {firms['at2023']}, 2019 {firms['at2019']})")

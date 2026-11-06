@@ -1,7 +1,7 @@
 data as of 2026-11-06
 FACTS (the narrative must agree with these):
   TIERS: chance <=5% clear signal, 5-20% suggestive, >20% or wrong direction no signal. Stage statuses count clear signals only.
-  verdict: Not yet  (output tests: 0 clear, 2 suggestive; {'pace': 'suggestive', 'efficiency': 'no signal', 'industries': 'suggestive'}); under Oct 30 test definitions: Not yet; under pre-Oct-30 rules: Not yet
+  verdict: Not yet  (output tests: 1 clear, 1 suggestive; {'pace': 'suggestive', 'efficiency': 'no signal', 'industries': 'clear signal'}); under Oct 30 test definitions: Not yet; under pre-Oct-30 rules: Not yet
   nonfarm business: 2.46%/yr since 2023Q4 to 2026Q3 vs trend 1.56; z 1.27, chance 10% -> suggestive; yoy 2.06; 14.8% of overlapping 2004-19 windows as fast; 1997-2003 min 2.86; since 2019Q4 2.22
   nonfinancial corps: 2.55%/yr vs 1.36; z 0.93, chance 18%; yoy 3.65; 5.5% of windows as fast
   1990s path at +20q: now 106.9, boom 109.1, trend 104.3
@@ -9,7 +9,7 @@ FACTS (the narrative must agree with these):
   SF Fed util-adj since 2023: 0.1 (exact 0.119) vs 2004-19 avg 0.59; z -0.56, chance 71% -> no signal; four-quarter TFP 1.42, util-adj -0.07
   BLS TFP 2023-2025: 1.18 vs 2004-19 0.7, 1997-2003 1.49
   workweek Sep 2026: 42.0 (year ago 41.0, two years ago 40.8, 2018 peak 42.4)
-  industries through 2026Q2: users-vs-hands-on speed-up gap 1.81 (year ago 0.31; leave-one-out min 1.09; 6% of 2010-19 windows as wide, max 1.87) -> suggestive; producers [{'key': 'info', 'name': 'Information', 'speed': 3.87, 'maxWindow1019': 2.77}]
+  industries through 2026Q2: users-vs-hands-on speed-up gap 1.81 (year ago 0.31; leave-one-out min 1.09; 6% of 2010-19 windows as wide, max 1.87) -> clear signal; producers [{'key': 'info', 'name': 'Information', 'speed': 3.87, 'maxWindow1019': 2.77}]
      [producers] Information: 9.86 vs 2010-19 5.99 (speed-up 3.87); output 8.2, hours -1.51
      [users] Professional & business services: 2.54 vs 2010-19 1.33 (speed-up 1.21); output 2.44, hours -0.1
      [handson] Retail trade: 0.9 vs 2010-19 2.93 (speed-up -2.04); output 0.9, hours 0.0
@@ -18,7 +18,7 @@ FACTS (the narrative must agree with these):
      [other] Education & health services: 1.22 vs 2010-19 0.2 (speed-up 1.01); output 3.6, hours 2.35
      [other] Manufacturing: 2.09 vs 2010-19 0.29 (speed-up 1.79); output 1.75, hours -0.33
   investment 2026Q3: real IPE yoy 29.1% (2y 55.9%), software 12.8%, computer imports 62.2% (2y 132.1%), contrib to GDP growth 0.93pp avg 4q
-  STAGES: Adoption: Spreading (41% of workers) | Money: Surging (10.7% of payroll) | Work: Not yet (0 clear · 1 suggestive) | Output: Not yet (0 clear · 2 suggestive) | Who gains: No clear shift (labor share −1.0%/yr)
+  STAGES: Adoption: Spreading (41% of workers) | Money: Surging (10.7% of payroll) | Work: Not yet (0 clear · 1 suggestive) | Output: Not yet (1 clear · 1 suggestive) | Who gains: No clear shift (labor share −1.0%/yr)
   adoption 2026-07-01: 40.5% of employed adults use genAI for work (avg of last 2 42.9, a year earlier 36.2; first 33.3 in 2024-07-01); previous reading 45.2; daily use 11.5%; time saved 2.1% of work hours; computer/math 68.8, management 63.3, office 36.8, transport 23.7
   money 2026Q3: tech investment (info-processing equipment + software, current $) 10.7% of payroll (year ago 9.0, end-2023 7.9, max before 2023 8.1 in 2022Q2; data from 1959Q1)
   WORK (0 clear, 1 suggestive; {'graduates': 'no signal', 'exposedJobs': 'suggestive', 'payStructure': 'no signal'}):
