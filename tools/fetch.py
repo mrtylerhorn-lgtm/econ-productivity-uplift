@@ -69,6 +69,9 @@ for key, s in D["series"].items():
             if i < 0: continue
             if v.strip() in (".", ""): vals[i] = None
             else: vals[i] = float(v)
+        if not s["values"]:   # new or reset series: start at its first published observation
+            i0 = min(i for i, v in vals.items() if v is not None)
+            s["start"] = label(s["freq"], s["start"], i0); vals = {i - i0: v for i, v in vals.items() if i >= i0}
         n = max(vals) + 1
         while n > 0 and vals.get(n - 1) is None: n -= 1           # drop trailing missing
         new = [vals.get(i) for i in range(n)]
