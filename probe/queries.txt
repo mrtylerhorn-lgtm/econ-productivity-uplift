@@ -1,6 +1,8 @@
-median usual weekly earnings management business financial operations occupations quarterly
-median usual weekly earnings office administrative support occupations quarterly
-median usual weekly earnings computer mathematical occupations quarterly
-median usual weekly earnings sales and related occupations quarterly
-employed office and administrative support occupations
-employed management business financial operations occupations
+Generative Artificial Intelligence adoption rate
+Generative Artificial Intelligence time savings
+Generative Artificial Intelligence intensity
+Employment Level - Computer and Mathematical Occupations
+Employment Level - Professional and Related Occupations
+Employment Level - Sales and Related Occupations
+median usual weekly earnings management business and financial operations occupations 16 years and over
+consumer price index legal services
