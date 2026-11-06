@@ -17,14 +17,14 @@ FACTS (the narrative must agree with these):
      [other] Education & health services: 1.22 vs 2010-19 0.2 (speed-up 1.01); output 3.6, hours 2.35
      [other] Manufacturing: 2.09 vs 2010-19 0.29 (speed-up 1.79); output 1.75, hours -0.33
   investment 2026Q3: real IPE yoy 29.1% (2y 55.9%), software 12.8%, computer imports 62.2% (2y 132.1%), contrib to GDP growth 0.93pp avg 4q
-  STAGES: Adoption: Spreading (40% of workers) | Money: Surging (10.7% of payroll) | Work: Early signs (2 of 3 tests) | Output: Not yet (0 of 3 tests) | Who gains: Leaning to capital (labor share -1.0%/yr)
+  STAGES: Adoption: Spreading (40% of workers) | Money: Surging (10.7% of payroll) | Work: Mixed (1 of 3 tests) | Output: Not yet (0 of 3 tests) | Who gains: Leaning to capital (labor share -1.0%/yr)
   adoption 2026-07-01: 40.5% of employed adults use genAI for work (avg of last 2 42.9, a year earlier 36.2; first 33.3 in 2024-07-01); daily use 11.5%; time saved 2.1% of work hours; computer/math 68.8, management 63.3, office 36.8, transport 23.7
   money 2026Q3: tech investment 10.7% of payroll (year ago 9.0, end-2023 7.9, max before 2023 8.1)
-  WORK (2/3 {'graduates': True, 'exposedJobs': True, 'payStructure': False}):
+  WORK (1/3 {'graduates': True, 'exposedJobs': False, 'payStructure': False}):
      young grads through Sep 2026: grads 20-24 6.7% vs all 20-24 7.4% (edge -0.7, year ago -1.4, end-2023 -0.9; 2002-19 range -6.8 to -1.4); older grads 3.0%, young-minus-older 3.7 (2002-19 range 2.0 to 4.4) -> for
-     jobs Dec 2023 to Sep 2026: computer systems design -3.9%, private 1.5%, information -7.6%, consulting 1.3%; gap -5.3 (year ago -6.1; 2010-19 worst 3.8, median 8.9) -> for
-     pay to 2026Q3: managers/office ratio 1.81 (end-2023 1.82, 2019 1.93); change -0.6% (2010-19 max 5.9); growth since end-2023 managers 3.8%/yr, office 4.1%/yr, all 3.9%/yr -> against
-  who gains 2026Q3: labor share index 93.7 (end-2023 96.3, 2019 99.6); -0.98%/yr since end-2023 vs 2004-19 -0.44; chance 35%; record low since 1984: True -> Leaning to capital
+     jobs Dec 2023 to Sep 2026: computer systems design -3.9%, private 1.5%, information -7.6%, consulting 1.3%; gap -5.3 (year ago -6.1; 2002-19 worst -14.5 (dot-com bust), median 9.4, 11% of windows as bad) -> mixed
+     pay to 2026Q3: managers/office ratio 1.81 (end-2023 1.82, 2019 1.93); change -0.6% (2002-19 max 5.9); growth since end-2023 managers 3.8%/yr, office 4.1%/yr, all 3.9%/yr -> against
+  who gains 2026Q3: labor share index 93.7 (end-2023 96.3, 2019 99.6); -0.98%/yr since end-2023 vs 2004-19 -0.44; chance 35%; record low since 1947: True -> Leaning to capital
   benchmarks 2026Q3: latest quarter 3.6% annualized (17% of 2004-19 quarters as fast); 2007-19 avg 1.52; Brynjolfsson-Gordon bet pace since 2019Q4 2.22% vs 1.8 needed; rest of decade needs 0.93%/yr
   new businesses (high-propensity applications, 12m avg) Sep 2026: 145861 (end-2023 154712, 2019 110192)
   rates: daily 2.64 on 2026-11-04; Oct 2026 avg 2.78 (year ago 1.76)
