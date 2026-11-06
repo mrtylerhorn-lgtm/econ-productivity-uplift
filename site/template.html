@@ -147,7 +147,7 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
       <p>Each test is computed from the latest data with fixed rules. Tests marked "counts" decide their stage's status; the others are cross-checks and context.</p>
     </div>
     <div class="score" id="score"></div>
-    <p class="key">Lean: <span class="k-for">points to AI</span> · <span class="k-mixed">mixed</span> · <span class="k-against">points against</span> · <span class="k-caution">caution, may flatter the numbers</span> · <span class="k-context">context or check</span></p>
+    <p class="key">Each counted test asks how often chance or ordinary times would produce a reading like today's: <span class="k-for">clear signal</span> 5% or less · <span class="k-mixed">suggestive</span> 5–20% · <span class="k-against">no signal</span> above 20%, or moving the wrong way · <span class="k-caution">caution, may flatter the numbers</span> · <span class="k-context">context or check</span></p>
   </section>
 
   <section>
@@ -182,7 +182,7 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
   <section class="stagehead" id="s-money"><span class="label">Stage 2</span><h2>Money: are firms investing?</h2></section>
   <section class="chart">
     <h2>Tech investment as a share of payroll</h2>
-    <p class="sub">Business spending on computers, related equipment and software, divided by total employee compensation, both in current dollars. The dashed line is the highest level before 2023. A rising share means firms are spending more on machines and code relative to people.</p>
+    <p class="sub">Business spending on information-processing equipment (computers, communications gear and instruments) and software, divided by total employee compensation, both in current dollars, since 1959. The dashed line is the highest level before 2023. A rising share means firms are spending more on machines and code relative to people; much of the recent jump is data-center building, and part of it is prices.</p>
     <div class="fig"><svg id="cM"></svg></div>
   </section>
 
@@ -200,8 +200,8 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
     <p class="note" id="noteW2"></p>
   </section>
   <section class="chart">
-    <h2>Managers' pay relative to office staff</h2>
-    <p class="sub">Median weekly pay of full-time workers in management, business and financial jobs, divided by that of office and administrative support workers (4-quarter averages). If AI handles routine office tasks and raises the value of people who direct work, this ratio should rise.</p>
+    <h2>Management, business and financial pay relative to office support</h2>
+    <p class="sub">Median weekly pay of full-time workers in management, business and financial jobs, divided by that of office and administrative support workers (4-quarter averages). If AI handles routine office tasks and raises the value of people who direct work, this ratio should rise. The top group mixes managers with accountants, analysts and HR specialists, so it is only a rough proxy for "coordinators".</p>
     <div class="fig"><svg id="cW3"></svg></div>
     <p class="note" id="noteW3"></p>
   </section>
@@ -245,7 +245,7 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
   <section class="chart">
     <span class="label">Readout 5 · Working harder</span>
     <h2>Factory workers are putting in longer weeks</h2>
-    <p class="sub">Average weekly hours for production and nonsupervisory workers in manufacturing. The SF Fed uses changes in hours per worker, which in practice mostly means factories, to gauge how hard people and machines are being pushed. It counts that as "working harder", not efficiency. Most AI use is in offices, not factories.</p>
+    <p class="sub">Average weekly hours for production and nonsupervisory workers in manufacturing. Hours per worker are the SF Fed's gauge of how hard people and machines are being pushed; it uses them across all industries and counts the effect as "working harder", not efficiency. Longer factory weeks are a quick, monthly read on the same thing.</p>
     <div class="fig"><svg id="c5"></svg></div>
   </section>
 
@@ -307,7 +307,7 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
       <summary>How the utilization adjustment works, and why it might mislead</summary>
       <div class="body">
         <p>The SF Fed method (Basu, Fernald and Kimball; Fernald 2014) uses hours per worker as a stand-in for unseen effort and for how long machines run. Industries are weighted by how sensitive they are to the business cycle, not by headcount. Klein, using John Fernald's industry data, found that almost all of the recent utilization signal comes from manufacturing, and that the fabricated-metals workweek tracks it most closely.</p>
-        <p>Can factory overtime tell us anything about software that writes code or folds proteins? Klein's first guess was no. Still, the method has a strong record through past cycles, including the pandemic. The industry data in Readout 3 point the other way: the biggest gains are in offices, not factories.</p>
+        <p>Can factory overtime tell us anything about software that writes code or folds proteins? Klein's first guess was no. Still, the method has a strong record through past cycles, including the pandemic. The industry data in Readout 3 are a separate check: professional and business services sped up more than hands-on industries, though manufacturing sped up too.</p>
         <p>Timing matters too. In the 1990s, output per hour did not accelerate until 1997, years after tech stocks were already priced for a boom.</p>
       </div>
     </details>
@@ -320,7 +320,7 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
         <li><b>GDP may miss what AI produces.</b> Free services, quality gains and in-house software are hard to price, which would make measured productivity too low. Others argue the measurement gap is too small to matter (Syverson 2017).</li>
         <li><b>The J-curve.</b> Firms adopting a new general-purpose technology first spend on training and reorganizing, which can hold measured productivity down before it rises (Brynjolfsson, Rock and Syverson).</li>
         <li><b>Other explanations.</b> The post-pandemic shake-up of jobs and firms, a shift in who is working, and more capital per worker can all raise output per hour without AI.</li>
-        <li><b>The work signals have other causes.</b> Tech hiring slumped in 2023 as interest rates rose and firms trimmed pandemic-era hiring, before most firms used AI. A 2022 tax change made software R&D more expensive to deduct until 2025. A strong market for non-graduate young workers can narrow graduates' edge without graduates doing worse. Median pay by occupation shifts as the mix of workers changes.</li>
+        <li><b>The work signals have other causes.</b> Tech hiring slumped in 2023 as interest rates rose and firms trimmed pandemic-era hiring, before most firms used AI. A 2022 tax change made software R&D more expensive to deduct until 2025. Graduates' edge over other young workers swings with the business cycle and was already small at the end of 2023. Median pay by occupation shifts as the mix of workers changes.</li>
         <li><b>Survey limits.</b> The AI-use survey is young (since mid-2024) and noisy. The occupation pay and graduate unemployment figures come from the household survey, which skipped October 2025.</li>
         <li><b>Not yet tracked.</b> Industry concentration, the clearest sign of the large-firm shift Imas, Koh and Legg describe, isn't published quickly enough to track weekly. Census business AI adoption (BTOS) and data-center construction aren't published in a form this page can download automatically, and neither is CBO's January 2020 productivity forecast.</li>
       </ul></div>
@@ -352,7 +352,7 @@ const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','
 const last = a => a[a.length-1];
 const sgn = (v,d=1) => (v<0?'−':'')+Math.abs(v).toFixed(d);
 const qLab = s => s.replace(/(\d{4})Q(\d)/,'Q$2 $1');
-const LEAN = {for:'Points to AI',against:'Points against',mixed:'Mixed',caution:'Caution',context:'Context',pass:'Check passed'};
+const LEAN = {for:'Clear signal',against:'No signal',mixed:'Suggestive',caution:'Caution',context:'Context',pass:'Check passed'};
 
 $('asof').textContent = 'Updated ' + fmtDate(D.asOf);
 $('headline').textContent = C.headline || '';
@@ -397,19 +397,22 @@ function toX(s){ s=String(s); let m;
   if((m=s.match(/^([A-Z][a-z]{2}) (\d{4})$/))) return +m[2]+MON.indexOf(m[1])/12;
   return +s; }
 function lineChart(id, ser, o){
+  const Mr=M.r; M.r=Mr+(o.labW||(narrow()?34:42));   // room for end labels to the right of the lines
   const xsAll=ser.flatMap(s=>s.pts.map(p=>p[0])), ysAll=ser.flatMap(s=>s.pts.map(p=>p[1]));
   const lo=o.lo??Math.floor(Math.min(...ysAll)/o.step)*o.step, hi=o.hi??Math.ceil(Math.max(...ysAll)/o.step)*o.step;
-  const x0=o.x0??Math.min(...xsAll), x1=(o.x1??Math.max(...xsAll))+0.04*(Math.max(...xsAll)-Math.min(...xsAll));
+  const x0=o.x0??Math.min(...xsAll), x1=(o.x1??Math.max(...xsAll))+0.01*(Math.max(...xsAll)-Math.min(...xsAll));
   const xs=scale(x0,x1,M.l,W-M.r), ys=scale(lo,hi,H-M.b,M.t), span=x1-x0;
-  const every=o.every?o.every(span):(narrow()?(span>40?20:span>15?5:span>6?2:1):(span>40?10:span>15?3:1));
+  const every=o.every?o.every(span):(narrow()?(span>40?20:span>15?10:span>6?2:1):(span>40?10:span>15?3:1));
   let g=axes(ticks(Math.ceil(x0),Math.max(...xsAll),every).map(y=>[xs(y),String(y)]),ticks(lo,hi,o.ystep||o.step),ys,o.yFmt);
   if(o.extra) g+=o.extra(xs,ys);
   ser.forEach(s=>{g+=`<path d="${path(s.pts.map(p=>[xs(p[0]),ys(p[1])]))}" fill="none" stroke="${s.color}" stroke-width="${s.w||2.2}"${s.dash?' stroke-dasharray="4 3"':''}/>`;
     if(s.dots) s.pts.forEach(p=>{g+=`<circle cx="${xs(p[0])}" cy="${ys(p[1])}" r="2.6" fill="${s.color}"/>`;});});
-  const ends=ser.filter(s=>s.end!==false).map(s=>({c:s.color,e:last(s.pts),y:ys(last(s.pts)[1])-8})).sort((a,b)=>a.y-b.y);
-  for(let i=1;i<ends.length;i++) if(ends[i].y-ends[i-1].y<14) ends[i].y=ends[i-1].y+14;
+  const ef=o.endFmt||o.yFmt;
+  const ends=ser.filter(s=>s.end!==false).map(s=>({c:s.color,e:last(s.pts),y:ys(last(s.pts)[1])+4})).sort((a,b)=>a.y-b.y);
+  for(let i=1;i<ends.length;i++) if(ends[i].y-ends[i-1].y<15) ends[i].y=ends[i-1].y+15;
   ser.forEach(s=>{if(s.end===false)return;const e=last(s.pts);g+=`<circle cx="${xs(e[0])}" cy="${ys(e[1])}" r="4" fill="${s.color}"/>`;});
-  ends.forEach(({c,e,y})=>{g+=`<text x="${xs(e[0])-10}" y="${y}" text-anchor="end" class="halo" style="fill:${c};font-weight:500">${o.yFmt(e[1])}</text>`;});
+  ends.forEach(({c,e,y})=>{g+=`<text x="${xs(e[0])+8}" y="${y}" text-anchor="start" class="halo" style="fill:${c};font-weight:500">${ef(e[1])}</text>`;});
+  M.r=Mr;
   setSvg(id,g,o.alt);
 }
 const qmap=k=>{const s=S[k],q0=qIndex(s.start);return s.values.map((v,i)=>[q0+i,v])};
@@ -425,40 +428,41 @@ function draw(){
   lineChart('cA',occ.map(([k,l,c])=>({label:l,color:c,w:k==='ai_use_work'?3.2:2,dots:true,pts:A[k].series.map(([d,v])=>[toX(d),v])})),
     {lo:0,hi:100,step:20,yFmt:v=>Math.round(v)+'%',every:()=>1,alt:'Share of workers using generative AI at work, by occupation. Latest: '+occ.map(([k,l])=>`${l} ${Math.round(A[k].now)}%`).join(', ')});
   legend('lgA',occ.map(([,l,c])=>[l,c]));
-  $('noteA').textContent=`Latest reading (${A.ai_use_work.date.slice(0,7)}): ${Math.round(A.ai_use_work.now)}% of workers, up from ${Math.round(A.ai_use_work.first)}% in mid-2024. Daily use for work: ${Math.round(A.ai_daily_work.now)}%. Users report it saves about ${A.ai_timesave.now.toFixed(1)}% of all work hours.`;
+  const prevA=A.ai_use_work.series.at(-2)[1];
+  $('noteA').textContent=`Latest reading (${A.ai_use_work.date.slice(0,7)}): ${Math.round(A.ai_use_work.now)}% of employed adults aged 18–64 used it for work in the past week${prevA-A.ai_use_work.now>=1?`, down from ${Math.round(prevA)}% in the reading before`:''}, against ${Math.round(A.ai_use_work.first)}% in mid-2024. Averaging the last two readings: ${A.ai_use_work.avg2.toFixed(0)}%, against ${A.ai_use_work.yearAgoAvg2.toFixed(0)}% a year earlier. Daily use for work: ${A.ai_daily_work.now.toFixed(1)}%. The time it saves equals about ${A.ai_timesave.now.toFixed(1)}% of all hours worked, by users' own estimates.`;
 
   // M: tech investment as a share of payroll
   const MO=X.money;
   lineChart('cM',[{label:'Tech investment / payroll',color:accent,w:2.6,pts:MO.series.map(([q,v])=>[toX(q),v])}],
-    {step:1,yFmt:v=>v.toFixed(v%1?1:0)+'%',alt:`Tech investment as a share of payroll, now ${MO.ratio}%; highest before 2023 ${MO.maxPre2023}%.`,
+    {step:narrow()?2:1,yFmt:v=>v.toFixed(v%1?1:0)+'%',endFmt:v=>v.toFixed(1)+'%',labW:narrow()?40:48,alt:`Tech investment as a share of payroll, now ${MO.ratio}%; highest before 2023 ${MO.maxPre2023}%.`,
      extra:(xs,ys)=>`<line x1="${M.l}" x2="${W-M.r}" y1="${ys(MO.maxPre2023)}" y2="${ys(MO.maxPre2023)}" stroke="${muted}" stroke-dasharray="4 3"/><text x="${M.l+6}" y="${ys(MO.maxPre2023)-6}" class="halo">highest before 2023</text>`});
 
   // W1: young graduates
   const GR=X.grads;
   lineChart('cW1',[{label:'Graduates 20–24',color:accent,w:2.8,pts:GR.series.map(r=>[toX(r[0]),r[1]])},{label:'All 20–24',color:mixed,pts:GR.series.map(r=>[toX(r[0]),r[2]])},{label:'Graduates 25+',color:muted,pts:GR.series.map(r=>[toX(r[0]),r[3]])}],
-    {lo:0,step:narrow()?4:2,yFmt:v=>v.toFixed(v%1?1:0)+'%',alt:`Unemployment rates: young graduates ${GR.young}%, all 20–24 ${GR.allYoung}%, graduates 25+ ${GR.older}%.`});
+    {lo:0,step:narrow()?4:2,yFmt:v=>v.toFixed(v%1?1:0)+'%',endFmt:v=>v.toFixed(1)+'%',labW:narrow()?40:48,alt:`Unemployment rates: young graduates ${GR.young}%, all 20–24 ${GR.allYoung}%, graduates 25+ ${GR.older}%.`});
   legend('lgW1',[['Graduates 20–24',accent],['All 20–24',mixed],['Graduates 25+',muted]]);
-  $('noteW1').textContent=`Young graduates' unemployment is ${GR.young.toFixed(1)}%, against ${GR.allYoung.toFixed(1)}% for all 20–24-year-olds: an edge of only ${Math.abs(GR.edge).toFixed(1)} points. In 2002–19 it never fell below ${Math.abs(GR.edgeMax0219).toFixed(1)}. Against older graduates, though, the gap (${GR.ygap.toFixed(1)} points) is within its 2002–19 range, so part of the story is a strong market for young people without degrees.`;
+  $('noteW1').textContent=`Young graduates' unemployment is ${GR.young.toFixed(1)}%, against ${GR.allYoung.toFixed(1)}% for all 20–24-year-olds: an edge of ${Math.abs(GR.edge).toFixed(1)} points, smaller than in any month of 2002–19. But it was already ${Math.abs(GR.edge2023).toFixed(1)} at the end of 2023, so the test asks how much it has narrowed since: ${sgn(GR.change)} points, ${GR.chance!=null?`a change that ${GR.chance}% of same-length stretches since ${GR.histStart} matched or beat`:'no narrowing'}. Against older graduates, the gap (${GR.ygap.toFixed(1)} points) is within its 2002–19 range, and young non-graduates have fared relatively better.`;
 
   // W2: jobs in exposed services
   const J=X.jobs, jl=[['compsys','Computer systems design',signal],['info','Information',cAg],['consulting','Management & technical consulting',mixed],['private','All private jobs',ink]];
   lineChart('cW2',jl.map(([k,l,c])=>({label:l,color:c,w:k==='private'?2.6:2,dash:k==='private',pts:J.series[k].map(([d,v])=>[toX(d),v])})),
-    {step:narrow()?10:5,yFmt:v=>Math.round(v),alt:`Jobs indexed to December 2023: computer systems design ${J.compsys}%, information ${J.info}%, consulting ${J.consulting}%, all private ${J.private}%.`,
+    {step:narrow()?10:5,yFmt:v=>Math.round(v),endFmt:v=>v.toFixed(1),labW:narrow()?36:46,alt:`Jobs indexed to December 2023: computer systems design ${J.compsys}%, information ${J.info}%, consulting ${J.consulting}%, all private ${J.private}%.`,
      extra:(xs,ys)=>`<line x1="${xs(2023+11/12)}" x2="${xs(2023+11/12)}" y1="${M.t}" y2="${H-M.b}" stroke="${muted}" stroke-dasharray="2 3"/>`});
   legend('lgW2',jl.map(([,l,c])=>[l,c,l==='All private jobs'?'dash':'']));
-  $('noteW2').textContent=`Since December 2023: computer systems design ${sgn(J.compsys)}%, information ${sgn(J.info)}%, consulting ${sgn(J.consulting)}%, all private jobs ${sgn(J.private)}%. A gap this wide between computer systems design and all jobs is unusual but not unprecedented: ${J.shareWorse}% of same-length stretches since 2000 were as bad, mostly after the dot-com bust. Tech hiring began falling in early 2023, as interest rates rose.`;
+  $('noteW2').textContent=`Since December 2023: computer systems design ${sgn(J.compsys)}%, information ${sgn(J.info)}%, consulting ${sgn(J.consulting)}%, all private jobs ${sgn(J.private)}%. A gap this wide between computer systems design and all jobs is unusual but not unprecedented: ${J.shareWorse}% of same-length stretches from ${J.histStart} to 2019 were as bad, all of them right after the dot-com bust. Tech hiring began falling in early 2023, as interest rates rose.`;
 
   // W3: managers / office pay ratio
   const PY=X.pay;
-  lineChart('cW3',[{label:'Managers / office staff',color:accent,w:2.6,pts:PY.series.map(([q,v])=>[toX(q),v])}],
-    {step:0.05,ystep:0.05,yFmt:v=>v.toFixed(2),alt:`Ratio of managers' to office workers' median weekly pay, now ${PY.ratio}.`});
-  $('noteW3').textContent=`Managers earn ${PY.ratio.toFixed(2)} times what office and administrative support workers earn, down from ${PY.ratio2019.toFixed(2)} in 2019. Since late 2023 office pay has grown ${PY.officeGrowth.toFixed(1)}% a year and managers' ${PY.mgmtGrowth.toFixed(1)}%. ${PY.change>0?'The premium is widening.':'So far there is no sign of the coordinator premium the theory predicts.'}`;
+  lineChart('cW3',[{label:'Management, business & financial / office support',color:accent,w:2.6,pts:PY.series.map(([q,v])=>[toX(q),v])}],
+    {step:0.05,ystep:0.05,yFmt:v=>v.toFixed(2),labW:narrow()?40:46,alt:`Ratio of management, business and financial workers' to office support workers' median weekly pay, now ${PY.ratio}.`});
+  $('noteW3').textContent=`Management, business and financial workers earn ${PY.ratio.toFixed(2)} times what office and administrative support workers earn, down from ${PY.ratio2019.toFixed(2)} in 2019. Since late 2023 office pay has grown ${PY.officeGrowth.toFixed(1)}% a year and the top group's ${PY.mgmtGrowth.toFixed(1)}%. ${PY.change>0?'The premium is widening.':'So far there is no sign of the coordinator premium the theory predicts.'}`;
 
   // G: labor share
   const SH=X.share;
   lineChart('cG',[{label:'Labor share',color:accent,w:2.2,pts:SH.series.map(([q,v])=>[toX(q),v])}],
-    {step:5,yFmt:v=>Math.round(v),alt:`Labor share index, now ${SH.now}${SH.recordLow?', the lowest since '+SH.since:''}.`});
-  $('noteG').textContent=`The index is ${SH.now.toFixed(1)}${SH.recordLow?`, the lowest since records began in ${SH.since}`:''}, down from ${SH.at2023.toFixed(1)} at the end of 2023. It has fallen ${Math.abs(SH.pace).toFixed(1)}% a year since then, against ${Math.abs(SH.trend).toFixed(1)}% a year in 2004–19. Quarterly swings are large, so chance alone would produce a decline that fast about ${SH.chance}% of the time.`;
+    {step:5,yFmt:v=>Math.round(v),endFmt:v=>v.toFixed(1),alt:`Labor share index, now ${SH.now}${SH.recordLow?', the lowest on record':''}.`});
+  $('noteG').textContent=`The index is ${SH.now.toFixed(1)}${SH.recordLow?`, the lowest on record (the series begins in ${SH.since})`:''}, down from ${SH.at2023.toFixed(1)} at the end of 2023. It has fallen ${Math.abs(SH.pace).toFixed(1)}% a year since then, against ${Math.abs(SH.trend).toFixed(1)}% a year in 2004–19. Quarterly swings are large, so chance alone would produce a decline that fast about ${SH.chance}% of the time. The share is pay per hour divided by output per hour, so a quarter of fast productivity growth pulls it down until pay catches up.`;
 
   // 1: boom comparison
   const o=S.oph, base=qIndex(o.start), lastQ=base+o.values.length-1;
@@ -501,7 +505,8 @@ function draw(){
   });
   setSvg('c2',g,`Ten-quarter average productivity growth. Nonfarm business now ${X.nfb.now}%: ${X.nfb.shareFaster}% of 2004–19 stretches were at least as fast. Nonfinancial corporations now ${X.nfc.now}%: ${X.nfc.shareFaster}%.`,H2);
   legend('lg2',[['2004–19 stretches',muted,'dot'],['1997–2003 boom stretches',lvl1,'dot'],['Today',accent]]);
-  $('ans2').textContent=`Not unusual yet. Given how noisy the data are, chance alone would put output per hour this far above its old trend about ${X.nfb.chance}% of the time for nonfarm business and ${X.nfc.chance}% for nonfinancial corporations. A reliable signal needs 5% or less. Every stretch of the 1990s boom was faster than today.`;
+  const tw=c=>c<=5?'a clear signal':c<=20?'suggestive':'within noise';
+  $('ans2').textContent=`Given how noisy the data are, chance alone would put output per hour this far above its old trend about ${X.nfb.chance}% of the time for nonfarm business (${tw(X.nfb.chance)}) and ${X.nfc.chance}% for nonfinancial corporations (${tw(X.nfc.chance)}). A clear signal needs 5% or less. Every stretch of the 1990s boom was faster than today.`;
 
   // 3: sector dumbbells
   const R=X.sectors.rows, rowh=narrow()?44:34, H3=40+R.length*rowh;
@@ -573,7 +578,7 @@ function draw(){
     '10-year TIPS yield, monthly averages since 2003, with the 3.5–4.5% range of the late-1990s boom shaded.');
 
   // 6: investment indexes
-  const I=[['ipe_real','Computers & related equipment',signal],['software_real','Software',accent],['imports_computers','Imports of computers & parts',cAg]];
+  const I=[['ipe_real','Information-processing equipment',signal],['software_real','Software',accent],['imports_computers','Imports of computers & parts',cAg]];
   const b19=qIndex('2019Q4');
   const lines=I.map(([k,l,c])=>{const m=qmap(k);const bv=m.find(p=>p[0]===b19)[1];return [l,c,m.map(([q,v])=>[q/4,v/bv*100])];});
   const allI=lines.flatMap(l=>l[2].map(p=>p[1]));
@@ -606,18 +611,21 @@ T('xTbl',['Measure','Since end-2023','2004–19','Through'],[
   ['Real GDP growth',X.income.gdp.toFixed(2),'—',qLab(X.income.last)],
   ['Real GDI growth',X.income.gdi.toFixed(2),'—',qLab(X.income.last)],
   ['TFP, BLS official (annual)',X.blsTfp.since2023.toFixed(2),X.blsTfp.trend.toFixed(2),String(X.blsTfp.lastYear)],
-  ['Underlying efficiency, SF Fed',sgn(X.sf.since2023,2),'0.60',qLab(X.sf.lastQ)]]);
+  ['Underlying efficiency, SF Fed',sgn(X.sf.since2023,2),X.sf.trend.toFixed(2),qLab(X.sf.lastQ)]]);
 T('tfpTbl',['Quarter','Labor prod.','Inputs/hour','TFP','Utilization','Util.-adj. TFP'],
   X.decomp.map(r=>[r.q,r.lp.toFixed(2),r.inputs.toFixed(2),r.tfp.toFixed(2),r.util.toFixed(2),r.utilAdj.toFixed(2)]));
 $('fourQ').textContent=(D.tfp.fourQNote||`Over the four quarters to ${X.sf.lastQ}: TFP ${X.sf.fourQTfp.toFixed(2)}%, utilization-adjusted TFP ${X.sf.fourQUtilAdj.toFixed(2)}%.`)+` Source vintage: ${D.tfp.vintage}.`;
+const tw2=c=>c==null?'no signal':c<=5?'clear':c<=20?'suggestive':'no signal';
 $('rules').innerHTML=`<p>Each stage's status comes from fixed rules applied to the latest data.</p>
+<p><b>How every counted test is scored</b> (since Nov 6, 2026). Each test asks how often chance, or ordinary times, would produce a reading at least as strong as today's. For the output-per-hour, efficiency and labor-share tests that is a standard noise test based on how much quarterly growth bounced around in 2004–19. For the industry and work tests it is the share of same-length stretches in the past that were at least as extreme. 5% or less is a <i>clear signal</i>; 5–20% is <i>suggestive</i>; above 20%, or a move the wrong way, is <i>no signal</i>. A stage status moves only on clear signals; suggestive ones are shown so you can see what is building.</p>
 <p><b>Adoption.</b> The average of the two latest survey readings of workers using generative AI at work: under 25% is Early, 25–50% Spreading, 50% or more Mainstream.</p>
-<p><b>Money.</b> Tech investment as a share of payroll: Surging if above its pre-2023 peak and up on a year earlier; Rising if up on a year earlier; otherwise Flat.</p>
-<p><b>Work</b> (added Nov 6, 2026). Three tests, each compared with every same-length stretch from 2002 to 2019. A test points to AI if today's reading is beyond anything in that history; Mixed if it is in the most extreme 20%. (1) Young graduates' job-finding edge over all 20–24-year-olds. (2) Jobs in computer systems design against all private jobs since December 2023. (3) Managers' pay relative to office and administrative support staff. 0 tests: No clear sign; 1: Mixed; 2: Early signs; 3: Clear shift.</p>
-<p><b>Output</b> (rules frozen Oct 30, 2026). Three deciding tests. (1) Pace: output per hour in the nonfarm business sector since the end of 2023 must be above its 2004–19 trend by more than chance would explain, which happens no more than 5% of the time (today: ${X.nfb.chance}%). (2) Efficiency: the SF Fed's underlying efficiency must average at least 1.0% a year since the end of 2023 (today: ${sgn(X.sf.since2023)}%). (3) Industries: the AI-user proxy must have sped up at least 1 point more than hands-on industries, beat every 2010–19 stretch and survive dropping any one hands-on industry (today: ${sgn(X.sectors.gap)} points; ${X.sectors.shareWider.toFixed(0)}% of 2010–19 stretches as large). No evidence: output per hour no faster than trend. Not yet: fewer than two tests pass. Early signs: two. Showing up: all three, with the factory workweek no longer lengthening.${X.verdictOldRules!==X.verdict?` Under the rules used before Oct 30, 2026 the verdict would be ${X.verdictOldRules}.`:''}</p>
-<p><b>Who gains.</b> Labor's share of nonfarm business income since the end of 2023 against its 2004–19 trend: Shifting to capital if it is falling faster than trend by more than chance would explain (5% bar; today ${X.share.chance}%); Leaning to capital if falling faster but within noise; otherwise No shift.</p>
-<p>The bars are deliberately high. The data are noisy and revised, and each signal has other possible causes, so a test passes only when the signal stands clear of history.</p>`;
+<p><b>Money.</b> Tech investment as a share of payroll: Surging if above its pre-2023 peak (data since ${X.money.since.slice(0,4)}) and up on a year earlier; Rising if up on a year earlier; otherwise Flat.</p>
+<p><b>Work.</b> Three tests, each comparing the change since December 2023 with every same-length change in the past that ended by December 2019. (1) The narrowing of young graduates' job-finding edge over all 20–24-year-olds (stretches from ${X.grads.histStart}; today ${X.grads.chance??'—'}%, ${tw2(X.grads.chance)}). (2) Jobs in computer systems design against all private jobs (stretches from ${X.jobs.histStart}; today ${X.jobs.chance??'—'}%, ${tw2(X.jobs.chance)}). (3) A rise in management, business and financial workers' pay relative to office and administrative support workers (stretches from ${qLab(X.pay.histStart)}; ${X.pay.chance==null?'today it has fallen, so no signal':`today ${X.pay.chance}%, ${tw2(X.pay.chance)}`}). Two or more clear signals: Early signs; all three: Clear shift; otherwise Not yet.</p>
+<p><b>Output.</b> Three tests. (1) Pace: output per hour in the nonfarm business sector since the end of 2023 against its 2004–19 trend (today ${X.nfb.chance}%, ${tw2(X.nfb.chance)}). (2) Efficiency: the SF Fed's underlying efficiency since the end of 2023 against its 2004–19 average of ${X.sf.trend.toFixed(1)}% (today ${X.sf.chance}%, ${tw2(X.sf.chance)}). (3) Industries: how much more the AI-user proxy sped up than hands-on industries, against every 2010–19 stretch, and still positive when any one hands-on industry is dropped (today ${X.sectors.chance}%, ${tw2(X.sectors.chance)}). No evidence: output per hour no faster than trend. Early signs: two clear signals. Showing up: three, with the factory workweek no longer lengthening. Otherwise Not yet.</p>
+<p><b>Who gains.</b> Labor's share of nonfarm business income since the end of 2023 against its 2004–19 trend (today ${X.share.chance}%): clear signal, Shifting to capital; suggestive, Leaning to capital; otherwise No clear shift.</p>
+<p><b>Rule changes.</b> Oct 30, 2026: the output verdict moved from a single efficiency threshold to three tests. Nov 6, 2026: every test now uses the same three tiers, shown with its number, instead of a mix of yes/no bars; the young-graduate test compares the change since 2023 rather than the level, which was already unusual before most firms used AI; tech investment history extended to ${X.money.since.slice(0,4)}. Under the Oct 30 rules the output verdict would be ${X.verdictOct30}${X.verdictOldRules!==X.verdict?`; under the rules before Oct 30, ${X.verdictOldRules}`:''}.</p>
+<p>The bars are deliberately high. The data are noisy and revised, and each signal has other possible causes, so a status moves only when a signal stands clear of history.</p>`;
 $('cal').innerHTML='<tr><th>Date</th><th>Release</th><th>What it updates</th></tr>'+D.calendar.map(r=>`<tr><td>${esc(r[0])}</td><td style="text-align:left">${esc(r[1])}</td><td style="text-align:left">${esc(r[2])}</td></tr>`).join('');
-$('srcTbl').innerHTML='<tr><th>Series</th><th style="text-align:left">Source ID</th><th>Data through</th></tr>'+Object.values(S).map(s=>{const n=s.values.length-1;let end;if(s.freq==='Q'){const q=qIndex(s.start)+n;end=`Q${q%4+1} ${Math.floor(q/4)}`;}else if(s.freq==='M'){const [y,m]=s.start.split('-').map(Number);const k2=y*12+m-1+n;end=`${MON[k2%12]} ${Math.floor(k2/12)}`;}else end=String(+s.start+n);return `<tr><td>${esc(s.title.length>64?s.title.slice(0,62)+'…':s.title)}</td><td style="text-align:left"><a href="https://fred.stlouisfed.org/series/${esc(s.id)}" target="_blank" rel="noopener">${esc(s.id)}</a></td><td>${end}</td></tr>`;}).join('');
+$('srcTbl').innerHTML='<tr><th>Series</th><th style="text-align:left">Source ID</th><th>Data through</th></tr>'+Object.values(S).map(s=>{const n=s.values.length-1;let end;if(s.freq==='X'){const d=s.dates.at(-1);end=`${MON[+d.slice(5,7)-1]} ${d.slice(0,4)}`;}else if(s.freq==='Q'){const q=qIndex(s.start)+n;end=`Q${q%4+1} ${Math.floor(q/4)}`;}else if(s.freq==='M'){const [y,m]=s.start.split('-').map(Number);const k2=y*12+m-1+n;end=`${MON[k2%12]} ${Math.floor(k2/12)}`;}else end=String(+s.start+n);return `<tr><td>${esc(s.title.length>64?s.title.slice(0,62)+'…':s.title)}</td><td style="text-align:left"><a href="https://fred.stlouisfed.org/series/${esc(s.id)}" target="_blank" rel="noopener">${esc(s.id)}</a></td><td>${end}</td></tr>`;}).join('');
 $('foot').textContent=`Data through: AI use ${X.adopt.ai_use_work.date.slice(0,7)}; jobs ${X.jobs.last}; output per hour ${qLab(X.nfb.last)}; GDP and investment ${qLab(X.invest.last)}; industry data ${qLab(X.sectors.last)}; TIPS ${fmtDate(X.rates.dailyDate)}. Stage statuses and the scorecard are computed from the data by fixed rules; the narrative is drafted automatically each Saturday.`;
 </script>

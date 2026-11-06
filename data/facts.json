@@ -201,7 +201,10 @@
   "since2023": 0.1,
   "fourQTfp": 1.42,
   "fourQUtilAdj": -0.07,
-  "lastQ": "2026Q2"
+  "lastQ": "2026Q2",
+  "trend": 0.59,
+  "z": -0.56,
+  "chance": 71
  },
  "decomp": [
   {
@@ -362,7 +365,8 @@
     "va": 1.75,
     "hrs": -0.33
    }
-  ]
+  ],
+  "chance": 6
  },
  "invest": {
   "last": "2026Q3",
@@ -394,7 +398,7 @@
    "lean": "context",
    "counted": false,
    "reading": "41%",
-   "detail": "Share of employed adults who used generative AI for work, St. Louis Fed survey, Jul 2026. Highest in computer and math jobs (69%) and management (63%); lower in office support (37%) and transportation (24%). Users say it saves about 2.1% of all work hours.",
+   "detail": "Share of employed adults aged 18–64 who used generative AI for work in the past week, St. Louis Fed survey, Jul 2026, down from 45% in the reading before. Survey readings bounce, so the trend below averages two. Highest in computer and math jobs (69%) and management (63%); lower in office support (37%) and transportation (24%). Time it saves equals about 2.1% of all hours worked, by users' own estimates.",
    "trend": {
     "dir": "up",
     "text": "Average of the last two readings: 42.9%, up from 36.2% a year earlier"
@@ -407,7 +411,7 @@
    "lean": "context",
    "counted": false,
    "reading": "10.7%",
-   "detail": "Business spending on computers, related equipment and software as a share of total employee pay, Q3 2026. Before 2023 it never topped 8.1%. Firms are putting more money into machines and code relative to people, which is what you'd expect if they are substituting one for the other.",
+   "detail": "Business spending on information-processing equipment (computers, communications gear and instruments) and software, as a share of total employee pay, Q3 2026. Before 2023 the peak was 8.1% (Q2 2022). Much of the recent jump is data-center building, and these are dollar figures, so part of the rise is prices.",
    "trend": {
     "dir": "up",
     "text": "Latest: 10.7%, up from 9.0% a year earlier"
@@ -420,7 +424,7 @@
    "lean": "context",
    "counted": false,
    "reading": "+29%",
-   "detail": "Real spending on computers and related equipment over the past year to Q3 2026. Imports of computers rose 62%, so much of it is built abroad. More machines can lift output per hour without any efficiency gain.",
+   "detail": "Real spending on information-processing equipment over the past year to Q3 2026. Imports of computers rose 62%, so much of it is built abroad. More machines can lift output per hour without any efficiency gain.",
    "trend": {
     "dir": "up",
     "text": "Growth over the past year: 29.1%, up from 20.8% a year earlier"
@@ -430,13 +434,13 @@
    "id": "grads",
    "group": "Work: are jobs and pay shifting?",
    "name": "Young graduates' job-finding edge",
-   "lean": "for",
+   "lean": "against",
    "counted": true,
-   "reading": "-0.7 pts",
-   "detail": "Unemployment of college graduates aged 20–24 minus all 20–24-year-olds, 12-month averages to Sep 2026: 6.7% vs 7.4%. In 2002–19 graduates were always better off, by 1.4 to 6.8 points. Entry-level office work is what AI does best, so this is where many economists expect the first effects. The edge is now the smallest on record since 2002.",
+   "reading": "+0.2 pts",
+   "detail": "Change since Dec 2023 in how much better college graduates aged 20–24 do than all 20–24-year-olds (unemployment, 12-month averages, to Sep 2026). Graduates now average 6.7% against 7.4%, an edge of 0.7 points; it was 0.9 at the end of 2023, already smaller than in any month of 2002–19. Narrowing of 0.2 points over 33 months: 63% of same-length stretches from Sep 2004 to Dec 2019 narrowed as much. That is within normal noise (above 20%). The edge also swings with the business cycle.",
    "trend": {
-    "dir": "up",
-    "text": "Latest: -0.7 pts, up from -1.4 pts a year earlier"
+    "dir": "down",
+    "text": "Graduates' edge: 0.7 pts, down from 1.4 pts a year earlier"
    }
   },
   {
@@ -445,8 +449,8 @@
    "name": "Jobs in computer systems design",
    "lean": "mixed",
    "counted": true,
-   "reading": "-3.9%",
-   "detail": "Change since Dec 2023, to Sep 2026, against +1.5% for all private jobs. Information jobs: -7.6%. Its gap with all private jobs (-5.3 points) is worse than all but 11% of same-length stretches in 2002–19; the worst, -14.5, came after the dot-com bust. Tech hiring also slumped in 2023 as interest rates rose, before most firms used AI.",
+   "reading": "−3.9%",
+   "detail": "Change since Dec 2023, to Sep 2026, against +1.5% for all private jobs; information jobs −7.6%. The gap with all private jobs (−5.3 points) was as bad in 11% of same-length stretches from Oct 2002 to Dec 2019, all of them right after the dot-com bust. That is suggestive (between 5% and 20%), not yet clear. Tech hiring also slumped in 2023 as interest rates rose, before most firms used AI.",
    "trend": {
     "dir": "up",
     "text": "Gap vs all private jobs: -5.3 pts, up from -6.1 pts a year earlier"
@@ -455,11 +459,11 @@
   {
    "id": "pay",
    "group": "Work: are jobs and pay shifting?",
-   "name": "Managers' pay premium over office staff",
+   "name": "Management, business & financial pay vs office support",
    "lean": "against",
    "counted": true,
-   "reading": "-0.6%",
-   "detail": "Change since late 2023 in managers' median weekly pay relative to office and administrative support workers, to Q3 2026. One theory (Imas, Koh and Legg, 2026) predicts the people who coordinate work gain while routine specialists lose. So far office pay has grown faster (4.1% a year vs 3.8%), the opposite.",
+   "reading": "−0.6%",
+   "detail": "Change since late 2023 in median weekly pay of management, business and financial workers relative to office and administrative support workers, to Q3 2026. One theory (Imas, Koh and Legg, 2026) predicts people who coordinate work gain while routine specialists lose; this group mixes managers with accountants and analysts, so it is a rough proxy. So far office pay has grown faster (4.1% a year vs 3.8%), the opposite. That is within normal noise (above 20%).",
    "trend": null
   },
   {
@@ -469,7 +473,7 @@
    "lean": "mixed",
    "counted": true,
    "reading": "2.5%/yr",
-   "detail": "Since the end of 2023, against 1.6% in 2004–19. Given how noisy quarterly data are, chance alone would produce a gap this large about 10% of the time; a reliable signal needs 5% or less.",
+   "detail": "Since the end of 2023, against 1.6% in 2004–19. Given how noisy quarterly data are, chance alone would produce a gap this large about 10% of the time. That is suggestive (between 5% and 20%), not yet clear.",
    "trend": {
     "dir": "down",
     "text": "Growth over the past year: 2.1%, down from 2.7% a year earlier"
@@ -482,7 +486,7 @@
    "lean": "mixed",
    "counted": false,
    "reading": "2.5%/yr",
-   "detail": "Since the end of 2023, against 1.4% in 2004–19. Given how noisy quarterly data are, chance alone would produce a gap this large about 18% of the time; a reliable signal needs 5% or less. This measure leaves out the self-employed and the harder-to-measure parts of the economy.",
+   "detail": "Since the end of 2023, against 1.4% in 2004–19. Given how noisy quarterly data are, chance alone would produce a gap this large about 18% of the time. That is suggestive (between 5% and 20%), not yet clear. This measure leaves out the self-employed and the harder-to-measure parts of the economy.",
    "trend": {
     "dir": "up",
     "text": "Growth over the past year: 3.6%, up from 2.2% a year earlier"
@@ -505,14 +509,14 @@
    "lean": "against",
    "counted": true,
    "reading": "+0.1%/yr",
-   "detail": "Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures). It grew about 2.1% a year in the 1997–2003 boom.",
+   "detail": "Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures), against 0.6% a year in 2004–19 and about 2.1% in the 1997–2003 boom. It is below its 2004–19 pace. That is within normal noise (above 20%).",
    "trend": null
   },
   {
    "id": "bls",
    "group": "Output: is productivity rising faster?",
    "name": "Official TFP (BLS, annual)",
-   "lean": "for",
+   "lean": "context",
    "counted": false,
    "reading": "1.2%/yr",
    "detail": "2023–2025, against 0.7% in 2004–19 and 1.5% in 1997–2003. No adjustment for working harder, so it overstates efficiency in a hot economy.",
@@ -528,7 +532,7 @@
    "lean": "caution",
    "counted": false,
    "reading": "42.0 hrs",
-   "detail": "Weekly hours of factory production workers, Sep 2026, against 40.8 two years earlier (2018 peak 42.4). Longer weeks suggest extra effort and machine time are flattering the numbers.",
+   "detail": "Weekly hours of factory production workers, Sep 2026, against 40.8 two years earlier (2018 peak 42.4). A quick gauge of whether a hot economy is making people work harder; the SF Fed's adjustment uses a broader set of hours across industries.",
    "trend": {
     "dir": "up",
     "text": "Latest: 42.0 hrs, up from 41.0 hrs a year earlier"
@@ -541,7 +545,7 @@
    "lean": "mixed",
    "counted": true,
    "reading": "+1.8 pts",
-   "detail": "How much more professional & business services sped up than retail, leisure and construction, each measured against its own 2010–19 pace. 6% of 2010–19 stretches showed a gap at least as large, and dropping any one hands-on industry leaves +1.1 pts. To count, the gap must beat every 2010–19 stretch and stay above 1 point when any one hands-on industry is dropped.",
+   "detail": "How much more professional & business services sped up than retail, leisure and construction, each measured against its own 2010–19 pace. 6% of 2010–19 stretches showed a gap at least as large, and dropping any one hands−on industry leaves +1.1 pts. That is suggestive (between 5% and 20%), not yet clear.",
    "trend": {
     "dir": "up",
     "text": "Gap: 1.8 pts, up from 0.3 pts a year earlier"
@@ -554,17 +558,17 @@
    "lean": "context",
    "counted": false,
    "reading": "+3.9 pts",
-   "detail": "Speed-up in output per hour since end-2023 against its own 2010–19 pace, bigger than in any 2010–19 stretch (max +2.8). This industry includes data centers and software publishers, which build and sell AI, so it shows AI production rather than use.",
+   "detail": "Speed−up in output per hour since end−2023 against its own 2010–19 pace, bigger than in any 2010–19 stretch (max +2.8). This industry includes data centers and software publishers, which build and sell AI, so it shows AI production rather than use.",
    "trend": null
   },
   {
    "id": "share",
    "group": "Who gains?",
    "name": "Workers' share of business income",
-   "lean": "mixed",
+   "lean": "against",
    "counted": true,
-   "reading": "-1.0%/yr",
-   "detail": "Change in labor's share of nonfarm business income since the end of 2023, against -0.4% a year in 2004–19. It is at its lowest since at least 1947. Chance alone would produce a decline this fast about 35% of the time. If machines substitute for people, more of the gains go to owners of capital.",
+   "reading": "−1.0%/yr",
+   "detail": "Change in labor's share of nonfarm business income since the end of 2023, against −0.4% a year in 2004–19. It is the lowest on record (the series begins in 1947). Chance alone would produce a decline this fast about 35% of the time. That is within normal noise (above 20%). The share is pay per hour divided by output per hour, so a quarter of fast productivity growth pulls it down until pay catches up; it fell from 94.4 to 93.7 last quarter. If machines substitute for people, more of the gains go to owners of capital.",
    "trend": null
   },
   {
@@ -597,8 +601,19 @@
   "industries": false
  },
  "testsFor": 0,
+ "testsSuggestive": 2,
  "verdict": "Not yet",
  "verdictOldRules": "Not yet",
+ "verdictOct30": "Not yet",
+ "chances": {
+  "pace": 10,
+  "efficiency": 71,
+  "industries": 6,
+  "graduates": 63,
+  "exposedJobs": 11,
+  "payStructure": null,
+  "laborShare": 35
+ },
  "adopt": {
   "ai_use_work": {
    "date": "2026-07-01",
@@ -925,6 +940,8 @@
   "yearAgo": 9.0,
   "at2023Q4": 7.9,
   "maxPre2023": 8.1,
+  "maxPre2023Q": "2022Q2",
+  "since": "1959Q1",
   "series": [
    [
     "1959Q1",
@@ -2022,6 +2039,11 @@
   "edge2023": -0.9,
   "edgeMin0219": -6.8,
   "edgeMax0219": -1.4,
+  "change": 0.22,
+  "chance": 63,
+  "histStart": "Sep 2004",
+  "maxChange": 2.16,
+  "months": 33,
   "ygap": 3.7,
   "ygapMax0219": 4.4,
   "ygapMin0219": 2.0,
@@ -2664,6 +2686,8 @@
   "minHist": -14.5,
   "medHist": 9.4,
   "shareWorse": 11,
+  "chance": 11,
+  "histStart": "Oct 2002",
   "series": {
    "compsys": [
     [
@@ -3994,6 +4018,8 @@
   "ratio2019": 1.93,
   "change": -0.6,
   "maxHist": 5.9,
+  "chance": null,
+  "histStart": "2003Q3",
   "mgmtGrowth": 3.8,
   "officeGrowth": 4.1,
   "allGrowth": 3.9,
@@ -4426,6 +4452,7 @@
   "chance": 35,
   "recordLow": true,
   "since": "1947",
+  "prevQ": 94.4,
   "series": [
    [
     "1947Q1",
@@ -5720,11 +5747,22 @@
   "at2019": 110192
  },
  "workTests": {
-  "graduates": true,
+  "graduates": false,
   "exposedJobs": false,
   "payStructure": false
  },
- "workFor": 1,
+ "workFor": 0,
+ "workSuggestive": 1,
+ "workLeans": {
+  "graduates": "against",
+  "exposedJobs": "mixed",
+  "payStructure": "against"
+ },
+ "outLeans": {
+  "pace": "mixed",
+  "efficiency": "against",
+  "industries": "mixed"
+ },
  "stages": [
   {
    "key": "adopt",
@@ -5746,25 +5784,25 @@
    "key": "work",
    "name": "Work",
    "q": "Are jobs and pay shifting?",
-   "status": "Mixed",
+   "status": "Not yet",
    "tone": "mixed",
-   "reading": "1 of 3 tests"
+   "reading": "0 clear · 1 suggestive"
   },
   {
    "key": "output",
    "name": "Output",
    "q": "Is productivity rising faster?",
    "status": "Not yet",
-   "tone": "against",
-   "reading": "0 of 3 tests"
+   "tone": "mixed",
+   "reading": "0 clear · 2 suggestive"
   },
   {
    "key": "gains",
    "name": "Who gains",
    "q": "Is income shifting to capital?",
-   "status": "Leaning to capital",
-   "tone": "mixed",
-   "reading": "labor share -1.0%/yr"
+   "status": "No clear shift",
+   "tone": "against",
+   "reading": "labor share −1.0%/yr"
   }
  ]
 }
