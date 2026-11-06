@@ -1,9 +1,9 @@
-data as of 2026-10-31
+data as of 2026-11-06
 FACTS (the narrative must agree with these):
   verdict: Not yet  (tests for AI: 0/3 {'pace': False, 'efficiency': False, 'industries': False}); under pre-Oct-30 rules: Not yet
-  nonfarm business: 2.12%/yr since 2023Q4 to 2026Q2 vs trend 1.56; z 0.76, chance 22%; yoy 2.24; 20.0% of overlapping 2004-19 windows as fast; 1997-2003 min 2.75; since 2019Q4 2.06
-  nonfinancial corps: 2.71%/yr vs 1.36; z 1.06, chance 14%; yoy 3.08; 5.5% of windows as fast
-  1990s path at +10q: now 105.4, boom 108.1, trend 103.9
+  nonfarm business: 2.46%/yr since 2023Q4 to 2026Q3 vs trend 1.56; z 1.27, chance 10%; yoy 2.06; 14.8% of overlapping 2004-19 windows as fast; 1997-2003 min 2.86; since 2019Q4 2.22
+  nonfinancial corps: 2.55%/yr vs 1.36; z 0.93, chance 18%; yoy 3.65; 5.5% of windows as fast
+  1990s path at +11q: now 106.9, boom 109.1, trend 104.3
   income check through 2026Q2: GDI 2.66 vs GDP 2.35
   SF Fed util-adj since 2023: 0.1; four-quarter TFP 1.42, util-adj -0.07
   BLS TFP 2023-2025: 1.18 vs 2004-19 0.7, 1997-2003 1.49
@@ -17,4 +17,4 @@ FACTS (the narrative must agree with these):
      [other] Education & health services: 1.22 vs 2010-19 0.2 (speed-up 1.01); output 3.6, hours 2.35
      [other] Manufacturing: 2.09 vs 2010-19 0.29 (speed-up 1.79); output 1.75, hours -0.33
   investment 2026Q3: real IPE yoy 29.1% (2y 55.9%), software 12.8%, computer imports 62.2% (2y 132.1%), contrib to GDP growth 0.93pp avg 4q
-  rates: daily 2.63 on 2026-10-29; Sep 2026 avg 2.64 (year ago 1.75)
+  rates: daily 2.64 on 2026-11-04; Oct 2026 avg 2.78 (year ago 1.76)
