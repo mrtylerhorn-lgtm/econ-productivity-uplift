@@ -172,6 +172,21 @@ try:
     q0419 = [Q[i][3] for i in range(qi("2004Q1"), qi("2019Q4") + 1) if i in Q]
     T["noise"] = {"avg0419": round(sum(q0419) / len(q0419), 3), "sdQ0419": round(_st.pstdev(q0419), 3),
                   "nSince2023": lastq - qi("2023Q4"), "since2023Exact": round(avg(3, qi("2023Q4"), lastq), 3)}
+    # growth accounting, every quarter: dLP = alpha*(dk - dhours) + (1-alpha)*dLQ + dutil + dtfp_util
+    need = ("dlp", "dk", "dhours", "dlq", "alpha", "dutil", "dtfp_util")
+    if all(n in names for n in need):
+        ci = {n: names.index(n) for n in need}; comp = []
+        for row in rows[h_i + 1:]:
+            m3 = re.match(r"\s*(\d{4})\s*[:Qq]+\s*Q?(\d)", str(row[0] or ""))
+            if not m3: continue
+            v = {n: row[ci[n]] for n in need}
+            if any(not isinstance(x, (int, float)) for x in v.values()): continue
+            cap = v["alpha"] * (v["dk"] - v["dhours"]); lq = (1 - v["alpha"]) * v["dlq"]
+            comp.append([f"{m3.group(1)}Q{m3.group(2)}", round(v["dlp"], 3), round(cap, 3), round(lq, 3), round(v["dutil"], 3), round(v["dtfp_util"], 3)])
+        T["components"] = comp
+        T["componentsCols"] = ["quarter", "labor productivity (business output)", "capital deepening", "labor quality", "utilization", "underlying efficiency"]
+    else:
+        problems.append(f"- **SF Fed TFP**: growth-accounting columns missing ({[n for n in need if n not in names]})")
     T["periodsNote"] = (f"Output-per-hour bars are computed from the BLS series. Underlying-efficiency bars are averages of the SF Fed's "
                         f"quarterly utilization-adjusted TFP growth, all from its latest file (data through {ql(lastq)}).")
     T["fourQNote"] = None

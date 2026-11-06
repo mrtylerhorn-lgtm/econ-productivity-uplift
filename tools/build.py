@@ -358,11 +358,143 @@ derived = dict(nfb=nfb, nfc=nfc, path=dict(n=n, now=r1(path_now), boom=r1(path_9
                        dict(key="output", name="Output", q="Is productivity rising faster?", status=verdict, tone=stage_tone(verdict in ("Early signs", "Showing up"), out_leans.values()), reading=cs_txt(n_for, n_sug)),
                        dict(key="gains", name="Who gains", q="Is income shifting to capital?", status=gains_status, tone=L_share, reading=mn(f"labor share {share['pace']:+.1f}%/yr"))])
 
+# ---------- charts (redesign 2026-11-06): the six key charts and their data-driven headlines ----------
+def have(k): return bool(S.get(k, {}).get("values"))
+Z95, Z80 = 1.645, 0.8416
+charts = {}
+
+# recessions (NBER, via USREC) as [start, end] in decimal years
+rec = []
+if have("usrec"):
+    um = mser("usrec"); on = None
+    for m in sorted(um):
+        if um[m] == 1 and on is None: on = m
+        if um[m] == 0 and on is not None: rec.append([round(on / 12, 3), round(m / 12, 3)]); on = None
+    if on is not None: rec.append([round(on / 12, 3), round((max(um) + 1) / 12, 3)])
+charts["recessions"] = rec
+
+# 1. productivity: rolling 3-year growth since 1950, eras, noise band, what next quarter would take
+po = qser("oph"); Lp1 = max(po); q0 = min(po)
+roll = [[qs(q), r2(((po[q] / po[q - 12]) ** (1 / 3) - 1) * 100)] for q in range(q0 + 12, Lp1 + 1)]
+ERAS = [("1948–73", "1947Q4", "1973Q4"), ("1974–95", "1973Q4", "1995Q4"), ("1996–2003", "1995Q4", "2003Q4"),
+        ("2004–19", "2003Q4", "2019Q4"), ("2020–23", "2019Q4", "2023Q4"), ("Since 2023", "2023Q4", None)]
+def era_q(a, b, last): return qi(a), (last if b is None else qi(b))
+eras = [dict(label=l, a=a, b=b or qs(Lp1), pace=r2(cagr(po, *era_q(a, b, Lp1)))) for l, a, b in ERAS if qi(a) >= q0]
+gq = [((po[i] / po[i - 1]) ** 4 - 1) * 100 for i in range(TR_A + 1, TR_B + 1)]
+band12 = Z95 * st.pstdev(gq) / math.sqrt(12)
+n1 = nfb["n"] + 1; tgt = nfb["trend"] + Z95 * st.pstdev(gq) / math.sqrt(n1)
+need_q = ((po[BASE] * (1 + tgt / 100) ** (n1 / 4) / po[Lp1]) ** 4 - 1) * 100
+charts["prod"] = dict(roll=roll, eras=eras, last=qs(Lp1), latest3y=roll[-1][1], trend=nfb["trend"], bandLo=r2(nfb["trend"] - band12),
+                      bandHi=r2(nfb["trend"] + band12), since2023=nfb["now"], chance=nfb["chance"], nextQForClear=r1(need_q),
+                      boom=next(e["pace"] for e in eras if e["label"] == "1996–2003"), golden=next(e["pace"] for e in eras if e["label"] == "1948–73"))
+
+# 2. growth accounting by era (SF Fed quarterly components; averages of annualized quarterly growth)
+CP = {qi(r[0]): r[1:] for r in T.get("components", [])}
+if CP:
+    Lc = max(CP); acc = []
+    for l, a, b in ERAS:
+        A, B = era_q(a, b, Lc); qs_ = [q for q in range(A + 1, B + 1) if q in CP]
+        if len(qs_) < 4: continue
+        m = [sum(CP[q][j] for q in qs_) / len(qs_) for j in range(5)]
+        acc.append(dict(label=l, lp=r2(m[0]), capital=r2(m[1]), labor=r2(m[2]), util=r2(m[3]), eff=r2(m[4])))
+    charts["acct"] = dict(eras=acc, last=qs(Lc))
+
+# 3. industries: AI use vs productivity speed-up
+rps = {}
+for n in range(1, 21):
+    s = S.get(f"ai_ind_{n}")
+    if s and s.get("values"):
+        t = s["title"]; nm = t.split("Work:")[-1].split("(")[0].strip() if "Work:" in t else t
+        rps[nm] = sum(s["values"][-2:]) / len(s["values"][-2:])
+def rp(key): return next((v for k, v in rps.items() if k.lower().startswith(key.lower())), None)
+def wavg(pairs):
+    pairs = [(v, w) for v, w in pairs if v is not None and w]
+    return sum(v * w for v, w in pairs) / sum(w for _, w in pairs) if pairs else None
+def lastv(k): return S[k]["values"][-1] if have(k) else None
+IND = [("construction", "Construction", lambda: rp("Construction")), ("mfg", "Manufacturing", lambda: rp("Manufacturing")),
+       ("wholesale", "Wholesale trade", lambda: rp("Wholesale")), ("retail", "Retail trade", lambda: rp("Retail")),
+       ("transport", "Transportation & warehousing", lambda: rp("Transportation")), ("info", "Information", lambda: rp("Information")),
+       ("finance", "Finance & insurance", lambda: rp("Finance")), ("pst", "Professional, scientific & technical", lambda: rp("Professional")),
+       ("health", "Education & health", lambda: wavg([(rp("Educational"), lastv("emp_educ")), (rp("Health"), lastv("emp_health"))])),
+       ("leisure", "Leisure & hospitality", lambda: wavg([(rp("Arts"), lastv("emp_arts")), (rp("Accommodation"), lastv("emp_accom"))]))]
+pts = []
+for key, name, f in IND:
+    if not (have("va_" + key) and have("hrs_" + key)): continue
+    use = f()
+    if use is None: continue
+    va = qser("va_" + key); hr = m2q(mser("hrs_" + key)); pp = {q: va[q] / hr[q] for q in va if q in hr}; L_ = max(pp)
+    if T0 not in pp or BASE not in pp: continue
+    sp = cagr(pp, BASE, L_) - cagr(pp, T0, T1)
+    pts.append(dict(key=key, name=name, use=r1(use), speed=r2(sp), now=r2(cagr(pp, BASE, L_)), trend=r2(cagr(pp, T0, T1)), last=qs(L_), producer=key == "info"))
+def ols(P):
+    if len(P) < 4: return None
+    xs, ys = [p["use"] for p in P], [p["speed"] for p in P]; mx, my = st.mean(xs), st.mean(ys)
+    sxx = sum((x - mx) ** 2 for x in xs); sxy = sum((x - mx) * (y - my) for x, y in zip(xs, ys)); syy = sum((y - my) ** 2 for y in ys)
+    b = sxy / sxx; r = sxy / math.sqrt(sxx * syy)
+    # t-test on the slope, one-sided (more AI use -> bigger speed-up); normal approximation is too generous at small n, so use t with n-2 df
+    n_ = len(P); tstat = r * math.sqrt((n_ - 2) / (1 - r * r)) if abs(r) < 1 else 99
+    def tcdf_upper(t, df):  # survival function of Student t via the incomplete beta continued fraction
+        x = df / (df + t * t)
+        def betacf(a, b, x):
+            qab, qap, qam = a + b, a + 1, a - 1; c, d = 1.0, 1 - qab * x / qap; d = 1 / d; h = d
+            for m in range(1, 200):
+                m2 = 2 * m; aa = m * (b - m) * x / ((qam + m2) * (a + m2)); d = 1 / (1 + aa * d); c = 1 + aa / c; h *= d * c
+                aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2)); d = 1 / (1 + aa * d); c = 1 + aa / c; h *= d * c
+            return h
+        a, b = df / 2, 0.5
+        lbeta = math.lgamma(a + b) - math.lgamma(a) - math.lgamma(b)
+        ib = math.exp(lbeta + a * math.log(x) + b * math.log(1 - x)) * betacf(a, b, x) / a
+        return 0.5 * ib if t > 0 else 1 - 0.5 * ib
+    return dict(n=n_, slope10=r2(b * 10), r=r2(r), intercept=r2(my - b * mx), chance=round(tcdf_upper(tstat, n_ - 2) * 100))
+charts["industries"] = dict(points=pts, fit=ols(pts), fitExInfo=ols([p for p in pts if not p["producer"]]),
+                            surveyDate=S["ai_ind_9"]["dates"][-1] if have("ai_ind_9") else None)
+
+# 4. AI-related investment: contribution to real GDP growth, by year, net of imported computers
+ce, cs_, gg = qser("contrib_ipe"), qser("contrib_software"), qser("gdp_growth")
+imr = qser("imports_computers"); imn = qser("imports_computers_nom") if have("imports_computers_nom") else None; gn = qser("gdp_nom")
+def imp_c(q):
+    if q - 1 not in imr or q not in imr: return None
+    g = ((imr[q] / imr[q - 1]) ** 4 - 1) * 100
+    share = (imn[q - 1] / gn[q - 1]) if imn and q - 1 in imn and q - 1 in gn else None
+    return None if share is None else -g * share
+Lx = min(max(ce), max(cs_), max(gg)); years = []
+for y in range(1996, Lx // 4 + 1):
+    qq = [q for q in range(y * 4, y * 4 + 4) if q <= Lx]
+    if not qq: continue
+    ic = [imp_c(q) for q in qq]
+    years.append(dict(year=y, partial=len(qq) < 4, quarters=len(qq), ipe=r2(st.mean(ce[q] for q in qq)), sw=r2(st.mean(cs_[q] for q in qq)),
+                      imp=r2(st.mean(ic)) if all(v is not None for v in ic) else None, gdp=r2(st.mean(gg[q] for q in qq))))
+l4 = list(range(Lx - 3, Lx + 1)); i4 = [imp_c(q) for q in l4]
+charts["capex"] = dict(years=years, last=qs(Lx), last4=dict(ipe=r2(st.mean(ce[q] for q in l4)), sw=r2(st.mean(cs_[q] for q in l4)),
+                       imp=r2(st.mean(i4)) if all(v is not None for v in i4) else None, gdp=r2(st.mean(gg[q] for q in l4))),
+                       peak2000=r2(max(y["ipe"] + y["sw"] for y in years if y["year"] <= 2002)))
+
+# 5. young graduates vs all workers (12-month averages)
+if have("unrate"):
+    ur = mser("unrate")
+    ser5 = [[ms(e), r2(avg_n(gy, e, 12)), r2(avg_n(ay, e, 12)), r2(avg_n(ur, e, 12))] for e in range(2000 * 12 + 11, E + 1) if avg_n(ur, e, 12)]
+    gapnow = avg_n(gy, E, 12) - avg_n(ur, E, 12)
+    histg = [avg_n(gy, e, 12) - avg_n(ur, e, 12) for e in range(2000 * 12 + 11, 2019 * 12 + 12)]
+    charts["grads"] = dict(series=ser5, last=ms(E), young=grads["young"], allYoung=grads["allYoung"], all=r1(avg_n(ur, E, 12)),
+                           gap=r1(gapnow), gapMax0019=r1(max(histg)), gapAboveAll0019=round(sum(g > 0 for g in histg) / len(histg) * 100),
+                           change=grads["change"], chance=grads["chance"], edge=grads["edge"], edge2023=grads["edge2023"])
+
+# 6. labor share since 1947
+charts["share"] = dict(series=share["series"], now=share["now"], recordLow=share["recordLow"], since=share["since"], pace=share["pace"],
+                       trend=share["trend"], chance=share["chance"], prevQ=share["prevQ"], at2019=share["at2019"])
+
+# what would change the answer
+nn = TN["nSince2023"]; sdq = TN["sdQ0419"]; av = TN["since2023Exact"]; m0 = TN["avg0419"]
+def eff_need(z): return (m0 + z * sdq / math.sqrt(nn + 1)) * (nn + 1) - av * nn
+charts["watch"] = dict(nextQForClear=r1(need_q), effNextQForSuggestive=r1(eff_need(Z80)), effNextQForClear=r1(eff_need(Z95)),
+                       effMaxQ0419=r1(max(T["components"][i][5] for i in range(len(T["components"])) if "2004Q1" <= T["components"][i][0] <= "2019Q4")) if T.get("components") else None)
+derived["charts"] = charts
+
 # ---------- checks ----------
 for k, s in S.items():
     assert all(isinstance(x, (int, float)) or (x is None and s.get("allowGaps")) for x in s["values"]), k
     if not s["values"]:
-        assert DATA_ONLY, f"series {k} ({s['id']}) has no data; check data/fetch-log.md"
+        assert DATA_ONLY or s.get("optional"), f"series {k} ({s['id']}) has no data; check data/fetch-log.md"
         print(f"WARNING: series {k} ({s['id']}) has no data")
 for r in T["quarters"]: assert abs(r[2] - r[3] - r[4]) < 0.06, ("util-adj check", r)
 C = D["copy"]
