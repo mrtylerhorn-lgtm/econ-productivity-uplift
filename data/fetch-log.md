@@ -1,68 +1,7 @@
 # Fetch log, 2026-11-06 (Tokyo)
 
 ## Changes
-- **ai_occ_1** (RPSGENAIUSAGESHAREOCC1): 9 new observation(s), latest 2026-07-01 = 63.3015836022
-- **ai_occ_2** (RPSGENAIUSAGESHAREOCC2): 9 new observation(s), latest 2026-07-01 = 60.726231006
-- **ai_occ_3** (RPSGENAIUSAGESHAREOCC3): 9 new observation(s), latest 2026-07-01 = 68.7869018798
-- **ai_occ_4** (RPSGENAIUSAGESHAREOCC4): 9 new observation(s), latest 2026-07-01 = 60.8710964008
-- **ai_occ_5** (RPSGENAIUSAGESHAREOCC5): 9 new observation(s), latest 2026-07-01 = 42.8603139806
-- **ai_occ_6** (RPSGENAIUSAGESHAREOCC6): 9 new observation(s), latest 2026-07-01 = 46.2380875901
-- **ai_occ_7** (RPSGENAIUSAGESHAREOCC7): 9 new observation(s), latest 2026-07-01 = 40.2383976294
-- **ai_occ_8** (RPSGENAIUSAGESHAREOCC8): 9 new observation(s), latest 2026-07-01 = 45.8305443753
-- **ai_occ_9** (RPSGENAIUSAGESHAREOCC9): 9 new observation(s), latest 2026-07-01 = 40.5445568949
-- **ai_occ_10** (RPSGENAIUSAGESHAREOCC10): 9 new observation(s), latest 2026-07-01 = 34.5789404881
-- **ai_occ_11** (RPSGENAIUSAGESHAREOCC11): 9 new observation(s), latest 2026-07-01 = 30.8114167693
-- **ai_occ_12** (RPSGENAIUSAGESHAREOCC12): 9 new observation(s), latest 2026-07-01 = 25.8459340051
-- **ai_occ_13** (RPSGENAIUSAGESHAREOCC13): 9 new observation(s), latest 2026-07-01 = 26.5975021124
-- **ai_occ_14** (RPSGENAIUSAGESHAREOCC14): 9 new observation(s), latest 2026-07-01 = 13.5378168026
-- **ai_occ_15** (RPSGENAIUSAGESHAREOCC15): 9 new observation(s), latest 2026-07-01 = 22.478826275
-- **ai_occ_16** (RPSGENAIUSAGESHAREOCC16): 9 new observation(s), latest 2026-07-01 = 34.9091943548
-- **ai_occ_17** (RPSGENAIUSAGESHAREOCC17): 9 new observation(s), latest 2026-07-01 = 36.7738477509
-- **ai_occ_18** (RPSGENAIUSAGESHAREOCC18): 9 new observation(s), latest 2026-07-01 = 52.2789672662
-- **ai_occ_19** (RPSGENAIUSAGESHAREOCC19): 9 new observation(s), latest 2026-07-01 = 36.1486168287
-- **ai_occ_20** (RPSGENAIUSAGESHAREOCC20): 9 new observation(s), latest 2026-07-01 = 23.0057580571
-- **ai_occ_21** (RPSGENAIUSAGESHAREOCC21): 9 new observation(s), latest 2026-07-01 = 28.5295448974
-- **ai_occ_22** (RPSGENAIUSAGESHAREOCC22): 9 new observation(s), latest 2026-07-01 = 23.7352805458
-- **occprobe_01** (LNU02032201): 321 new observation(s), latest 2026-09 = 73122.0
-- **occprobe_02** (LNU02032202): 321 new observation(s), latest 2026-09 = 31900.0
-- **occprobe_03** (LNU02032203): 321 new observation(s), latest 2026-09 = 41223.0
-- **occprobe_04** (LNU02032204): 321 new observation(s), latest 2026-09 = 26223.0
-- **occprobe_05** (LNU02032205): 321 new observation(s), latest 2026-09 = 30105.0
-- **occprobe_06** (LNU02032206): 321 new observation(s), latest 2026-09 = 14040.0
-- **occprobe_07** (LNU02032207): 321 new observation(s), latest 2026-09 = 16065.0
-- **occprobe_08** (LNU02032208): 321 new observation(s), latest 2026-09 = 13896.0
-- **occprobe_09** (LNU02032209): 321 new observation(s), latest 2026-09 = 1178.0
-- **occprobe_10** (LNU02032210): 321 new observation(s), latest 2026-09 = 7916.0
-- **occprobe_11** (LNU02032211): 321 new observation(s), latest 2026-09 = 4802.0
-- **occprobe_12** (LNU02032212): 321 new observation(s), latest 2026-09 = 20093.0
-- **occprobe_13** (LNU02032213): 321 new observation(s), latest 2026-09 = 7775.0
-- **occprobe_14** (LNU02032214): 321 new observation(s), latest 2026-09 = 12318.0
 - **SF Fed TFP**: file parsed from sheet 'quarterly', data through 2026Q2; underlying efficiency since end-2023 +0.1%/yr; period averages 1984–96 0.8, 1997–2003 2.1, 2004–19 0.6, Since end-2023 0.1
 
 ## Problems
-- **occprobe_15** (LNU02032215): not updated: HTTP Error 404: Not Found
-- **occprobe_16** (LNU02032216): not updated: HTTP Error 404: Not Found
-- **occprobe_17** (LNU02032217): not updated: HTTP Error 404: Not Found
-- **occprobe_18** (LNU02032218): not updated: HTTP Error 404: Not Found
-- **occprobe_19** (LNU02032219): not updated: HTTP Error 404: Not Found
-- **occprobe_20** (LNU02032220): not updated: HTTP Error 404: Not Found
-- **occprobe_21** (LNU02032221): not updated: HTTP Error 404: Not Found
-- **occprobe_22** (LNU02032222): not updated: HTTP Error 404: Not Found
-- **occprobe_23** (LNU02032223): not updated: HTTP Error 404: Not Found
-- **occprobe_24** (LNU02032224): not updated: HTTP Error 404: Not Found
-- **occprobe_25** (LNU02032225): not updated: HTTP Error 404: Not Found
-- **occprobe_26** (LNU02032226): not updated: HTTP Error 404: Not Found
-- **occprobe_27** (LNU02032227): not updated: HTTP Error 404: Not Found
-- **occprobe_28** (LNU02032228): not updated: HTTP Error 404: Not Found
-- **occprobe_29** (LNU02032229): not updated: HTTP Error 404: Not Found
-- **occprobe_30** (LNU02032230): not updated: HTTP Error 404: Not Found
-- **occprobe_31** (LNU02032231): not updated: HTTP Error 404: Not Found
-- **occprobe_32** (LNU02032232): not updated: HTTP Error 404: Not Found
-- **occprobe_33** (LNU02032233): not updated: HTTP Error 404: Not Found
-- **occprobe_34** (LNU02032234): not updated: HTTP Error 404: Not Found
-- **occprobe_35** (LNU02032235): not updated: HTTP Error 404: Not Found
-- **occprobe_36** (LNU02032236): not updated: HTTP Error 404: Not Found
-- **occprobe_37** (LNU02032237): not updated: HTTP Error 404: Not Found
-- **occprobe_38** (LNU02032238): not updated: HTTP Error 404: Not Found
-- **occprobe_39** (LNU02032239): not updated: HTTP Error 404: Not Found
-- **occprobe_40** (LNU02032240): not updated: HTTP Error 404: Not Found
+- None.
