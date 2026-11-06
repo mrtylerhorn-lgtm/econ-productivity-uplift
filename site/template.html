@@ -128,7 +128,8 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
   <section class="chart" id="ch1">
     <span class="num">1 · Growth</span>
     <h2 id="h1"></h2>
-    <p class="sub">Output per hour in the nonfarm business sector, average growth over the previous three years. Grey steps mark each era's average; the shaded band is how far three-year growth typically strays from the 2004–19 trend through noise alone (90% range).</p>
+    <p class="sub">Output per hour in the nonfarm business sector. Top: growth in each of the last four years' quarters, at an annual rate. Bottom: average growth over the previous three years since 1950, with each era's average (grey steps) and how far three-year growth typically strays from the 2004–19 trend through noise alone (shaded, 90% range).</p>
+    <div class="fig"><div class="legend" id="lg1q"></div><svg class="plot" id="c1q"></svg><div class="tip"></div></div>
     <div class="fig"><div class="legend" id="lg1"></div><svg class="plot" id="c1"></svg><div class="tip"></div></div>
     <p class="foot" id="f1"></p>
     <details class="data"><summary>View the numbers</summary><div class="tbl" id="t1"></div></details>
@@ -246,8 +247,8 @@ $('changed').textContent = C.changed;
 const P=K.prod, A=K.acct, I=K.industries, CX=K.capex, G=K.grads, SH=K.share, W=K.watch;
 const AW=X.adopt.ai_use_work, MO=X.money;
 const accBoom=A.eras.find(e=>e.label==='1996–2003'), accNow=last(A.eras);
-$('h1').textContent = `Productivity is growing ${P.latest3y.toFixed(1)}% a year, ${P.latest3y>P.trend?'faster than its 2004–19 pace':'no faster than its 2004–19 pace'}${P.latest3y>P.bandHi?', and beyond what noise alone would produce':', but not yet beyond what noise alone could produce'}`;
-$('f1').textContent = `Since the end of 2023 it has averaged ${P.since2023.toFixed(1)}% a year, against ${P.trend.toFixed(1)}% in 2004–19, ${P.boom.toFixed(1)}% in the 1996–2003 boom and ${P.golden.toFixed(1)}% in 1948–73. Chance alone would produce a gap that size above the old trend about ${P.chance}% of the time (${tier(P.chance)}). Source: BLS via FRED, through ${qLab(P.last)}.`;
+$('h1').textContent = `Productivity grew at a ${P.latestQ.toFixed(1)}% rate last quarter. Over three years it is ${P.latest3y.toFixed(1)}% a year: ${P.latest3y>P.trend?'faster than 2004–19':'no faster than 2004–19'}${P.latest3y>P.bandHi?', and beyond normal swings':', but within normal swings'}`;
+$('f1').textContent = `${qLab(P.last)}: ${P.latestQ.toFixed(1)}% at an annual rate, more than double the ${P.avg0719.toFixed(1)}% average of 2007–19; ${P.shareQuartersAsFast}% of quarters in 2004–19 were at least as fast, so one quarter says little on its own. Since the end of 2023 it has averaged ${P.since2023.toFixed(1)}% a year, against ${P.trend.toFixed(1)}% in 2004–19, ${P.boom.toFixed(1)}% in the 1996–2003 boom and ${P.golden.toFixed(1)}% in 1948–73. Chance alone would produce a gap that size above the old trend about ${P.chance}% of the time (${tier(P.chance)}). Source: BLS via FRED, through ${qLab(P.last)}.`;
 const harder = accNow.capital+accNow.util, effShare = accNow.eff/accNow.lp;
 $('h2').textContent = effShare<0.35 ? `Since 2023, the gains come mostly from more equipment and harder work, not from working smarter` : `Since 2023, working smarter accounts for ${Math.round(effShare*100)}% of the gains`;
 $('f2').textContent = `Since the end of 2023: ${accNow.lp.toFixed(1)}% a year = ${accNow.capital.toFixed(1)} equipment per worker + ${accNow.labor.toFixed(1)} workforce skills + ${neg(accNow.util)} working harder + ${neg(accNow.eff)} underlying efficiency. In the 1996–2003 boom, efficiency alone added ${accBoom.eff.toFixed(1)} points. Source: SF Fed (Fernald), through ${qLab(A.last)}.`;
@@ -269,9 +270,9 @@ const spark=(vals,color)=>{const w=120,h=28,lo=Math.min(...vals),hi=Math.max(...
 function tiles(){
   const s1=css('--s1'), ref=css('--ref');
   const t=[
+    [`Productivity growth, ${qLab(P.last)}`,`${P.latestQ.toFixed(1)}%`,`annual rate; since 2023 ${X.nfb.now.toFixed(1)}%/yr, 2004–19 ${X.nfb.trend.toFixed(1)}%`,spark(P.quarters.map(r=>r[1]),s1)],
     ['Workers using generative AI for work',`${Math.round(AW.now)}%`,`two-reading avg ${AW.avg2.toFixed(0)}%, a year ago ${AW.yearAgoAvg2.toFixed(0)}%`,spark(AW.series.map(r=>r[1]),s1)],
     ['Tech investment as a share of payroll',`${MO.ratio.toFixed(1)}%`,`record; pre-2023 peak ${MO.maxPre2023.toFixed(1)}%`,spark(MO.series.filter((_,i)=>i%2===0).map(r=>r[1]).slice(-60),s1)],
-    ['Productivity growth since 2023',`${X.nfb.now.toFixed(1)}%`,`a year; 2004–19 ${X.nfb.trend.toFixed(1)}%`,spark(P.roll.slice(-40).map(r=>r[1]),s1)],
     ['Underlying efficiency since 2023',`${neg(X.sf.since2023)}%`,`a year; 2004–19 ${X.sf.trend.toFixed(1)}%`,''],
   ];
   $('tiles').innerHTML=t.map(([l,v,d,s])=>`<div class="tile"><span class="tl">${esc(l)}</span><span class="tv">${esc(v)}</span><span class="td">${esc(d)}</span>${s}</div>`).join('');
@@ -316,6 +317,22 @@ function draw(){
   Wd=Math.max(300,Math.round($('c1').parentElement.clientWidth-16)); H=narrow()?260:340;
   const s1=css('--s1'),s2=css('--s2'),s3=css('--s3'),s4=css('--s4'),ref=css('--ref'),ink=css('--ink'),panel=css('--panel'),muted=css('--muted');
   tiles();
+
+  /* 1a. productivity, each recent quarter */
+  { const Hold=H; H=narrow()?200:220; const M={l:40,r:12,t:16,b:26}; const Q=P.quarters;
+    const lo=Math.min(0,Math.floor(Math.min(...Q.map(q=>q[1])))), hi=Math.ceil(Math.max(...Q.map(q=>q[1]),P.trend)+0.6);
+    const band=(Wd-M.l-M.r)/Q.length, bw=Math.min(24,band*0.62), ys=scale(lo,hi,H-M.b,M.t); let g='';
+    ticks(lo,hi,narrow()?2:1).forEach(v=>{const y=ys(v);g+=`<line class="${v===0?'zero':'grid'}" x1="${M.l}" x2="${Wd-M.r}" y1="${y}" y2="${y}"/><text x="${M.l-6}" y="${y+4}" text-anchor="end">${v}%</text>`});
+    Q.forEach(([q,v],i)=>{const cx=M.l+band*(i+0.5),x=cx-bw/2,isL=i===Q.length-1,y0=ys(Math.max(v,0)),y1=ys(Math.min(v,0)),h=Math.max(y1-y0,1);
+      const c=isL?s1:css('--ref'); g+= v>=0?`<path d="M${x} ${y1}V${y0+4}q0 -4 4 -4h${bw-8}q4 0 4 4V${y1}Z" fill="${c}"${isL?'':' opacity=".55"'}/>`:`<path d="M${x} ${y0}V${y1-4}q0 4 4 4h${bw-8}q4 0 4 -4V${y0}Z" fill="${c}" opacity=".55"/>`;
+      if(isL) g+=`<text x="${cx}" y="${y0-6}" text-anchor="middle" class="lab" style="font-weight:500">${P.latestQ.toFixed(1)}%</text>`;
+      g+=`<rect class="mk" data-i="${i}" x="${M.l+band*i}" y="${M.t}" width="${band}" height="${H-M.t-M.b}" fill="transparent"/>`;
+      const [yy,qq]=q.split('Q'); if((qq==='1'&&i<Q.length-2)||isL) g+=`<text x="${cx}" y="${H-8}" text-anchor="middle"${isL?' class="lab"':''}>${isL?'Q'+qq+' ’'+yy.slice(2):yy}</text>`;});
+    const ya=ys(P.trend); g+=`<line x1="${M.l}" x2="${Wd-M.r}" y1="${ya}" y2="${ya}" stroke="${ink}" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${M.l+6}" y="${ya-6}" class="halo">2004–19 trend ${P.trend.toFixed(1)}%</text>`;
+    setSvg('c1q',g,`Quarterly productivity growth at an annual rate, last ${Q.length} quarters; latest ${qLab(P.last)} ${P.latestQ}%.`);
+    legend('lg1q',[[`${qLab(P.last)}`,s1,'box'],['Earlier quarters',ref,'box'],['2004–19 trend',ink,'dash']]);
+    hoverMarks('c1q','.mk',el=>{const [q,v]=Q[+el.dataset.i];return `<div class="th">${qLab(q)}</div>`+row(s1,'Growth, annual rate',(i===Q.length-1?P.latestQ:v).toFixed(1)+'%')});
+    H=Hold; }
 
   /* 1. productivity, rolling 3-year */
   { const M={l:40,r:narrow()?44:56,t:40,b:28};

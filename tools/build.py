@@ -384,7 +384,8 @@ gq = [((po[i] / po[i - 1]) ** 4 - 1) * 100 for i in range(TR_A + 1, TR_B + 1)]
 band12 = Z95 * st.pstdev(gq) / math.sqrt(12)
 n1 = nfb["n"] + 1; tgt = nfb["trend"] + Z95 * st.pstdev(gq) / math.sqrt(n1)
 need_q = ((po[BASE] * (1 + tgt / 100) ** (n1 / 4) / po[Lp1]) ** 4 - 1) * 100
-charts["prod"] = dict(roll=roll, eras=eras, last=qs(Lp1), latest3y=roll[-1][1], trend=nfb["trend"], bandLo=r2(nfb["trend"] - band12),
+qtrs = [[qs(q), r2(((po[q] / po[q - 1]) ** 4 - 1) * 100)] for q in range(Lp1 - 15, Lp1 + 1)]
+charts["prod"] = dict(quarters=qtrs, latestQ=bench["latestQ"], shareQuartersAsFast=bench["shareQuartersAsFast"], avg0719=bench["avg0719"], roll=roll, eras=eras, last=qs(Lp1), latest3y=roll[-1][1], trend=nfb["trend"], bandLo=r2(nfb["trend"] - band12),
                       bandHi=r2(nfb["trend"] + band12), since2023=nfb["now"], chance=nfb["chance"], nextQForClear=r1(need_q),
                       boom=next(e["pace"] for e in eras if e["label"] == "1996–2003"), golden=next(e["pace"] for e in eras if e["label"] == "1948–73"))
 
