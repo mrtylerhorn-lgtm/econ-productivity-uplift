@@ -1,16 +1,16 @@
 {
  "copy": {
   "verdict": "Not yet",
-  "bottomLine": "Output per hour is running above its old trend on both economy-wide measures, but not yet by more than chance could explain. The San Francisco Fed's measure of underlying efficiency shows no gain; it credits the extra output to more machines and people working harder. The clearest AI signal is in information, the industry that builds and sells computing. Office industries that use AI have sped up a little, but not clearly enough to count.",
-  "changed": "Latest releases: Q3 GDP (Oct 29) put inflation-adjusted spending on computers and related equipment 29% above a year earlier, with computer imports up 62%. Underlying efficiency now comes straight from the SF Fed's Oct 1 data file: about 0.1% a year since end-2023, still essentially flat. The verdict stays at Not yet.",
+  "bottomLine": "Output per hour is pulling further above its old trend: 2.5% a year since the end of 2023, against 1.6% in 2004–19. That is closer to a reliable signal, but chance alone could still produce a gap this large about 10% of the time. The main holdout is underlying efficiency: the San Francisco Fed finds almost no gain, and credits the extra output to more machines and people working harder. The verdict would move if the pickup holds for another quarter or two and underlying efficiency starts rising with it.",
+  "changed": "Latest releases: Q3 Productivity and Costs (BLS, Nov 5) put nonfarm output per hour up at a 3.6% annual rate in Q3 and revised earlier quarters up, lifting the pace since the end of 2023 from 2.1% to 2.5% a year. The chance that noise explains it fell from 22% to 10%, still short of the 5% bar, so the verdict stays at Not yet.",
   "caseFor": [
    {
-    "h": "The pickup is broad.",
-    "body": "Output per hour has grown 2.1% a year since the end of 2023 in the nonfarm business sector and 2.7% for nonfinancial corporations, against 1.6% and 1.4% in 2004–19. Official BLS TFP has grown 1.2% a year since 2023, against 0.7%. Real income has grown faster than real GDP, so output isn't being overstated."
+    "h": "The pickup is broad and getting stronger.",
+    "body": "Output per hour has grown 2.5% a year since the end of 2023 on both the nonfarm business and nonfinancial corporate measures, against 1.6% and 1.4% in 2004–19. Q3 alone ran at a 3.6% annual rate. Official BLS TFP has grown 1.2% a year since 2023, against 0.7%, and real income outpaces real GDP."
    },
    {
     "h": "Where AI is built, productivity is surging.",
-    "body": "Output per hour in information has grown 9.9% a year since end-2023, against 6.0% in 2010–19: output up 8.2% a year while hours fell 1.5%. That speed-up is larger than in any 2010–19 stretch."
+    "body": "Output per hour in information has grown 9.9% a year since the end of 2023, against 6.0% in 2010–19: output up 8.2% a year while hours fell 1.5%. That speed-up is larger than in any 2010–19 stretch."
    },
    {
     "h": "Office work is pulling ahead.",
@@ -22,17 +22,17 @@
    },
    {
     "h": "The 1990s say the data lags.",
-    "body": "Output per hour only took off around 1997, years after tech stocks were priced for a boom. Inflation-adjusted investment in computers and related equipment is up 56% in two years, and payoffs from new technology usually come after firms reorganize."
+    "body": "Output per hour only took off around 1997, years after tech stocks were priced for a boom. Inflation-adjusted investment in computers and related equipment is up 55.9% in two years, and payoffs from new technology usually come after firms reorganize."
    }
   ],
   "caseAgainst": [
    {
     "h": "Underlying efficiency hasn't moved.",
-    "body": "Strip out more machines, more skills and harder work, and the SF Fed's figures show underlying efficiency growing about 0.1% a year since end-2023, essentially flat. In the 1997–2003 boom it grew about 2.1% a year."
+    "body": "Strip out more machines, more skills and harder work, and the SF Fed's figures show underlying efficiency growing about 0.1% a year since the end of 2023, essentially flat. In the 1997–2003 boom it grew about 2.1% a year."
    },
    {
-    "h": "The headline pace is within normal noise.",
-    "body": "Chance alone would put nonfarm output per hour this far above trend about 22% of the time. Ten quarters in, it is up 5.4%, against 8.1% at the same point in the 1990s, and every 10-quarter stretch of that boom was faster."
+    "h": "The headline pace is still within normal noise.",
+    "body": "Chance alone would put nonfarm output per hour this far above trend about 10% of the time; a reliable signal needs 5% or less. Eleven quarters in, it is up 6.9%, against 9.1% at the same point in the 1990s, and every stretch of that boom was faster."
    },
    {
     "h": "More machines and longer hours explain a lot.",
@@ -40,16 +40,15 @@
    },
    {
     "h": "The office signal is thin.",
-    "body": "Retail's 2-point slowdown supplies much of the office-versus-hands-on gap; drop any one hands-on industry and it shrinks to 1.1 points. Some 2010–19 stretches showed gaps as large. Information's surge reflects building and selling AI, not using it."
+    "body": "Retail's 2.0-point slowdown supplies much of the office-versus-hands-on gap; drop any one hands-on industry and it shrinks to 1.1 points. Some 2010–19 stretches showed gaps as large. Information's surge reflects building and selling AI, not using it."
+   },
+   {
+    "h": "Revisions cut both ways.",
+    "body": "This week's revisions lifted the nonfarm figures but cut nonfinancial corporations from 2.7% to 2.5% a year since the end of 2023. Early estimates move a lot, and the corporate figure for Q3 isn't out until December."
    }
   ]
  },
  "calendar": [
-  [
-   "2026-11-05",
-   "Productivity and Costs, Q3 preliminary (BLS)",
-   "Output per hour, both measures"
-  ],
   [
    "2026-11-06",
    "Employment Situation, October (BLS)",
@@ -61,14 +60,29 @@
    "Income-side check (GDI); investment revisions"
   ],
   [
-   "Nov–Dec",
-   "SF Fed TFP update (no fixed schedule)",
-   "Underlying efficiency"
+   "2026-12-04",
+   "Employment Situation, November (BLS)",
+   "Factory hours; industry hours"
+  ],
+  [
+   "2026-12-08",
+   "Productivity and Costs, Q3 revised (BLS)",
+   "Output per hour, both measures"
   ],
   [
    "2026-12-23",
-   "GDP by industry, Q3 (BEA)",
-   "AI-exposed vs hands-on industries"
+   "GDP, Q3 third estimate, with GDP by industry (BEA)",
+   "AI users vs hands-on industries; investment revisions"
+  ],
+  [
+   "2027-01-08",
+   "Employment Situation, December (BLS)",
+   "Factory hours; industry hours"
+  ],
+  [
+   "No fixed date",
+   "SF Fed TFP update",
+   "Underlying efficiency"
   ]
  ]
 }
