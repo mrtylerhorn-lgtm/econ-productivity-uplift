@@ -275,10 +275,10 @@
   "prevYearGrowth": 1.53
  },
  "work": {
-  "last": "Sep 2026",
-  "now": 42.0,
-  "yearAgo": 41.0,
-  "twoYearsAgo": 40.8,
+  "last": "Oct 2026",
+  "now": 41.8,
+  "yearAgo": 41.1,
+  "twoYearsAgo": 40.6,
   "peak2018": 42.4
  },
  "sectors": {
@@ -446,11 +446,11 @@
    "name": "Young graduates' job-finding edge",
    "lean": "against",
    "counted": true,
-   "reading": "+0.2 pts",
-   "detail": "Change since Dec 2023 in how much better college graduates aged 20–24 do than all 20–24-year-olds (unemployment, 12-month averages, to Sep 2026). Graduates now average 6.7% against 7.4%, an edge of 0.7 points; it was 0.9 at the end of 2023, already smaller than in any month of 2002–19. Narrowing of 0.2 points over 33 months: 63% of same-length stretches from Sep 2004 to Dec 2019 narrowed as much. That is within normal noise (above 20%). The edge also swings with the business cycle.",
+   "reading": "+0.1 pts",
+   "detail": "Change since Dec 2023 in how much better college graduates aged 20–24 do than all 20–24-year-olds (unemployment, 12-month averages, to Oct 2026). Graduates now average 6.6% against 7.4%, an edge of 0.8 points; it was 0.9 at the end of 2023, already smaller than in any month of 2002–19. Narrowing of 0.1 points over 34 months: 65% of same-length stretches from Oct 2004 to Dec 2019 narrowed as much. That is within normal noise (above 20%). The edge also swings with the business cycle.",
    "trend": {
     "dir": "down",
-    "text": "Graduates' edge: 0.7 pts, down from 1.4 pts a year earlier"
+    "text": "Graduates' edge: 0.8 pts, down from 1.5 pts a year earlier"
    }
   },
   {
@@ -460,10 +460,10 @@
    "lean": "mixed",
    "counted": true,
    "reading": "−3.9%",
-   "detail": "Change since Dec 2023, to Sep 2026, against +1.5% for all private jobs; information jobs −7.6%. The gap with all private jobs (−5.3 points) was as bad in 11% of same-length stretches from Oct 2002 to Dec 2019, all of them right after the dot-com bust. That is suggestive (between 5% and 20%), not yet clear. Tech hiring also slumped in 2023 as interest rates rose, before most firms used AI.",
+   "detail": "Change since Dec 2023, to Oct 2026, against +1.6% for all private jobs; information jobs −7.7%. The gap with all private jobs (−5.5 points) was as bad in 11% of same-length stretches from Nov 2002 to Dec 2019, all of them right after the dot-com bust. That is suggestive (between 5% and 20%), not yet clear. Tech hiring also slumped in 2023 as interest rates rose, before most firms used AI.",
    "trend": {
     "dir": "up",
-    "text": "Gap vs all private jobs: -5.3 pts, up from -6.1 pts a year earlier"
+    "text": "Gap vs all private jobs: -5.5 pts, up from -6.5 pts a year earlier"
    }
   },
   {
@@ -541,11 +541,11 @@
    "name": "Working harder (factory hours)",
    "lean": "caution",
    "counted": false,
-   "reading": "42.0 hrs",
-   "detail": "Weekly hours of factory production workers, Sep 2026, against 40.8 two years earlier (2018 peak 42.4). A quick gauge of whether a hot economy is making people work harder; the SF Fed's adjustment uses a broader set of hours across industries.",
+   "reading": "41.8 hrs",
+   "detail": "Weekly hours of factory production workers, Oct 2026, against 40.6 two years earlier (2018 peak 42.4). A quick gauge of whether a hot economy is making people work harder; the SF Fed's adjustment uses a broader set of hours across industries.",
    "trend": {
     "dir": "up",
-    "text": "Latest: 42.0 hrs, up from 41.0 hrs a year earlier"
+    "text": "Latest: 41.8 hrs, up from 41.1 hrs a year earlier"
    }
   },
   {
@@ -629,7 +629,7 @@
   "pace": 10,
   "efficiency": 71,
   "industries": 6,
-  "graduates": 63,
+  "graduates": 65,
   "exposedJobs": 11,
   "payStructure": null,
   "laborShare": 35
@@ -2050,21 +2050,21 @@
   ]
  },
  "grads": {
-  "last": "Sep 2026",
-  "young": 6.7,
+  "last": "Oct 2026",
+  "young": 6.6,
   "allYoung": 7.4,
   "older": 3.0,
-  "edge": -0.7,
-  "edgeYearAgo": -1.4,
+  "edge": -0.8,
+  "edgeYearAgo": -1.5,
   "edge2023": -0.9,
   "edgeMin0219": -6.8,
   "edgeMax0219": -1.4,
-  "change": 0.22,
-  "chance": 63,
-  "histStart": "Sep 2004",
-  "maxChange": 2.16,
-  "months": 33,
-  "ygap": 3.7,
+  "change": 0.11,
+  "chance": 65,
+  "histStart": "Oct 2004",
+  "maxChange": 2.31,
+  "months": 34,
+  "ygap": 3.6,
   "ygapMax0219": 4.4,
   "ygapMin0219": 2.0,
   "series": [
@@ -2695,19 +2695,19 @@
   ]
  },
  "jobs": {
-  "last": "Sep 2026",
-  "months": 33,
+  "last": "Oct 2026",
+  "months": 34,
   "compsys": -3.9,
-  "private": 1.5,
-  "consulting": 1.3,
-  "info": -7.6,
-  "diff": -5.3,
-  "diffYearAgo": -6.1,
-  "minHist": -14.5,
-  "medHist": 9.4,
+  "private": 1.6,
+  "consulting": 2.2,
+  "info": -7.7,
+  "diff": -5.5,
+  "diffYearAgo": -6.5,
+  "minHist": -14.4,
+  "medHist": 9.6,
   "shareWorse": 11,
   "chance": 11,
-  "histStart": "Oct 2002",
+  "histStart": "Nov 2002",
   "series": {
    "compsys": [
     [
@@ -3032,11 +3032,15 @@
     ],
     [
      "Aug 2026",
-     96.33
+     96.24
     ],
     [
      "Sep 2026",
-     96.15
+     95.96
+    ],
+    [
+     "Oct 2026",
+     96.09
     ]
    ],
    "info": [
@@ -3362,11 +3366,15 @@
     ],
     [
      "Aug 2026",
-     92.78
+     92.68
     ],
     [
      "Sep 2026",
-     92.44
+     92.31
+    ],
+    [
+     "Oct 2026",
+     92.27
     ]
    ],
    "consulting": [
@@ -3692,11 +3700,15 @@
     ],
     [
      "Aug 2026",
-     101.35
+     101.49
     ],
     [
      "Sep 2026",
-     101.28
+     101.29
+    ],
+    [
+     "Oct 2026",
+     102.22
     ]
    ],
    "private": [
@@ -4022,11 +4034,15 @@
     ],
     [
      "Aug 2026",
-     101.42
+     101.46
     ],
     [
      "Sep 2026",
-     101.46
+     101.52
+    ],
+    [
+     "Oct 2026",
+     101.64
     ]
    ]
   }
@@ -5767,11 +5783,11 @@
   "at2019": 110192
  },
  "from2022": {
-  "gradsChange": 0.8,
-  "gradsChance": 49,
-  "jobsCompsys": -5.1,
-  "jobsPrivate": 2.8,
-  "jobsGap": -8.0,
+  "gradsChange": 0.69,
+  "gradsChance": 51,
+  "jobsCompsys": -5.2,
+  "jobsPrivate": 3.0,
+  "jobsGap": -8.2,
   "jobsChance": 7
  },
  "workTests": {
@@ -7490,10 +7506,10 @@
      "key": "occ_mgmt",
      "name": "Management, business & financial",
      "use": 64.1,
-     "speed": 0.11,
-     "now": 0.53,
-     "trend": 0.42,
-     "last": "Sep 2026",
+     "speed": 0.18,
+     "now": 0.61,
+     "trend": 0.43,
+     "last": "Oct 2026",
      "mixed": true,
      "producer": false
     },
@@ -7501,10 +7517,10 @@
      "key": "occ_prof",
      "name": "Professional & related",
      "use": 51.3,
-     "speed": 0.32,
-     "now": 0.74,
-     "trend": 0.42,
-     "last": "Sep 2026",
+     "speed": 0.39,
+     "now": 0.81,
+     "trend": 0.43,
+     "last": "Oct 2026",
      "mixed": true,
      "producer": false
     },
@@ -7512,10 +7528,10 @@
      "key": "occ_sales",
      "name": "Sales",
      "use": 40.3,
-     "speed": -0.76,
-     "now": -0.34,
-     "trend": 0.42,
-     "last": "Sep 2026",
+     "speed": -0.81,
+     "now": -0.38,
+     "trend": 0.43,
+     "last": "Oct 2026",
      "mixed": false,
      "producer": false
     },
@@ -7523,10 +7539,10 @@
      "key": "occ_office",
      "name": "Office & admin support",
      "use": 36.8,
-     "speed": 0.58,
-     "now": 1.0,
-     "trend": 0.42,
-     "last": "Sep 2026",
+     "speed": 0.51,
+     "now": 0.93,
+     "trend": 0.43,
+     "last": "Oct 2026",
      "mixed": false,
      "producer": false
     },
@@ -7534,10 +7550,10 @@
      "key": "occ_service",
      "name": "Service",
      "use": 23.1,
-     "speed": 0.46,
-     "now": 0.88,
-     "trend": 0.42,
-     "last": "Sep 2026",
+     "speed": 0.38,
+     "now": 0.8,
+     "trend": 0.43,
+     "last": "Oct 2026",
      "mixed": true,
      "producer": false
     },
@@ -7545,10 +7561,10 @@
      "key": "occ_constr",
      "name": "Construction & extraction",
      "use": 35.0,
-     "speed": -2.06,
-     "now": -1.64,
-     "trend": 0.42,
-     "last": "Sep 2026",
+     "speed": -2.13,
+     "now": -1.7,
+     "trend": 0.43,
+     "last": "Oct 2026",
      "mixed": false,
      "producer": false
     },
@@ -7556,10 +7572,10 @@
      "key": "occ_install",
      "name": "Installation & repair",
      "use": 27.3,
-     "speed": 0.03,
-     "now": 0.44,
-     "trend": 0.42,
-     "last": "Sep 2026",
+     "speed": -0.25,
+     "now": 0.18,
+     "trend": 0.43,
+     "last": "Oct 2026",
      "mixed": false,
      "producer": false
     },
@@ -7567,10 +7583,10 @@
      "key": "occ_prod",
      "name": "Production",
      "use": 33.2,
-     "speed": -2.36,
-     "now": -1.94,
-     "trend": 0.42,
-     "last": "Sep 2026",
+     "speed": -2.18,
+     "now": -1.75,
+     "trend": 0.43,
+     "last": "Oct 2026",
      "mixed": false,
      "producer": false
     },
@@ -7580,20 +7596,20 @@
      "use": 26.4,
      "speed": 0.78,
      "now": 1.2,
-     "trend": 0.42,
-     "last": "Sep 2026",
+     "trend": 0.43,
+     "last": "Oct 2026",
      "mixed": false,
      "producer": false
     }
    ],
    "fit": {
     "n": 9,
-    "slope10": 0.03,
-    "r": 0.04,
-    "intercept": -0.45,
-    "chance": 46,
-    "chanceNeg": 54,
-    "robustChanceNeg": 66
+    "slope10": 0.08,
+    "r": 0.09,
+    "intercept": -0.64,
+    "chance": 41,
+    "chanceNeg": 59,
+    "robustChanceNeg": 72
    }
   },
   "capex": {
@@ -9753,18 +9769,24 @@
      6.68,
      7.4,
      4.28
+    ],
+    [
+     "Oct 2026",
+     6.58,
+     7.41,
+     4.27
     ]
    ],
-   "last": "Sep 2026",
-   "young": 6.7,
+   "last": "Oct 2026",
+   "young": 6.6,
    "allYoung": 7.4,
    "all": 4.3,
-   "gap": 2.4,
+   "gap": 2.3,
    "gapMax0019": 1.7,
    "gapAboveAll0019": 70,
-   "change": 0.22,
-   "chance": 63,
-   "edge": -0.7,
+   "change": 0.11,
+   "chance": 65,
+   "edge": -0.8,
    "edge2023": -0.9
   },
   "share": {
