@@ -165,6 +165,11 @@ footer{font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padd
   <section class="chart" id="ch5">
     <span class="num">5 · Jobs</span>
     <h2 id="h5"></h2>
+    <p class="sub">Each dot is a broad occupation group. Across: share of its workers who used generative AI for work (St. Louis Fed survey; groups that combine several survey occupations use a simple average). Up: employment growth since the end of 2023 minus its 2015–19 pace. If AI is replacing workers, dots should fall to the right.</p>
+    <div class="fig"><div class="legend" id="lg5o"></div><svg class="plot" id="c5o"></svg><div class="tip"></div></div>
+    <p class="foot" id="f5o"></p>
+    <details class="data"><summary>View the numbers</summary><div class="tbl" id="t5o"></div></details>
+    <h3 id="h5b" style="font-size:1.1rem;margin-top:18px;max-width:40ch"></h3>
     <p class="sub">Unemployment rates, 12-month averages: college graduates aged 20–24, everyone aged 20–24, and all workers. Entry-level office work is where AI is most capable, so new graduates are where many economists expect the first job effects. Shaded: recessions.</p>
     <div class="fig"><div class="legend" id="lg5"></div><svg class="plot" id="c5"></svg><div class="tip"></div></div>
     <p class="foot" id="f5"></p>
@@ -244,7 +249,7 @@ $('headline').textContent = C.headline || '';
 $('bottom').textContent = C.bottomLine;
 $('changed').textContent = C.changed;
 
-const P=K.prod, A=K.acct, I=K.industries, CX=K.capex, G=K.grads, SH=K.share, W=K.watch;
+const OC=K.occupations, P=K.prod, A=K.acct, I=K.industries, CX=K.capex, G=K.grads, SH=K.share, W=K.watch;
 const AW=X.adopt.ai_use_work, MO=X.money;
 const accBoom=A.eras.find(e=>e.label==='1996–2003'), accNow=last(A.eras);
 $('h1').textContent = `Productivity grew at a ${P.latestQ.toFixed(1)}% rate last quarter. Over three years it is ${P.latest3y.toFixed(1)}% a year: ${P.latest3y>P.trend?'faster than 2004–19':'no faster than 2004–19'}${P.latest3y>P.bandHi?', and beyond normal swings':', but within normal swings'}`;
@@ -259,7 +264,10 @@ $('f3').textContent = fx ? `Leaving out Information, each 10 points more AI use 
 const L4=CX.last4, gross=L4.ipe+L4.sw, net=gross+(L4.imp||0);
 $('h4').textContent = L4.imp!=null && net < gross*0.5 ? `AI spending is booming, but ${net<=0?'nearly all':'most'} of it buys computers made abroad, so it adds little to U.S. output` : `Tech investment added ${gross.toFixed(1)} points to GDP growth over the past year`;
 $('f4').textContent = `Over the four quarters to ${qLab(CX.last)}: equipment ${sgn(L4.ipe)} and software ${sgn(L4.sw)} points${L4.imp!=null?`, of which about ${Math.abs(L4.imp).toFixed(1)} was computers made abroad, leaving roughly ${sgn(net)} of U.S. production`:''}, out of ${L4.gdp.toFixed(1)}% GDP growth. At the 2000 peak, equipment and software added ${CX.peak2000.toFixed(1)} points. The latest year (lighter bars) is partial. Real computer imports are published only from 2007, so the 1990s bars show total investment without the imported share. Source: BEA via FRED; the imported share is this page's estimate.`;
-$('h5').textContent = G ? (G.gap>G.gapMax0019 ? `Young graduates' unemployment is unusually high next to all workers'${G.change>0&&G.chance!=null&&G.chance<=20?', and their edge over other young people is shrinking':', but no more than other young people\'s'}` : `Young graduates' job market is within its usual range`) : '';
+const of=OC&&OC.fit, orc=of?Math.max(of.chanceNeg,of.robustChanceNeg):null;
+$('h5').textContent = of ? (of.slope10<0 ? (orc<=5?`Jobs are growing more slowly in occupations that use AI more, and the link is clear of noise`:orc<=20?`Jobs are growing more slowly in occupations that use AI more: a suggestive link`:`Jobs are growing a little more slowly where AI use is higher, but within noise`) : `Occupations that use AI more are not losing jobs relative to trend`) : '';
+$('f5o').textContent = of ? `Across ${of.n} occupation groups, each 10 points more AI use goes with ${sgn(of.slope10)} points a year ${of.slope10<0?'slower':'faster'} employment growth than before the pandemic (correlation ${neg(of.r,2)}); chance alone would produce a slope that ${of.slope10<0?'negative':'positive'} about ${of.slope10<0?of.chanceNeg:of.chance}% of the time${of.slope10<0?`, and up to ${of.robustChanceNeg}% when any one group is dropped`:''}. Broad groups mix very different jobs, construction and factory work swing with interest rates and trade, and the survey is young. Source: BLS household survey and St. Louis Fed survey via FRED.` : '';
+$('h5b').textContent = G ? (G.gap>G.gapMax0019 ? `Young graduates' unemployment is unusually high next to all workers'${G.change>0&&G.chance!=null&&G.chance<=20?', and their edge over other young people is shrinking':', but no more than other young people\'s'}` : `Young graduates' job market is within its usual range`) : '';
 $('f5').textContent = G ? `${G.last}: graduates 20–24 ${G.young.toFixed(1)}%, everyone 20–24 ${G.allYoung.toFixed(1)}%, all workers ${G.all.toFixed(1)}%. Young graduates are ${G.gap.toFixed(1)} points above all workers; the widest gap in 2000–19 was ${G.gapMax0019.toFixed(1)}. Their edge over other 20–24-year-olds was ${Math.abs(G.edge2023).toFixed(1)} points at the end of 2023 and is ${Math.abs(G.edge).toFixed(1)} now (${tier(G.chance)}). Source: BLS via FRED; October 2025 is missing because of the government shutdown.` : '';
 $('h6').textContent = SH.recordLow ? `Workers' share of business income is at a record low` : `Workers' share of business income is ${SH.now<SH.at2019?'below':'above'} its 2019 level`;
 $('f6').textContent = `Index ${SH.now.toFixed(1)}${SH.recordLow?`, the lowest since the series began in ${SH.since}`:''}; ${SH.at2019.toFixed(1)} at the end of 2019. Since the end of 2023 it has fallen ${Math.abs(SH.pace).toFixed(1)}% a year, against ${Math.abs(SH.trend).toFixed(1)}% in 2004–19; chance alone would produce a decline that fast about ${SH.chance}% of the time (${tier(SH.chance)}). Part of the latest drop mirrors the fast productivity quarter, before pay catches up. Source: BLS via FRED.`;
@@ -373,31 +381,45 @@ function draw(){
     table('t2',['Era','Total','Efficiency','Equipment','Skills','Working harder'],E.map(e=>[e.label,e.lp.toFixed(2),e.eff.toFixed(2),e.capital.toFixed(2),e.labor.toFixed(2),e.util.toFixed(2)]));
   }
 
-  /* 3. industries scatter */
-  { const M={l:40,r:16,t:14,b:34}; const Pp=I.points; const Hs=narrow()?320:380, Hold=H; H=Hs;
+  /* scatter kit: AI use across, change up; used by charts 3 and 5 */
+  function scatter(id,Pp,fit,o){ const M={l:40,r:16,t:14,b:34}; const Hs=narrow()?320:380, Hold=H; H=Hs;
     const x0=Math.floor(Math.min(...Pp.map(p=>p.use))/10)*10-5, x1=Math.ceil(Math.max(...Pp.map(p=>p.use))/10)*10;
     const lo=Math.floor(Math.min(...Pp.map(p=>p.speed))-0.5), hi=Math.ceil(Math.max(...Pp.map(p=>p.speed))+0.5);
     const xs=scale(x0,x1,M.l,Wd-M.r), ys=scale(lo,hi,H-M.b,M.t);
     let g=frame(M,xs,ys,ticks(x0+5,x1,10),ticks(lo,hi,1),v=>sgn(v,0),v=>v+'%');
     g+=`<text x="${Wd-M.r}" y="${H-22}" text-anchor="end">AI use at work →</text>`;
-    if(fx){const xa=x0+2,xb=x1-2;g+=`<line x1="${xs(xa)}" x2="${xs(xb)}" y1="${ys(fx.intercept+fx.slope10/10*xa)}" y2="${ys(fx.intercept+fx.slope10/10*xb)}" stroke="${s1}" stroke-width="1.5" stroke-dasharray="5 4" opacity=".8"/>`;}
+    if(fit){const xa=x0+2,xb=x1-2;g+=`<line x1="${xs(xa)}" x2="${xs(xb)}" y1="${ys(fit.intercept+fit.slope10/10*xa)}" y2="${ys(fit.intercept+fit.slope10/10*xb)}" stroke="${s1}" stroke-width="1.5" stroke-dasharray="5 4" opacity=".8"/>`;}
     const dots=Pp.map(p=>[xs(p.use),ys(p.speed)]), boxes=[];
-    const hits=(b)=>boxes.some(o=>b[0]<o[2]&&b[2]>o[0]&&b[1]<o[3]&&b[3]>o[1])||dots.some(([dx,dy])=>dx>b[0]-7&&dx<b[2]+7&&dy>b[1]-7&&dy<b[3]+7)||b[0]<M.l||b[2]>Wd-2||b[1]<0||b[3]>H-M.b;
+    const hits=(b)=>boxes.some(q=>b[0]<q[2]&&b[2]>q[0]&&b[1]<q[3]&&b[3]>q[1])||dots.some(([dx,dy])=>dx>b[0]-7&&dx<b[2]+7&&dy>b[1]-7&&dy<b[3]+7)||b[0]<M.l||b[2]>Wd-2||b[1]<0||b[3]>H-M.b;
     Pp.forEach((p,i)=>{const x=xs(p.use),y=ys(p.speed);
       g+= p.producer?`<circle cx="${x}" cy="${y}" r="5.5" fill="${panel}" stroke="${s2}" stroke-width="2.5"/>`:`<circle cx="${x}" cy="${y}" r="5.5" fill="${s1}" stroke="${panel}" stroke-width="2"/>`;
       g+=`<circle class="mk" data-i="${i}" cx="${x}" cy="${y}" r="14" fill="transparent"/>`;
-      let nm=narrow()?p.name.replace('Professional, scientific & technical','Prof. & technical').replace('Transportation & warehousing','Transport').replace('Leisure & hospitality','Leisure').replace('Education & health','Educ. & health').replace(' trade',''):p.name;
-      const tw=nm.length*6.7, th=12;
+      const nm=narrow()&&o.short?o.short(p.name):p.name; const tw=nm.length*6.7, th=12;
       const cands=[[x+10,y-th/2,'start'],[x-10-tw,y-th/2,'end'],[x-tw/2,y-th-9,'middle'],[x-tw/2,y+9,'middle'],[x+10,y-th-6,'start'],[x-10-tw,y-th-6,'end'],[x+10,y+6,'start'],[x-10-tw,y+6,'end'],[x+6-tw,y-th-9,'end'],[x+6-tw,y+9,'end'],[x-6,y-th-9,'start'],[x-6,y+9,'start']];
-      let c=cands.find(([bx,by])=>!hits([bx,by,bx+tw,by+th]))||cands[x<Wd*0.6?0:1];
+      const c=cands.find(([bx,by])=>!hits([bx,by,bx+tw,by+th]))||cands[x<Wd*0.6?0:1];
       dots.splice(i,1,[-99,-99]); const [bx,by,an]=c; boxes.push([bx,by,bx+tw,by+th]); dots.splice(i,1,[x,y]);
       const tx=an==='start'?bx:an==='end'?bx+tw:bx+tw/2;
       g+=`<text x="${tx}" y="${by+th-2}" text-anchor="${an}" class="halo lab">${esc(nm)}</text>`;});
-    setSvg('c3',g,'Industries by AI use and productivity speed-up: '+Pp.map(p=>`${p.name} ${p.use}% use, ${p.speed} points`).join('; '),Hs);
+    setSvg(id,g,o.alt,Hs); H=Hold;
+    hoverMarks(id,'.mk',el=>{const p=Pp[+el.dataset.i];return `<div class="th">${esc(p.name)}</div>`+o.tip(p)});
+  }
+
+  /* 3. industries */
+  { const Pp=I.points;
+    scatter('c3',Pp,fx,{alt:'Industries by AI use and productivity speed-up: '+Pp.map(p=>`${p.name} ${p.use}% use, ${p.speed} points`).join('; '),
+      short:n=>n.replace('Professional, scientific & technical','Prof. & technical').replace('Transportation & warehousing','Transport').replace('Leisure & hospitality','Leisure').replace('Education & health','Educ. & health').replace(' trade',''),
+      tip:p=>row(s1,'AI use at work',p.use.toFixed(0)+'%')+row(s1,'Since 2023, %/yr',p.now.toFixed(1))+row(ref,'2010–19, %/yr',p.trend.toFixed(1))+row(s1,'Speed-up, pts',sgn(p.speed))});
     legend('lg3',[['AI-using industries',s1,'dot'],['Information (builds and sells AI)',s2,'hollow'],['Fitted line, excluding Information',s1,'dash']]);
-    hoverMarks('c3','.mk',el=>{const p=Pp[+el.dataset.i];return `<div class="th">${esc(p.name)}</div>`+row(s1,'AI use at work',p.use.toFixed(0)+'%')+row(s1,'Since 2023, %/yr',p.now.toFixed(1))+row(ref,'2010–19, %/yr',p.trend.toFixed(1))+row(s1,'Speed-up, pts',sgn(p.speed))});
     table('t3',['Industry','AI use, %','Since 2023','2010–19','Speed-up'],Pp.map(p=>[p.name,p.use.toFixed(1),p.now.toFixed(2),p.trend.toFixed(2),sgn(p.speed,2)]));
-    H=Hold;
+  }
+
+  /* 5a. occupations */
+  if(OC&&OC.points.length>3){ const Pp=OC.points;
+    scatter('c5o',Pp,OC.fit,{alt:'Occupations by AI use and employment growth relative to trend: '+Pp.map(p=>`${p.name} ${p.use}% use, ${p.speed} points`).join('; '),
+      short:n=>n.replace('Management, business & financial','Mgmt., business & fin.').replace('Professional & related','Professional').replace('Office & admin support','Office & admin').replace('Construction & extraction','Construction').replace('Installation & repair','Repair').replace('Transportation & moving','Transport'),
+      tip:p=>row(s1,'AI use at work',p.use.toFixed(0)+'%')+row(s1,'Jobs since 2023, %/yr',sgn(p.now))+row(ref,'2015–19, %/yr',sgn(p.trend))+row(s1,'Difference, pts',sgn(p.speed))});
+    legend('lg5o',[['Occupation group',s1,'dot'],['Fitted line',s1,'dash']]);
+    table('t5o',['Occupation','AI use, %','Jobs since 2023, %/yr','2015–19, %/yr','Difference'],Pp.map(p=>[p.name,p.use.toFixed(1),p.now.toFixed(2),p.trend.toFixed(2),sgn(p.speed,2)]));
   }
 
   /* 4. AI investment contribution to GDP growth, by year */

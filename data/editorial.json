@@ -2,7 +2,7 @@
  "copy": {
   "verdict": "Not yet",
   "bottomLine": "Productivity is growing faster than in the 2010s: 3.6% at an annual rate last quarter and 2.6% a year over three years. The industries where more workers use AI are speeding up most. But almost none of the gain is underlying efficiency: it is more equipment per worker and people and machines working harder, which can fade. Watch the December productivity revision and the Q3 industry data on December 23.",
-  "changed": "Latest releases: Q3 Productivity and Costs (BLS, Nov 5) put output per hour up at a 3.6% annual rate, lifting three-year growth to 2.6%. The page now leads with six charts; every test is in the appendix.",
+  "changed": "Latest releases: Q3 Productivity and Costs (BLS, Nov 5) put output per hour up at a 3.6% annual rate, lifting three-year growth to 2.6%. The page now leads with charts, and the counted industry test is now the cross-industry link in chart 3, which is a clear signal; the verdict stays Not yet.",
   "caseFor": [
    {
     "h": "Workers and firms have moved fast.",
@@ -13,8 +13,8 @@
     "body": "It has grown 2.5% a year since the end of 2023 on both main measures, against 1.6% and 1.4% in 2004–19, and at a 3.6% annual rate in Q3. Chance alone would produce a gap that large only about 10% of the time, down from 22% a quarter ago."
    },
    {
-    "h": "AI-using industries are pulling ahead.",
-    "body": "Professional and business services sped up 1.8 points more than retail, leisure and construction, each against its own 2010–19 pace; only 6% of 2010–19 stretches showed a gap that large. In information, where AI is built, output rose 8.2% a year while hours fell 1.5%."
+    "h": "Productivity is rising fastest where AI is used most.",
+    "body": "Across nine industries, each 10 points more AI use at work goes with about 1 point faster productivity growth since the end of 2023, relative to each industry's 2010–19 pace. Chance alone would produce that slope about 1% of the time, and no more than 4% when any one industry is dropped."
    },
    {
     "h": "Tech-services jobs are shrinking.",
@@ -31,12 +31,12 @@
     "body": "Strip out more machines, more skills and harder work, and the SF Fed's figures show underlying efficiency growing about 0.1% a year since the end of 2023, below its 0.6% average in 2004–19. In the 1997–2003 boom it grew about 2.1% a year."
    },
    {
-    "h": "Nothing is clear of noise yet.",
-    "body": "No counted test on this page is a clear signal. Chance alone would put output per hour this far above trend about 10% of the time, and labor's falling share about 35%. Eleven quarters in, output per hour is up 6.9%, against 9.1% at the same point in the 1990s."
+    "h": "Most of the signals are still within noise.",
+    "body": "Only one counted test, the cross-industry link, is a clear signal. Chance alone would put output per hour this far above trend about 10% of the time, and labor's falling share about 35%. Eleven quarters in, output per hour is up 6.9%, against 9.1% at the same point in the 1990s."
    },
    {
     "h": "The job signs have older causes.",
-    "body": "Computer systems design jobs peaked in March 2023, as interest rates rose and before most firms used AI. Young graduates' edge over other 20–24-year-olds was already just 0.9 points at the end of 2023 and has narrowed only 0.2 since, a change matched in 63% of past stretches."
+    "body": "Computer systems design jobs peaked in March 2023, before most firms used AI. Across occupations, jobs are growing only slightly more slowly where AI use is higher, within noise. Young graduates' edge over other 20–24-year-olds was already 0.9 points at the end of 2023 and has narrowed only 0.2 since."
    },
    {
     "h": "Pay isn't moving the way the AI story predicts.",
