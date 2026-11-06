@@ -51,10 +51,7 @@ COMMENTARY STORE: the project doc `tracker/editorial.json` in this task's Claude
 - Imports don't subtract from GDP. Imported goods are taken out of spending only because they were never U.S. production. Say "much of the AI spending buys computers made abroad, so it adds less to U.S. output", never that imports "cancel" or "subtract from" growth.
 - The industry and occupation charts are correlations across a handful of groups. Call them a link, not proof; give the chance and the worst case when one group is dropped.
 - Every work signal has other possible causes. Tech hiring fell from 2023 as interest rates rose. Graduates' edge swings with the cycle and was already small at the end of 2023, so the test is its change since then, not its level. The labor share is pay per hour over output per hour, so it dips after a fast productivity quarter, and it swings with the business cycle. Much of the tech-investment jump is data-center building, and the ratio is in current dollars. Never write as if a work or income signal proves AI is the cause.
-- Industry groups are fixed:
-  - information = "AI producers" (shown, not counted)
-  - professional & business services = "AI users" proxy
-  - retail, leisure and construction = hands-on
+- Industries: Information builds and sells AI, so it is shown apart and left out of the counted cross-industry test (chart 3). The earlier gap test (professional & business services vs retail, leisure and construction) is now a cross-check only.
 - Never change the rules, groups, template or tools. The output tests were set on 2026-10-30; the significance tiers, stage rules, cross-industry test and chart layout on 2026-11-06. If the data seems to call for a change, say so in your final message instead.
 - Significance tiers (facts.txt TIERS line): chance 5% or less is a "clear signal", 5–20% "suggestive", above 20% or the wrong direction "no signal". Use these words, give the number ("chance alone would produce this about X% of the time"), and never call a suggestive result clear, reliable, significant or unusual. Stage statuses move only on clear signals; you may say what is suggestive.
 - Check every "highest since …", "lowest since …" or "wider than any …" claim against facts.txt.
