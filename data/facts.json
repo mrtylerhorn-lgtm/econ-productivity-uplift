@@ -393,7 +393,7 @@
    "name": "Workers using generative AI at work",
    "lean": "context",
    "counted": false,
-   "reading": "40%",
+   "reading": "41%",
    "detail": "Share of employed adults who used generative AI for work, St. Louis Fed survey, Jul 2026. Highest in computer and math jobs (69%) and management (63%); lower in office support (37%) and transportation (24%). Users say it saves about 2.1% of all work hours.",
    "trend": {
     "dir": "up",
@@ -4836,7 +4836,7 @@
    "q": "Are people using it?",
    "status": "Spreading",
    "tone": "context",
-   "reading": "40% of workers"
+   "reading": "41% of workers"
   },
   {
    "key": "money",

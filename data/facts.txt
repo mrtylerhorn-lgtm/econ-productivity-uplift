@@ -17,7 +17,7 @@ FACTS (the narrative must agree with these):
      [other] Education & health services: 1.22 vs 2010-19 0.2 (speed-up 1.01); output 3.6, hours 2.35
      [other] Manufacturing: 2.09 vs 2010-19 0.29 (speed-up 1.79); output 1.75, hours -0.33
   investment 2026Q3: real IPE yoy 29.1% (2y 55.9%), software 12.8%, computer imports 62.2% (2y 132.1%), contrib to GDP growth 0.93pp avg 4q
-  STAGES: Adoption: Spreading (40% of workers) | Money: Surging (10.7% of payroll) | Work: Mixed (1 of 3 tests) | Output: Not yet (0 of 3 tests) | Who gains: Leaning to capital (labor share -1.0%/yr)
+  STAGES: Adoption: Spreading (41% of workers) | Money: Surging (10.7% of payroll) | Work: Mixed (1 of 3 tests) | Output: Not yet (0 of 3 tests) | Who gains: Leaning to capital (labor share -1.0%/yr)
   adoption 2026-07-01: 40.5% of employed adults use genAI for work (avg of last 2 42.9, a year earlier 36.2; first 33.3 in 2024-07-01); daily use 11.5%; time saved 2.1% of work hours; computer/math 68.8, management 63.3, office 36.8, transport 23.7
   money 2026Q3: tech investment 10.7% of payroll (year ago 9.0, end-2023 7.9, max before 2023 8.1)
   WORK (1/3 {'graduates': True, 'exposedJobs': False, 'payStructure': False}):

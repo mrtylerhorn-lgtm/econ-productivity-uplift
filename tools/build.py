@@ -251,7 +251,7 @@ G_AD, G_MO, G_WK, G_OUT, G_WHO, G_CX = ("Adoption: are people using it?", "Money
 def mdate(d): y, mo = int(d[:4]), int(d[5:7]); return f"{['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][mo-1]} {y}"
 score = [
  dict(id="adopt", group=G_AD, name="Workers using generative AI at work", lean="context", counted=False,
-      reading=f"{aw['now']:.0f}%", detail=f"Share of employed adults who used generative AI for work, St. Louis Fed survey, {mdate(aw['date'])}. Highest in computer and math jobs ({adopt['ai_use_comp']['now']:.0f}%) and management ({adopt['ai_use_mgmt']['now']:.0f}%); lower in office support ({adopt['ai_use_office']['now']:.0f}%) and transportation ({adopt['ai_use_transport']['now']:.0f}%). Users say it saves about {adopt['ai_timesave']['now']:.1f}% of all work hours.",
+      reading=f"{int(aw['now']+0.5)}%", detail=f"Share of employed adults who used generative AI for work, St. Louis Fed survey, {mdate(aw['date'])}. Highest in computer and math jobs ({int(adopt['ai_use_comp']['now']+0.5)}%) and management ({int(adopt['ai_use_mgmt']['now']+0.5)}%); lower in office support ({int(adopt['ai_use_office']['now']+0.5)}%) and transportation ({int(adopt['ai_use_transport']['now']+0.5)}%). Users say it saves about {adopt['ai_timesave']['now']:.1f}% of all work hours.",
       trend=arrow(aw["avg2"], aw["yearAgoAvg2"], "%", "Average of the last two readings")),
  dict(id="money", group=G_MO, name="Tech investment relative to payroll", lean="context", counted=False,
       reading=f"{money['ratio']:.1f}%", detail=f"Business spending on computers, related equipment and software as a share of total employee pay, {qp(money['last'])}. Before 2023 it never topped {money['maxPre2023']:.1f}%. Firms are putting more money into machines and code relative to people, which is what you'd expect if they are substituting one for the other.",
@@ -325,7 +325,7 @@ derived = dict(nfb=nfb, nfc=nfc, path=dict(n=n, now=r1(path_now), boom=r1(path_9
                scorecard=score, tests=tests, testsFor=n_for, verdict=verdict, verdictOldRules=old,
                adopt=adopt, money=money, grads=grads, jobs=jobs, pay=pay, share=share, bench=bench, firms=firms,
                workTests=work_tests, workFor=nw,
-               stages=[dict(key="adopt", name="Adoption", q="Are people using it?", status=adopt_status, tone="context", reading=f"{aw['now']:.0f}% of workers"),
+               stages=[dict(key="adopt", name="Adoption", q="Are people using it?", status=adopt_status, tone="context", reading=f"{int(aw['now']+0.5)}% of workers"),
                        dict(key="money", name="Money", q="Are firms investing?", status=money_status, tone="context", reading=f"{money['ratio']:.1f}% of payroll"),
                        dict(key="work", name="Work", q="Are jobs and pay shifting?", status=work_status, tone="for" if nw >= 2 else ("mixed" if nw == 1 else "against"), reading=f"{nw} of 3 tests"),
                        dict(key="output", name="Output", q="Is productivity rising faster?", status=verdict, tone="for" if verdict in ("Early signs", "Showing up") else "against", reading=f"{n_for} of 3 tests"),

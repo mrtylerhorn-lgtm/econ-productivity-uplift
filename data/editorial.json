@@ -1,28 +1,28 @@
 {
  "copy": {
   "verdict": "Not yet",
-  "bottomLine": "Output per hour is pulling further above its old trend: 2.5% a year since the end of 2023, against 1.6% in 2004–19. That is closer to a reliable signal, but chance alone could still produce a gap this large about 10% of the time. The main holdout is underlying efficiency: the San Francisco Fed finds almost no gain, and credits the extra output to more machines and people working harder. The verdict would move if the pickup holds for another quarter or two and underlying efficiency starts rising with it.",
-  "changed": "Latest releases: Q3 Productivity and Costs (BLS, Nov 5) put nonfarm output per hour up at a 3.6% annual rate in Q3 and revised earlier quarters up, lifting the pace since the end of 2023 from 2.1% to 2.5% a year. The chance that noise explains it fell from 22% to 10%, still short of the 5% bar, so the verdict stays at Not yet.",
+  "bottomLine": "AI is clearly changing what firms buy and how people work: about 4 in 10 workers now use it, and firms are spending more on computers and software relative to payroll than ever before. The first job signs are showing among new college graduates, who have nearly lost their usual edge over other young workers. Output per hour is running above its old trend but isn't yet clear of normal noise, and underlying efficiency is flat. Watch whether the productivity pickup holds into 2027, and whether exposed jobs and pay start moving together.",
+  "changed": "Latest releases: Q3 Productivity and Costs (BLS, Nov 5) put output per hour up at a 3.6% annual rate and revised earlier quarters up, so chance alone now explains the pickup about 10% of the time, down from 22%. This update also adds adoption, money, work and who-gains stages; the productivity verdict stays at Not yet.",
   "caseFor": [
    {
-    "h": "The pickup is broad and getting stronger.",
-    "body": "Output per hour has grown 2.5% a year since the end of 2023 on both the nonfarm business and nonfinancial corporate measures, against 1.6% and 1.4% in 2004–19. Q3 alone ran at a 3.6% annual rate. Official BLS TFP has grown 1.2% a year since 2023, against 0.7%, and real income outpaces real GDP."
+    "h": "Workers and firms have moved fast.",
+    "body": "41% of workers used generative AI for work in July 2026, up from 33% in mid-2024. Business spending on computers and software has jumped to 10.7% of payroll, far above its pre-2023 peak of 8.1%. Spending like that usually comes before measured gains."
+   },
+   {
+    "h": "New graduates are feeling it first.",
+    "body": "College graduates aged 20–24 have an unemployment rate of 6.7%, barely below the 7.4% for all 20–24-year-olds. From 2002 to 2019 their edge never fell below 1.4 points; now it is 0.7. Entry-level office work is exactly what AI does well."
+   },
+   {
+    "h": "Output per hour is pulling away.",
+    "body": "It has grown 2.5% a year since the end of 2023 on both main measures, against 1.6% and 1.4% in 2004–19, and at a 3.6% annual rate in Q3. Official BLS TFP grew 1.2% a year in 2023–25, against 0.7%, and real income outpaces real GDP."
    },
    {
     "h": "Where AI is built, productivity is surging.",
     "body": "Output per hour in information has grown 9.9% a year since the end of 2023, against 6.0% in 2010–19: output up 8.2% a year while hours fell 1.5%. That speed-up is larger than in any 2010–19 stretch."
    },
    {
-    "h": "Office work is pulling ahead.",
-    "body": "Professional and business services have sped up 1.8 points more than retail, leisure and construction, each against its own 2010–19 pace. A year ago the gap was 0.3 points."
-   },
-   {
-    "h": "The 'no' rests on factory hours.",
-    "body": "The SF Fed credits the gains to working harder, a signal Klein finds comes almost entirely from manufacturing workweeks. Longer shifts at machine shops say little about whether coders and analysts are getting more done."
-   },
-   {
-    "h": "The 1990s say the data lags.",
-    "body": "Output per hour only took off around 1997, years after tech stocks were priced for a boom. Inflation-adjusted investment in computers and related equipment is up 55.9% in two years, and payoffs from new technology usually come after firms reorganize."
+    "h": "Owners are capturing more.",
+    "body": "Workers' share of business income is the lowest since 1947 and has fallen 1.0% a year since the end of 2023, more than twice its 2004–19 pace. That fits firms substituting software and machines for people."
    }
   ],
   "caseAgainst": [
@@ -31,20 +31,41 @@
     "body": "Strip out more machines, more skills and harder work, and the SF Fed's figures show underlying efficiency growing about 0.1% a year since the end of 2023, essentially flat. In the 1997–2003 boom it grew about 2.1% a year."
    },
    {
-    "h": "The headline pace is still within normal noise.",
-    "body": "Chance alone would put nonfarm output per hour this far above trend about 10% of the time; a reliable signal needs 5% or less. Eleven quarters in, it is up 6.9%, against 9.1% at the same point in the 1990s, and every stretch of that boom was faster."
+    "h": "The productivity pickup is within noise.",
+    "body": "Chance alone would put nonfarm output per hour this far above trend about 10% of the time; a reliable signal needs 5% or less. Eleven quarters in, it is up 6.9%, against 9.1% at the same point in the 1990s."
+   },
+   {
+    "h": "The job signs have older causes.",
+    "body": "Computer systems design jobs are down 3.9% since the end of 2023, but they peaked in March 2023, as interest rates rose and before most firms used AI. Young graduates' gap with older graduates (3.7 points) is within its 2002–19 range."
+   },
+   {
+    "h": "Pay isn't moving the way the AI story predicts.",
+    "body": "If AI raised the value of people who direct work, managers' pay premium should widen. Instead office and administrative pay has grown 4.1% a year since late 2023, against 3.8% for managers, and the premium is below its 2019 level."
    },
    {
     "h": "More machines and longer hours explain a lot.",
-    "body": "In the SF Fed's Q2 2026 figures, more capital and skills per hour added 1.7 points to 2.3% labor-productivity growth and working harder added another 1.7, while efficiency subtracted 1.1. Factory production workers average 42.0 hours a week, up 1.2 in two years."
+    "body": "In the SF Fed's Q2 2026 figures, more capital and skills per hour added 1.7 points to 2.3% labor-productivity growth and working harder added another 1.7, while efficiency subtracted 1.1. Factory production workers average 42.0 hours a week."
+   }
+  ],
+  "headline": "Use and spending are surging. Jobs are shifting at the edges. Productivity hasn't clearly broken out.",
+  "claims": [
+   {
+    "who": "Erik Brynjolfsson, Stanford (Nov 2026)",
+    "claim": "\"Evidence is growing that we're turning the corner on productivity. US productivity grew at a 3.6% annual rate this past quarter. That's more than double the 1.5% average from 2007-2019.\"",
+    "verdict": "Right numbers, early conclusion.",
+    "check": "Q3 was 3.6% and the 2007–19 average 1.5%. But 17% of quarters in 2004–19 were as strong, the 2.5% pace since the end of 2023 isn't yet clear of noise, and underlying efficiency is flat. His comparison with CBO's January 2020 forecast isn't checked here; CBO's forecast data can't be downloaded automatically."
    },
    {
-    "h": "The office signal is thin.",
-    "body": "Retail's 2.0-point slowdown supplies much of the office-versus-hands-on gap; drop any one hands-on industry and it shrinks to 1.1 points. Some 2010–19 stretches showed gaps as large. Information's surge reflects building and selling AI, not using it."
+    "who": "Alex Imas, Andrew Koh and Shane Legg, Google DeepMind (Oct 2026)",
+    "claim": "\"Wages and job roles—not headline GDP or industry concentration—remain the earliest signals of change.\"",
+    "verdict": "Partly borne out.",
+    "check": "Young graduates have nearly lost their job-finding edge and computer systems design jobs are down 3.9% since late 2023. But the managers' pay premium their model predicts has narrowed, not widened (−0.6% since late 2023), and new-business formation is below its end-2023 level."
    },
    {
-    "h": "Revisions cut both ways.",
-    "body": "This week's revisions lifted the nonfarm figures but cut nonfinancial corporations from 2.7% to 2.5% a year since the end of 2023. Early estimates move a lot, and the corporate figure for Q3 isn't out until December."
+    "who": "Matthew C. Klein, The Overshoot (Aug 2026)",
+    "claim": "\"The SF Fed model is showing a slowdown in underlying productivity because it is attributing almost all of the pickup in output/hour to temporary cyclical forces associated with a hot economy.\"",
+    "verdict": "Still holds, with a caveat.",
+    "check": "Underlying efficiency has grown about 0.1% a year since the end of 2023, and working harder added 1.7 points to Q2 2026 growth. But the fastest gains are in offices, not the factories that drive the SF Fed's adjustment."
    }
   ]
  },
