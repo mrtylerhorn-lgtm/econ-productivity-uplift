@@ -11113,7 +11113,13 @@
    "method": "average of SF Fed quarterly utilization-adjusted TFP growth, 2024Q1–2026Q2"
   },
   "fourQNote": null,
-  "source": "file"
+  "source": "file",
+  "noise": {
+   "avg0419": 0.589,
+   "sdQ0419": 2.642,
+   "nSince2023": 10,
+   "since2023Exact": 0.119
+  }
  },
  "tipsLatestDaily": {
   "date": "2026-11-04",
