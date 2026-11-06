@@ -509,7 +509,7 @@
    "lean": "against",
    "counted": true,
    "reading": "+0.1%/yr",
-   "detail": "Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures), against 0.6% a year in 2004–19 and about 2.1% in the 1997–2003 boom. It is below its 2004–19 pace. That is within normal noise (above 20%).",
+   "detail": "Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures), against 0.6% a year in 2004–19 and about 2.0% in the 1997–2003 boom. It is below its 2004–19 pace. That is within normal noise (above 20%).",
    "trend": null
   },
   {
@@ -7341,19 +7341,19 @@
    "eras": [
     {
      "label": "1948–73",
-     "lp": 3.12,
-     "capital": 0.91,
+     "lp": 3.16,
+     "capital": 0.9,
      "labor": 0.19,
-     "util": -0.03,
-     "eff": 2.05
+     "util": -0.01,
+     "eff": 2.09
     },
     {
      "label": "1974–95",
-     "lp": 1.54,
+     "lp": 1.53,
      "capital": 0.71,
-     "labor": 0.3,
-     "util": -0.07,
-     "eff": 0.61
+     "labor": 0.31,
+     "util": -0.08,
+     "eff": 0.6
     },
     {
      "label": "1996–2003",
@@ -7365,11 +7365,11 @@
     },
     {
      "label": "2004–19",
-     "lp": 1.53,
+     "lp": 1.54,
      "capital": 0.72,
-     "labor": 0.23,
-     "util": 0.02,
-     "eff": 0.56
+     "labor": 0.25,
+     "util": -0.02,
+     "eff": 0.59
     },
     {
      "label": "2020–23",
