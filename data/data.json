@@ -17061,6 +17061,746 @@
    ],
    "optional": true,
    "fetched": "2026-11-06"
+  },
+  "ai_occ_1": {
+   "id": "RPSGENAIUSAGESHAREOCC1",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_2": {
+   "id": "RPSGENAIUSAGESHAREOCC2",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_3": {
+   "id": "RPSGENAIUSAGESHAREOCC3",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_4": {
+   "id": "RPSGENAIUSAGESHAREOCC4",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_5": {
+   "id": "RPSGENAIUSAGESHAREOCC5",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_6": {
+   "id": "RPSGENAIUSAGESHAREOCC6",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_7": {
+   "id": "RPSGENAIUSAGESHAREOCC7",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_8": {
+   "id": "RPSGENAIUSAGESHAREOCC8",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_9": {
+   "id": "RPSGENAIUSAGESHAREOCC9",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_10": {
+   "id": "RPSGENAIUSAGESHAREOCC10",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_11": {
+   "id": "RPSGENAIUSAGESHAREOCC11",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_12": {
+   "id": "RPSGENAIUSAGESHAREOCC12",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_13": {
+   "id": "RPSGENAIUSAGESHAREOCC13",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_14": {
+   "id": "RPSGENAIUSAGESHAREOCC14",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_15": {
+   "id": "RPSGENAIUSAGESHAREOCC15",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_16": {
+   "id": "RPSGENAIUSAGESHAREOCC16",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_17": {
+   "id": "RPSGENAIUSAGESHAREOCC17",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_18": {
+   "id": "RPSGENAIUSAGESHAREOCC18",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_19": {
+   "id": "RPSGENAIUSAGESHAREOCC19",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_20": {
+   "id": "RPSGENAIUSAGESHAREOCC20",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_21": {
+   "id": "RPSGENAIUSAGESHAREOCC21",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "ai_occ_22": {
+   "id": "RPSGENAIUSAGESHAREOCC22",
+   "title": "",
+   "units": "",
+   "freq": "X",
+   "updated": "",
+   "values": [],
+   "dates": [],
+   "optional": true
+  },
+  "occprobe_01": {
+   "id": "LNU02032201",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_02": {
+   "id": "LNU02032202",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_03": {
+   "id": "LNU02032203",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_04": {
+   "id": "LNU02032204",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_05": {
+   "id": "LNU02032205",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_06": {
+   "id": "LNU02032206",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_07": {
+   "id": "LNU02032207",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_08": {
+   "id": "LNU02032208",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_09": {
+   "id": "LNU02032209",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_10": {
+   "id": "LNU02032210",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_11": {
+   "id": "LNU02032211",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_12": {
+   "id": "LNU02032212",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_13": {
+   "id": "LNU02032213",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_14": {
+   "id": "LNU02032214",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_15": {
+   "id": "LNU02032215",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_16": {
+   "id": "LNU02032216",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_17": {
+   "id": "LNU02032217",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_18": {
+   "id": "LNU02032218",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_19": {
+   "id": "LNU02032219",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_20": {
+   "id": "LNU02032220",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_21": {
+   "id": "LNU02032221",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_22": {
+   "id": "LNU02032222",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_23": {
+   "id": "LNU02032223",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_24": {
+   "id": "LNU02032224",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_25": {
+   "id": "LNU02032225",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_26": {
+   "id": "LNU02032226",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_27": {
+   "id": "LNU02032227",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_28": {
+   "id": "LNU02032228",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_29": {
+   "id": "LNU02032229",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_30": {
+   "id": "LNU02032230",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_31": {
+   "id": "LNU02032231",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_32": {
+   "id": "LNU02032232",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_33": {
+   "id": "LNU02032233",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_34": {
+   "id": "LNU02032234",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_35": {
+   "id": "LNU02032235",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_36": {
+   "id": "LNU02032236",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_37": {
+   "id": "LNU02032237",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_38": {
+   "id": "LNU02032238",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_39": {
+   "id": "LNU02032239",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
+  },
+  "occprobe_40": {
+   "id": "LNU02032240",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2000-01",
+   "values": [],
+   "optional": true,
+   "allowGaps": [
+    "2025-10"
+   ]
   }
  },
  "sectors": [
