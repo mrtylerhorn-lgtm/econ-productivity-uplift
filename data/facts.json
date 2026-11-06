@@ -70,6 +70,10 @@
    2.04
   ],
   "w9703": [
+   2.71,
+   2.77,
+   2.92,
+   2.92,
    3.22,
    3.86,
    3.15,
@@ -89,7 +93,7 @@
    3.81,
    4.38
   ],
-  "min9703": 2.86
+  "min9703": 2.71
  },
  "nfc": {
   "last": "2026Q2",
@@ -163,6 +167,10 @@
    1.61
   ],
   "w9703": [
+   3.13,
+   3.31,
+   3.02,
+   3.37,
    3.3,
    3.24,
    3.11,
@@ -186,9 +194,9 @@
   "min9703": 1.61
  },
  "path": {
-  "n": 20,
+  "n": 11,
   "now": 106.9,
-  "boom": 109.1,
+  "boom": 107.6,
   "trend": 104.3
  },
  "income": {
@@ -204,7 +212,9 @@
   "lastQ": "2026Q2",
   "trend": 0.59,
   "z": -0.56,
-  "chance": 71
+  "chance": 71,
+  "lo90": -1.3,
+  "hi90": 1.5
  },
  "decomp": [
   {
@@ -260,7 +270,7 @@
   "lastYear": 2025,
   "since2023": 1.18,
   "trend": 0.7,
-  "boom": 1.49,
+  "boom": 1.42,
   "lastYearGrowth": 0.83,
   "prevYearGrowth": 1.53
  },
@@ -366,7 +376,7 @@
     "hrs": -0.33
    }
   ],
-  "chance": 4
+  "chance": 6
  },
  "invest": {
   "last": "2026Q3",
@@ -411,7 +421,7 @@
    "lean": "context",
    "counted": false,
    "reading": "10.7%",
-   "detail": "Business spending on information-processing equipment (computers, communications gear and instruments) and software, as a share of total employee pay, Q3 2026. Before 2023 the peak was 8.1% (Q2 2022). Much of the recent jump is data-center building, and these are dollar figures, so part of the rise is prices.",
+   "detail": "Business spending on information-processing equipment (computers, communications gear and instruments) and software, as a share of total employee pay, Q3 2026. Before 2023 the peak was 8.1% (Q2 2022). Much of the recent jump is data-center equipment, and these are dollar figures, so part of the rise is prices.",
    "trend": {
     "dir": "up",
     "text": "Latest: 10.7%, up from 9.0% a year earlier"
@@ -509,7 +519,7 @@
    "lean": "against",
    "counted": true,
    "reading": "+0.1%/yr",
-   "detail": "Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures), against 0.6% a year in 2004–19 and about 2.0% in the 1997–2003 boom. It is below its 2004–19 pace. That is within normal noise (above 20%).",
+   "detail": "Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures), against 0.6% a year in 2004–19 and about 2.0% in the 1996–2003 boom. It is below its 2004–19 pace. That is within normal noise (above 20%).",
    "trend": null
   },
   {
@@ -519,7 +529,7 @@
    "lean": "context",
    "counted": false,
    "reading": "1.2%/yr",
-   "detail": "2023–2025, against 0.7% in 2004–19 and 1.5% in 1997–2003. No adjustment for working harder, so it overstates efficiency in a hot economy.",
+   "detail": "2023–2025, against 0.7% in 2004–19 and 1.4% in 1996–2003. No adjustment for working harder, so it overstates efficiency in a hot economy.",
    "trend": {
     "dir": "down",
     "text": "Growth in 2025: 0.8%, down from 1.5% a year earlier"
@@ -541,21 +551,21 @@
   {
    "id": "fp",
    "group": "Output: is productivity rising faster?",
-   "name": "Industries: more AI use, bigger speed-up?",
-   "lean": "for",
-   "counted": true,
+   "name": "Industries: more AI use, bigger speed-up? (exploratory)",
+   "lean": "context",
+   "counted": false,
    "reading": "+1.0 pts",
-   "detail": "Across 9 industries (Information left out because it builds AI), each 10 points more AI use at work goes with +1.0 points faster productivity growth since the end of 2023, relative to each industry's 2010–19 pace (correlation 0.77). Chance alone would produce a slope that steep about 1% of the time, and no more than 4% when any one industry is dropped. That is a clear signal (5% or less). A link, not proof of cause.",
+   "detail": "Across 9 industries (Information left out), each 10 points more AI use goes with +1.0 points faster productivity growth since the end of 2023 than in 2010–19 (chance 1%, up to 4% dropping any one industry). But the same pattern was already there in 2019–23, before AI use at work (slope +0.6), and against each industry's own 2019–23 pace the slope is +0.3 (chance 24%). Found after looking at the data, so not counted.",
    "trend": null
   },
   {
    "id": "sec",
    "group": "Output: is productivity rising faster?",
-   "name": "AI users vs hands-on industries (earlier test)",
+   "name": "AI users vs hands-on industries",
    "lean": "mixed",
-   "counted": false,
+   "counted": true,
    "reading": "+1.8 pts",
-   "detail": "How much more professional & business services sped up than retail, leisure and construction, each measured against its own 2010–19 pace. 6% of 2010–19 stretches showed a gap at least as large, and dropping any one hands−on industry leaves +1.1 pts. That is suggestive (between 5% and 20%), not yet clear. Replaced as the counted industry test on Nov 6, 2026 by the cross-industry test above, which uses every industry with AI-use data.",
+   "detail": "How much more professional & business services sped up than retail, leisure and construction, each measured against its own 2010–19 pace. 6% of 2010–19 stretches showed a gap at least as large, and dropping any one hands−on industry leaves +1.1 pts. That is suggestive (between 5% and 20%), not yet clear.",
    "trend": {
     "dir": "up",
     "text": "Gap: 1.8 pts, up from 0.3 pts a year earlier"
@@ -608,17 +618,17 @@
  "tests": {
   "pace": false,
   "efficiency": false,
-  "industries": true
+  "industries": false
  },
- "testsFor": 1,
- "testsSuggestive": 1,
+ "testsFor": 0,
+ "testsSuggestive": 2,
  "verdict": "Not yet",
  "verdictOldRules": "Not yet",
  "verdictOct30": "Not yet",
  "chances": {
   "pace": 10,
   "efficiency": 71,
-  "industries": 4,
+  "industries": 6,
   "graduates": 63,
   "exposedJobs": 11,
   "payStructure": null,
@@ -5756,6 +5766,14 @@
   "at2023": 154712,
   "at2019": 110192
  },
+ "from2022": {
+  "gradsChange": 0.8,
+  "gradsChance": 49,
+  "jobsCompsys": -5.1,
+  "jobsPrivate": 2.8,
+  "jobsGap": -8.0,
+  "jobsChance": 7
+ },
  "workTests": {
   "graduates": false,
   "exposedJobs": false,
@@ -5771,7 +5789,7 @@
  "outLeans": {
   "pace": "mixed",
   "efficiency": "against",
-  "industries": "for"
+  "industries": "mixed"
  },
  "stages": [
   {
@@ -5804,7 +5822,7 @@
    "q": "Is productivity rising faster?",
    "status": "Not yet",
    "tone": "mixed",
-   "reading": "1 clear · 1 suggestive"
+   "reading": "0 clear · 2 suggestive"
   },
   {
    "key": "gains",
@@ -5826,7 +5844,12 @@
      "now": -0.05,
      "trend": -0.59,
      "last": "2026Q2",
-     "producer": false
+     "producer": false,
+     "pre": -2.91,
+     "outG": 1.2,
+     "hrsG": 1.25,
+     "outTr": 2.82,
+     "hrsTr": 3.42
     },
     {
      "key": "mfg",
@@ -5836,7 +5859,12 @@
      "now": 2.09,
      "trend": 0.29,
      "last": "2026Q2",
-     "producer": false
+     "producer": false,
+     "pre": 1.6,
+     "outG": 1.75,
+     "hrsG": -0.33,
+     "outTr": 1.57,
+     "hrsTr": 1.27
     },
     {
      "key": "wholesale",
@@ -5846,7 +5874,12 @@
      "now": 3.94,
      "trend": 1.23,
      "last": "2026Q2",
-     "producer": false
+     "producer": false,
+     "pre": -1.36,
+     "outG": 3.88,
+     "hrsG": -0.06,
+     "outTr": 2.37,
+     "hrsTr": 1.12
     },
     {
      "key": "retail",
@@ -5856,7 +5889,12 @@
      "now": 0.9,
      "trend": 2.93,
      "last": "2026Q2",
-     "producer": false
+     "producer": false,
+     "pre": 1.53,
+     "outG": 0.9,
+     "hrsG": 0.0,
+     "outTr": 3.51,
+     "hrsTr": 0.56
     },
     {
      "key": "transport",
@@ -5866,7 +5904,12 @@
      "now": -0.6,
      "trend": -0.44,
      "last": "2026Q2",
-     "producer": false
+     "producer": false,
+     "pre": -1.52,
+     "outG": -0.74,
+     "hrsG": -0.14,
+     "outTr": 2.91,
+     "hrsTr": 3.36
     },
     {
      "key": "info",
@@ -5876,7 +5919,12 @@
      "now": 9.86,
      "trend": 5.99,
      "last": "2026Q2",
-     "producer": true
+     "producer": true,
+     "pre": 8.33,
+     "outG": 8.2,
+     "hrsG": -1.51,
+     "outTr": 6.42,
+     "hrsTr": 0.41
     },
     {
      "key": "finance",
@@ -5886,7 +5934,12 @@
      "now": 3.41,
      "trend": -0.44,
      "last": "2026Q2",
-     "producer": false
+     "producer": false,
+     "pre": 2.35,
+     "outG": 3.21,
+     "hrsG": -0.2,
+     "outTr": 0.95,
+     "hrsTr": 1.39
     },
     {
      "key": "pst",
@@ -5896,7 +5949,12 @@
      "now": 3.73,
      "trend": 1.45,
      "last": "2026Q2",
-     "producer": false
+     "producer": false,
+     "pre": 3.13,
+     "outG": 4.13,
+     "hrsG": 0.38,
+     "outTr": 4.34,
+     "hrsTr": 2.85
     },
     {
      "key": "health",
@@ -5906,7 +5964,12 @@
      "now": 1.22,
      "trend": 0.2,
      "last": "2026Q2",
-     "producer": false
+     "producer": false,
+     "pre": 1.11,
+     "outG": 3.6,
+     "hrsG": 2.35,
+     "outTr": 2.41,
+     "hrsTr": 2.2
     },
     {
      "key": "leisure",
@@ -5916,7 +5979,12 @@
      "now": 0.03,
      "trend": 0.34,
      "last": "2026Q2",
-     "producer": false
+     "producer": false,
+     "pre": -0.01,
+     "outG": 0.61,
+     "hrsG": 0.59,
+     "outTr": 3.04,
+     "hrsTr": 2.69
     }
    ],
    "fit": {
@@ -5935,6 +6003,20 @@
     "robustChance": 4,
     "robustDropped": "Finance & insurance",
     "robustR": 0.66
+   },
+   "pre": {
+    "n": 9,
+    "slope10": 0.64,
+    "r": 0.48,
+    "intercept": -2.94,
+    "chance": 10
+   },
+   "vsPre": {
+    "n": 9,
+    "slope10": 0.35,
+    "r": 0.27,
+    "intercept": -0.34,
+    "chance": 24
    },
    "surveyDate": "2026-07-01"
   },
@@ -7343,6 +7425,8 @@
      "label": "1948–73",
      "lp": 3.16,
      "capital": 0.9,
+     "itcap": 0.15,
+     "othcap": 0.75,
      "labor": 0.19,
      "util": -0.01,
      "eff": 2.09
@@ -7351,6 +7435,8 @@
      "label": "1974–95",
      "lp": 1.53,
      "capital": 0.71,
+     "itcap": 0.44,
+     "othcap": 0.27,
      "labor": 0.31,
      "util": -0.08,
      "eff": 0.6
@@ -7359,6 +7445,8 @@
      "label": "1996–2003",
      "lp": 3.4,
      "capital": 1.33,
+     "itcap": 0.81,
+     "othcap": 0.52,
      "labor": 0.25,
      "util": -0.21,
      "eff": 2.02
@@ -7367,6 +7455,8 @@
      "label": "2004–19",
      "lp": 1.54,
      "capital": 0.72,
+     "itcap": 0.46,
+     "othcap": 0.26,
      "labor": 0.25,
      "util": -0.02,
      "eff": 0.59
@@ -7375,6 +7465,8 @@
      "label": "2020–23",
      "lp": 2.15,
      "capital": 0.84,
+     "itcap": 0.51,
+     "othcap": 0.32,
      "labor": 0.22,
      "util": -0.18,
      "eff": 1.27
@@ -7383,6 +7475,8 @@
      "label": "Since 2023",
      "lp": 2.52,
      "capital": 1.12,
+     "itcap": 0.57,
+     "othcap": 0.56,
      "labor": 0.3,
      "util": 0.98,
      "eff": 0.12
@@ -7396,9 +7490,9 @@
      "key": "occ_mgmt",
      "name": "Management, business & financial",
      "use": 64.1,
-     "speed": -2.56,
+     "speed": 0.11,
      "now": 0.53,
-     "trend": 3.09,
+     "trend": 0.42,
      "last": "Sep 2026",
      "mixed": true,
      "producer": false
@@ -7407,9 +7501,9 @@
      "key": "occ_prof",
      "name": "Professional & related",
      "use": 51.3,
-     "speed": -1.78,
+     "speed": 0.32,
      "now": 0.74,
-     "trend": 2.52,
+     "trend": 0.42,
      "last": "Sep 2026",
      "mixed": true,
      "producer": false
@@ -7418,9 +7512,9 @@
      "key": "occ_sales",
      "name": "Sales",
      "use": 40.3,
-     "speed": -0.26,
+     "speed": -0.76,
      "now": -0.34,
-     "trend": -0.08,
+     "trend": 0.42,
      "last": "Sep 2026",
      "mixed": false,
      "producer": false
@@ -7429,9 +7523,9 @@
      "key": "occ_office",
      "name": "Office & admin support",
      "use": 36.8,
-     "speed": 0.98,
+     "speed": 0.58,
      "now": 1.0,
-     "trend": 0.02,
+     "trend": 0.42,
      "last": "Sep 2026",
      "mixed": false,
      "producer": false
@@ -7440,9 +7534,9 @@
      "key": "occ_service",
      "name": "Service",
      "use": 23.1,
-     "speed": 0.02,
+     "speed": 0.46,
      "now": 0.88,
-     "trend": 0.86,
+     "trend": 0.42,
      "last": "Sep 2026",
      "mixed": true,
      "producer": false
@@ -7451,9 +7545,9 @@
      "key": "occ_constr",
      "name": "Construction & extraction",
      "use": 35.0,
-     "speed": -3.38,
+     "speed": -2.06,
      "now": -1.64,
-     "trend": 1.74,
+     "trend": 0.42,
      "last": "Sep 2026",
      "mixed": false,
      "producer": false
@@ -7462,9 +7556,9 @@
      "key": "occ_install",
      "name": "Installation & repair",
      "use": 27.3,
-     "speed": 0.51,
+     "speed": 0.03,
      "now": 0.44,
-     "trend": -0.07,
+     "trend": 0.42,
      "last": "Sep 2026",
      "mixed": false,
      "producer": false
@@ -7473,9 +7567,9 @@
      "key": "occ_prod",
      "name": "Production",
      "use": 33.2,
-     "speed": -2.24,
+     "speed": -2.36,
      "now": -1.94,
-     "trend": 0.3,
+     "trend": 0.42,
      "last": "Sep 2026",
      "mixed": false,
      "producer": false
@@ -7484,9 +7578,9 @@
      "key": "occ_transport",
      "name": "Transportation & moving",
      "use": 26.4,
-     "speed": -1.04,
+     "speed": 0.78,
      "now": 1.2,
-     "trend": 2.24,
+     "trend": 0.42,
      "last": "Sep 2026",
      "mixed": false,
      "producer": false
@@ -7494,12 +7588,12 @@
    ],
    "fit": {
     "n": 9,
-    "slope10": -0.51,
-    "r": -0.45,
-    "intercept": 0.84,
-    "chance": 89,
-    "chanceNeg": 11,
-    "robustChanceNeg": 26
+    "slope10": 0.03,
+    "r": 0.04,
+    "intercept": -0.45,
+    "chance": 46,
+    "chanceNeg": 54,
+    "robustChanceNeg": 66
    }
   },
   "capex": {
@@ -7791,9 +7885,14 @@
     "imp": -0.66,
     "gdp": 2.08
    },
-   "peak2000": 0.81
+   "peak4q90s": 0.91,
+   "peak4q90sEnd": "1999Q3",
+   "importsRealYoy": 62.2
   },
   "grads": {
+   "gapDec2022": 1.9,
+   "gapDec2023": 2.0,
+   "edgeDec2022": -1.5,
    "series": [
     [
      "Dec 2000",

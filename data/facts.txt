@@ -1,15 +1,15 @@
 data as of 2026-11-06
 FACTS (the narrative must agree with these):
   TIERS: chance <=5% clear signal, 5-20% suggestive, >20% or wrong direction no signal. Stage statuses count clear signals only.
-  verdict: Not yet  (output tests: 1 clear, 1 suggestive; {'pace': 'suggestive', 'efficiency': 'no signal', 'industries': 'clear signal'}); under Oct 30 test definitions: Not yet; under pre-Oct-30 rules: Not yet
-  nonfarm business: 2.46%/yr since 2023Q4 to 2026Q3 vs trend 1.56; z 1.27, chance 10% -> suggestive; yoy 2.06; 14.8% of overlapping 2004-19 windows as fast; 1997-2003 min 2.86; since 2019Q4 2.22
+  verdict: Not yet  (output tests: 0 clear, 2 suggestive; {'pace': 'suggestive', 'efficiency': 'no signal', 'industries': 'suggestive'}); under Oct 30 test definitions: Not yet; under pre-Oct-30 rules: Not yet
+  nonfarm business: 2.46%/yr since 2023Q4 to 2026Q3 vs trend 1.56; z 1.27, chance 10% -> suggestive; yoy 2.06; 14.8% of overlapping 2004-19 windows as fast; 1997-2003 min 2.71; since 2019Q4 2.22
   nonfinancial corps: 2.55%/yr vs 1.36; z 0.93, chance 18%; yoy 3.65; 5.5% of windows as fast
-  1990s path at +20q: now 106.9, boom 109.1, trend 104.3
+  1990s path at +11q: now 106.9, boom 107.6, trend 104.3
   income check through 2026Q2: GDI 2.66 vs GDP 2.35
   SF Fed util-adj since 2023: 0.1 (exact 0.119) vs 2004-19 avg 0.59; z -0.56, chance 71% -> no signal; four-quarter TFP 1.42, util-adj -0.07
-  BLS TFP 2023-2025: 1.18 vs 2004-19 0.7, 1997-2003 1.49
+  BLS TFP 2023-2025: 1.18 vs 2004-19 0.7, 1996-2003 1.42
   workweek Sep 2026: 42.0 (year ago 41.0, two years ago 40.8, 2018 peak 42.4)
-  industries through 2026Q2: users-vs-hands-on speed-up gap 1.81 (year ago 0.31; leave-one-out min 1.09; 6% of 2010-19 windows as wide, max 1.87) -> suggestive (earlier test, cross-check only; the counted industry test is chart 3's slope: 4% -> clear signal); producers [{'key': 'info', 'name': 'Information', 'speed': 3.87, 'maxWindow1019': 2.77}]
+  industries through 2026Q2: users-vs-hands-on speed-up gap 1.81 (year ago 0.31; leave-one-out min 1.09; 6% of 2010-19 windows as wide, max 1.87) -> suggestive (counted); chart 3's cross-industry slope is exploratory, not counted; producers [{'key': 'info', 'name': 'Information', 'speed': 3.87, 'maxWindow1019': 2.77}]
      [producers] Information: 9.86 vs 2010-19 5.99 (speed-up 3.87); output 8.2, hours -1.51
      [users] Professional & business services: 2.54 vs 2010-19 1.33 (speed-up 1.21); output 2.44, hours -0.1
      [handson] Retail trade: 0.9 vs 2010-19 2.93 (speed-up -2.04); output 0.9, hours 0.0
@@ -18,7 +18,7 @@ FACTS (the narrative must agree with these):
      [other] Education & health services: 1.22 vs 2010-19 0.2 (speed-up 1.01); output 3.6, hours 2.35
      [other] Manufacturing: 2.09 vs 2010-19 0.29 (speed-up 1.79); output 1.75, hours -0.33
   investment 2026Q3: real IPE yoy 29.1% (2y 55.9%), software 12.8%, computer imports 62.2% (2y 132.1%), contrib to GDP growth 0.93pp avg 4q
-  STAGES: Adoption: Spreading (41% of workers) | Money: Surging (10.7% of payroll) | Work: Not yet (0 clear · 1 suggestive) | Output: Not yet (1 clear · 1 suggestive) | Who gains: No clear shift (labor share −1.0%/yr)
+  STAGES: Adoption: Spreading (41% of workers) | Money: Surging (10.7% of payroll) | Work: Not yet (0 clear · 1 suggestive) | Output: Not yet (0 clear · 2 suggestive) | Who gains: No clear shift (labor share −1.0%/yr)
   adoption 2026-07-01: 40.5% of employed adults use genAI for work (avg of last 2 42.9, a year earlier 36.2; first 33.3 in 2024-07-01); previous reading 45.2; daily use 11.5%; time saved 2.1% of work hours; computer/math 68.8, management 63.3, office 36.8, transport 23.7
   money 2026Q3: tech investment (info-processing equipment + software, current $) 10.7% of payroll (year ago 9.0, end-2023 7.9, max before 2023 8.1 in 2022Q2; data from 1959Q1)
   WORK (0 clear, 1 suggestive; {'graduates': 'no signal', 'exposedJobs': 'suggestive', 'payStructure': 'no signal'}):
@@ -29,11 +29,13 @@ FACTS (the narrative must agree with these):
   benchmarks 2026Q3: latest quarter 3.6% annualized (17% of 2004-19 quarters as fast); 2007-19 avg 1.52; Brynjolfsson-Gordon bet pace since 2019Q4 2.22% vs 1.8 needed; rest of decade needs 0.93%/yr
   CHARTS (each chart's headline is written by the page from these):
      1 productivity: 3-year growth 2.61% to 2026Q3; noise band around 2004-19 trend 0.44 to 2.68; eras 1948–73 2.67, 1974–95 1.5, 1996–2003 3.3, 2004–19 1.56, 2020–23 2.06, Since 2023 2.46
-     2 growth accounting (total = equipment + skills + working harder + efficiency): 1948–73 3.16 = 0.9 + 0.19 + -0.01 + 2.09; 1974–95 1.53 = 0.71 + 0.31 + -0.08 + 0.6; 1996–2003 3.4 = 1.33 + 0.25 + -0.21 + 2.02; 2004–19 1.54 = 0.72 + 0.25 + -0.02 + 0.59; 2020–23 2.15 = 0.84 + 0.22 + -0.18 + 1.27; Since 2023 2.52 = 1.12 + 0.3 + 0.98 + 0.12
+     2 growth accounting (total = capital per hour [IT + other] + workforce skills + utilization + underlying efficiency): 1948–73 3.16 = 0.9 [0.15 + 0.75] + 0.19 + -0.01 + 2.09; 1974–95 1.53 = 0.71 [0.44 + 0.27] + 0.31 + -0.08 + 0.6; 1996–2003 3.4 = 1.33 [0.81 + 0.52] + 0.25 + -0.21 + 2.02; 2004–19 1.54 = 0.72 [0.46 + 0.26] + 0.25 + -0.02 + 0.59; 2020–23 2.15 = 0.84 [0.51 + 0.32] + 0.22 + -0.18 + 1.27; Since 2023 2.52 = 1.12 [0.57 + 0.56] + 0.3 + 0.98 + 0.12; efficiency since 2023 90% range -1.3 to 1.5
      3 industries: AI use vs speed-up, excluding Information: n 9, slope 0.98 pts per 10 pts of use, r 0.77, chance 1%, worst case dropping one industry 4% (dropping Finance & insurance); points Construction 43.6%/+0.54, Manufacturing 39.9%/+1.79, Wholesale trade 51.4%/+2.71, Retail trade 37.8%/-2.04, Transportation & warehousing 25.6%/-0.16, Information 79.6%/+3.87, Finance & insurance 65.6%/+3.85, Professional, scientific & technical 65.5%/+2.28, Education & health 38.1%/+1.01, Leisure & hospitality 30.9%/-0.31
-     4 tech investment, 4 quarters to 2026Q3: equipment 0.63 + software 0.3 + computer imports -0.66 pts of GDP growth 2.08; 2000 peak equipment+software 0.81
+     4 tech investment, 4 quarters to 2026Q3: equipment 0.63 + software 0.3 pts of GDP growth 2.08 (gross; computer imports, not netted, -0.66; real computer imports 62.2% over the year); best 4 quarters before 2003: 0.91 (to 1999Q3)
+     3 placebo: same regression on 2019Q4-2023Q4 speed-up vs 2010-19: slope 0.64, chance 10%; since-2023 vs each industry's 2019-23 pace: slope 0.35, chance 24% -> the slope is exploratory, not counted
+     work tests from Dec 2022 instead of Dec 2023: graduates' edge narrowed 0.8 pts (chance 49%); computer systems design -5.1% vs private 2.8%, gap -8.0 (chance 7%)
      5 unemployment 12m avg Sep 2026: grads 20-24 6.7, all 20-24 7.4, all workers 4.3; grads minus all workers 2.4 (2000-19 max 1.7)
-     5b occupations: AI use vs employment growth since Dec 2023 minus 2015-19 trend: n 9, slope -0.51 pts per 10 pts of use, r -0.45, chance of a slope this negative 11%, worst case dropping one 26%; points Management, business & financial 64.1%/-2.56, Professional & related 51.3%/-1.78, Sales 40.3%/-0.26, Office & admin support 36.8%/+0.98, Service 23.1%/+0.02, Construction & extraction 35.0%/-3.38, Installation & repair 27.3%/+0.51, Production 33.2%/-2.24, Transportation & moving 26.4%/-1.04
+     5b occupations: AI use vs employment growth since Dec 2023 minus growth of all nine groups combined: n 9, slope 0.03 pts per 10 pts of use, r 0.04, chance of a slope this negative 54%, worst case dropping one 66%; points Management, business & financial 64.1%/+0.11, Professional & related 51.3%/+0.32, Sales 40.3%/-0.76, Office & admin support 36.8%/+0.58, Service 23.1%/+0.46, Construction & extraction 35.0%/-2.06, Installation & repair 27.3%/+0.03, Production 33.2%/-2.36, Transportation & moving 26.4%/+0.78
      6 labor share 93.7 (record low True)
      watch: next-quarter productivity growth needed for a clear pace signal 5.1% annualized; efficiency needed next quarter to become suggestive 12.7%
   new businesses (high-propensity applications, 12m avg) Sep 2026: 145861 (end-2023 154712, 2019 110192)
