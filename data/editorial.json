@@ -1,8 +1,8 @@
 {
  "copy": {
   "verdict": "Not yet",
-  "bottomLine": "AI is showing up first in what firms buy and how people work: about 4 in 10 workers use it, and tech spending relative to payroll is the highest since the data begin in 1959. What's missing is a clear signal in jobs, pay or productivity. Output per hour and the AI-using industries are running ahead, but not yet beyond what chance often produces. Watch the December productivity revision and whether tech-services job losses deepen.",
-  "changed": "Latest releases: Q3 Productivity and Costs (BLS, Nov 5) put output per hour up at a 3.6% annual rate, so chance alone now explains the pickup about 10% of the time, down from 22%. Every test is now scored on the same three tiers; Work moves from Mixed to Not yet, because young graduates' edge was already small at the end of 2023 and has barely narrowed since.",
+  "bottomLine": "Productivity is growing faster than in the 2010s, and the industries where more workers use AI are speeding up most. But almost none of the gain is underlying efficiency: it is more equipment per worker and people and machines working harder, which can fade. Imported computers also cancel most of AI investment's boost to GDP. Watch the December productivity revision and the Q3 industry data on December 23.",
+  "changed": "Latest releases: Q3 Productivity and Costs (BLS, Nov 5) put output per hour up at a 3.6% annual rate, lifting three-year growth to 2.6%. The page now leads with six charts; every test is in the appendix.",
   "caseFor": [
    {
     "h": "Workers and firms have moved fast.",
@@ -47,7 +47,7 @@
     "body": "In the SF Fed's Q2 2026 figures, more capital and skills per hour added 1.7 points to 2.3% labor-productivity growth and working harder added another 1.7, while efficiency subtracted 1.1. Factory production workers average 42.0 hours a week, up from 40.8 two years earlier."
    }
   ],
-  "headline": "Use is spreading and spending is surging. Jobs and productivity show hints, but nothing yet clear of noise.",
+  "headline": "AI spending is surging and AI-using industries are pulling ahead, but the gains don't yet come from working smarter.",
   "claims": [
    {
     "who": "Erik Brynjolfsson, Stanford (Nov 2026)",

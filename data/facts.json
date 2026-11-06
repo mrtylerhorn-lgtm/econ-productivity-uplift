@@ -7304,7 +7304,10 @@
     "slope10": 0.98,
     "r": 0.77,
     "intercept": -3.28,
-    "chance": 1
+    "chance": 1,
+    "robustChance": 4,
+    "robustDropped": "Finance & insurance",
+    "robustR": 0.66
    },
    "surveyDate": "2026-07-01"
   },

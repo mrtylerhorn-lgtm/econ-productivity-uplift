@@ -449,7 +449,12 @@ def ols(P):
         ib = math.exp(lbeta + a * math.log(x) + b * math.log(1 - x)) * betacf(a, b, x) / a
         return 0.5 * ib if t > 0 else 1 - 0.5 * ib
     return dict(n=n_, slope10=r2(b * 10), r=r2(r), intercept=r2(my - b * mx), chance=round(tcdf_upper(tstat, n_ - 2) * 100))
-charts["industries"] = dict(points=pts, fit=ols(pts), fitExInfo=ols([p for p in pts if not p["producer"]]),
+_users = [p for p in pts if not p["producer"]]; _fx = ols(_users)
+if _fx:   # robustness: drop each industry in turn and keep the worst case
+    _drop = [(p["name"], ols([q for q in _users if q is not p])) for p in _users]
+    _w = max(_drop, key=lambda d: d[1]["chance"])
+    _fx.update(robustChance=_w[1]["chance"], robustDropped=_w[0], robustR=_w[1]["r"])
+charts["industries"] = dict(points=pts, fit=ols(pts), fitExInfo=_fx,
                             surveyDate=S["ai_ind_9"]["dates"][-1] if have("ai_ind_9") else None)
 
 # 4. AI-related investment: contribution to real GDP growth, by year, net of imported computers
@@ -533,6 +538,15 @@ with contextlib.redirect_stdout(buf):
     print(f"     pay to {pay['last']}: managers/office ratio {pay['ratio']} (end-2023 {pay['ratio2023']}, 2019 {pay['ratio2019']}); change {pay['change']}% (max in windows {pay['histStart']}-2019Q4 {pay['maxHist']}; chance {pay['chance']}); growth since end-2023 managers {pay['mgmtGrowth']}%/yr, office {pay['officeGrowth']}%/yr, all {pay['allGrowth']}%/yr -> {TIER_WORD[L_pay]}  [pay series = management, business and financial operations vs office and administrative support]")
     print(f"  who gains {share['last']}: labor share index {share['now']} (end-2023 {share['at2023']}, 2019 {share['at2019']}); {share['pace']}%/yr since end-2023 vs 2004-19 {share['trend']}; chance {share['chance']}% -> {TIER_WORD[L_share]}; previous quarter {share['prevQ']}; lowest on record (series begins {share['since']}): {share['recordLow']} -> {gains_status}")
     print(f"  benchmarks {bench['last']}: latest quarter {bench['latestQ']}% annualized ({bench['shareQuartersAsFast']}% of 2004-19 quarters as fast); 2007-19 avg {bench['avg0719']}; Brynjolfsson-Gordon bet pace since 2019Q4 {bench['betPace']}% vs 1.8 needed; rest of decade needs {bench['betNeed']}%/yr")
+    _K = derived["charts"]; _I = _K["industries"]["fitExInfo"] or {}
+    print(f"  CHARTS (each chart's headline is written by the page from these):")
+    print(f"     1 productivity: 3-year growth {_K['prod']['latest3y']}% to {_K['prod']['last']}; noise band around 2004-19 trend {_K['prod']['bandLo']} to {_K['prod']['bandHi']}; eras " + ", ".join(f"{e['label']} {e['pace']}" for e in _K['prod']['eras']))
+    if "acct" in _K: print("     2 growth accounting (total = equipment + skills + working harder + efficiency): " + "; ".join(f"{e['label']} {e['lp']} = {e['capital']} + {e['labor']} + {e['util']} + {e['eff']}" for e in _K['acct']['eras']))
+    print(f"     3 industries: AI use vs speed-up, excluding Information: n {_I.get('n')}, slope {_I.get('slope10')} pts per 10 pts of use, r {_I.get('r')}, chance {_I.get('chance')}%, worst case dropping one industry {_I.get('robustChance')}% (dropping {_I.get('robustDropped')}); points " + ", ".join(f"{p['name']} {p['use']}%/{p['speed']:+}" for p in _K['industries']['points']))
+    _L4 = _K['capex']['last4']; print(f"     4 tech investment, 4 quarters to {_K['capex']['last']}: equipment {_L4['ipe']} + software {_L4['sw']} + computer imports {_L4['imp']} pts of GDP growth {_L4['gdp']}; 2000 peak equipment+software {_K['capex']['peak2000']}")
+    if "grads" in _K: print(f"     5 unemployment 12m avg {_K['grads']['last']}: grads 20-24 {_K['grads']['young']}, all 20-24 {_K['grads']['allYoung']}, all workers {_K['grads']['all']}; grads minus all workers {_K['grads']['gap']} (2000-19 max {_K['grads']['gapMax0019']})")
+    print(f"     6 labor share {_K['share']['now']} (record low {_K['share']['recordLow']})")
+    print(f"     watch: next-quarter productivity growth needed for a clear pace signal {_K['watch']['nextQForClear']}% annualized; efficiency needed next quarter to become suggestive {_K['watch']['effNextQForSuggestive']}%")
     print(f"  new businesses (high-propensity applications, 12m avg) {firms['last']}: {firms['now']} (end-2023 {firms['at2023']}, 2019 {firms['at2019']})")
     print(f"  rates: daily {rates['daily']} on {rates['dailyDate']}; {rates['month']} avg {rates['monthly']} (year ago {rates['yearAgo']})")
 facts = buf.getvalue()
