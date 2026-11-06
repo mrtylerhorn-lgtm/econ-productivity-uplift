@@ -420,7 +420,7 @@ IND = [("construction", "Construction", lambda: rp("Construction")), ("mfg", "Ma
 pts = []
 for key, name, f in IND:
     if have("hrs_" + key): hm = mser("hrs_" + key)
-    elif have("emp_" + key) and have("awh_" + key):   # no hours index published: employment x average weekly hours
+    elif have("emp_" + key) and have("awh_" + key):   # no hours index published: employment x parent sector's average weekly hours
         e_, w_ = mser("emp_" + key), mser("awh_" + key); hm = {m: e_[m] * w_[m] for m in e_ if m in w_}
     else: continue
     use = f()
@@ -457,7 +457,7 @@ ce, cs_, gg = qser("contrib_ipe"), qser("contrib_software"), qser("gdp_growth")
 imr = qser("imports_computers"); imn = qser("imports_computers_nom") if have("imports_computers_nom") else None; gn = qser("gdp_nom")
 def imp_c(q):
     if q - 1 not in imr or q not in imr: return None
-    g = ((imr[q] / imr[q - 1]) ** 4 - 1) * 100
+    g = 400 * math.log(imr[q] / imr[q - 1])   # log growth, so volatile quarters don't inflate the average
     share = (imn[q - 1] / gn[q - 1]) if imn and q - 1 in imn and q - 1 in gn else None
     return None if share is None else -g * share
 Lx = min(max(ce), max(cs_), max(gg)); years = []
