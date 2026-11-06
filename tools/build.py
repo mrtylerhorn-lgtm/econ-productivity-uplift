@@ -419,10 +419,13 @@ IND = [("construction", "Construction", lambda: rp("Construction")), ("mfg", "Ma
        ("leisure", "Leisure & hospitality", lambda: wavg([(rp("Arts"), lastv("emp_arts")), (rp("Accommodation"), lastv("emp_accom"))]))]
 pts = []
 for key, name, f in IND:
-    if not (have("va_" + key) and have("hrs_" + key)): continue
+    if have("hrs_" + key): hm = mser("hrs_" + key)
+    elif have("emp_" + key) and have("awh_" + key):   # no hours index published: employment x average weekly hours
+        e_, w_ = mser("emp_" + key), mser("awh_" + key); hm = {m: e_[m] * w_[m] for m in e_ if m in w_}
+    else: continue
     use = f()
-    if use is None: continue
-    va = qser("va_" + key); hr = m2q(mser("hrs_" + key)); pp = {q: va[q] / hr[q] for q in va if q in hr}; L_ = max(pp)
+    if use is None or not have("va_" + key): continue
+    va = qser("va_" + key); hr = m2q(hm); pp = {q: va[q] / hr[q] for q in va if q in hr}; L_ = max(pp)
     if T0 not in pp or BASE not in pp: continue
     sp = cagr(pp, BASE, L_) - cagr(pp, T0, T1)
     pts.append(dict(key=key, name=name, use=r1(use), speed=r2(sp), now=r2(cagr(pp, BASE, L_)), trend=r2(cagr(pp, T0, T1)), last=qs(L_), producer=key == "info"))

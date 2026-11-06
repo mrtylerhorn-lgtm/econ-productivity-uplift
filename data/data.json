@@ -13137,7 +13137,10 @@
    "freq": "M",
    "updated": "",
    "values": [],
-   "start": "2000-01"
+   "start": "2000-01",
+   "allowGaps": [
+    "2025-10"
+   ]
   },
   "gdp_growth": {
    "id": "A191RL1Q225SBEA",
@@ -14366,16 +14369,6 @@
    "optional": true,
    "fetched": "2026-11-06"
   },
-  "hrs_finance": {
-   "id": "CES5552000016",
-   "title": "",
-   "units": "",
-   "freq": "M",
-   "updated": "",
-   "values": [],
-   "start": "2005-01",
-   "optional": true
-  },
   "va_pst": {
    "id": "RVAPST",
    "title": "Real Value Added by Industry: Professional and Business Services: Professional, Scientific, and Technical Services (RVAPST)",
@@ -14473,16 +14466,6 @@
    "start": "2005Q1",
    "optional": true,
    "fetched": "2026-11-06"
-  },
-  "hrs_pst": {
-   "id": "CES6054000016",
-   "title": "",
-   "units": "",
-   "freq": "M",
-   "updated": "",
-   "values": [],
-   "start": "2005-01",
-   "optional": true
   },
   "ai_ind_1": {
    "id": "RPSGENAIUSAGESHAREIND1",
@@ -15715,6 +15698,46 @@
    "start": "2015-01",
    "optional": true,
    "fetched": "2026-11-06"
+  },
+  "emp_finance": {
+   "id": "CES5552000001",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2006-01",
+   "values": [],
+   "optional": true
+  },
+  "awh_finance": {
+   "id": "CES5552000002",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2006-01",
+   "values": [],
+   "optional": true
+  },
+  "emp_pst": {
+   "id": "CES6054000001",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2006-01",
+   "values": [],
+   "optional": true
+  },
+  "awh_pst": {
+   "id": "CES6054000002",
+   "title": "",
+   "units": "",
+   "freq": "M",
+   "updated": "",
+   "start": "2006-01",
+   "values": [],
+   "optional": true
   }
  },
  "sectors": [
