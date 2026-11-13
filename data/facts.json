@@ -206,64 +206,64 @@
   "gap": 0.31
  },
  "sf": {
-  "since2023": 0.1,
-  "fourQTfp": 1.42,
-  "fourQUtilAdj": -0.07,
-  "lastQ": "2026Q2",
+  "since2023": 0.3,
+  "fourQTfp": 1.27,
+  "fourQUtilAdj": -0.22,
+  "lastQ": "2026Q3",
   "trend": 0.59,
-  "z": -0.56,
-  "chance": 71,
-  "lo90": -1.3,
-  "hi90": 1.5
+  "z": -0.4,
+  "chance": 65,
+  "lo90": -1.0,
+  "hi90": 1.6
  },
  "decomp": [
   {
-   "q": "2025Q1",
-   "lp": 0.86,
-   "tfp": -0.93,
-   "util": 0.94,
-   "utilAdj": -1.87,
-   "inputs": 1.79
-  },
-  {
    "q": "2025Q2",
    "lp": 4.11,
-   "tfp": 2.31,
-   "util": 1.0,
-   "utilAdj": 1.31,
-   "inputs": 1.8
+   "tfp": 2.34,
+   "util": 0.96,
+   "utilAdj": 1.39,
+   "inputs": 1.77
   },
   {
    "q": "2025Q3",
    "lp": 4.18,
-   "tfp": 3.39,
-   "util": 1.17,
-   "utilAdj": 2.22,
-   "inputs": 0.79
+   "tfp": 3.28,
+   "util": 1.11,
+   "utilAdj": 2.17,
+   "inputs": 0.9
   },
   {
    "q": "2025Q4",
-   "lp": 2.43,
-   "tfp": 0.78,
-   "util": 0.72,
-   "utilAdj": 0.05,
-   "inputs": 1.65
+   "lp": 2.44,
+   "tfp": 0.87,
+   "util": 0.65,
+   "utilAdj": 0.22,
+   "inputs": 1.57
   },
   {
    "q": "2026Q1",
    "lp": 1.11,
-   "tfp": 0.87,
-   "util": 2.32,
-   "utilAdj": -1.45,
-   "inputs": 0.24
+   "tfp": 0.89,
+   "util": 2.23,
+   "utilAdj": -1.35,
+   "inputs": 0.22
   },
   {
    "q": "2026Q2",
-   "lp": 2.31,
-   "tfp": 0.62,
-   "util": 1.73,
-   "utilAdj": -1.11,
-   "inputs": 1.69
+   "lp": 2.23,
+   "tfp": 0.61,
+   "util": 1.65,
+   "utilAdj": -1.04,
+   "inputs": 1.62
+  },
+  {
+   "q": "2026Q3",
+   "lp": 3.98,
+   "tfp": 2.71,
+   "util": 1.41,
+   "utilAdj": 1.3,
+   "inputs": 1.27
   }
  ],
  "blsTfp": {
@@ -390,8 +390,8 @@
   "ipeNom": 934
  },
  "rates": {
-  "daily": 2.64,
-  "dailyDate": "2026-11-04",
+  "daily": 2.86,
+  "dailyDate": "2026-11-12",
   "monthly": 2.78,
   "month": "Oct 2026",
   "yearAgo": 1.76,
@@ -518,7 +518,7 @@
    "name": "Underlying efficiency (SF Fed)",
    "lean": "against",
    "counted": true,
-   "reading": "+0.1%/yr",
+   "reading": "+0.3%/yr",
    "detail": "Since end-2023, after removing more machines, more skills and working harder (average of the SF Fed's quarterly figures), against 0.6% a year in 2004–19 and about 2.0% in the 1996–2003 boom. It is below its 2004–19 pace. That is within normal noise (above 20%).",
    "trend": null
   },
@@ -598,7 +598,7 @@
    "lean": "context",
    "counted": false,
    "reading": "146k/mo",
-   "detail": "High-propensity business applications, 12-month average to Sep 2026, against 155k at the end of 2023 and 110k in 2019. A wave of lean AI-native startups would show up here.",
+   "detail": "High-propensity business applications, 12-month average to Oct 2026, against 153k at the end of 2023 and 110k in 2019. A wave of lean AI-native startups would show up here.",
    "trend": null
   },
   {
@@ -607,8 +607,8 @@
    "name": "Inflation-adjusted interest rates",
    "lean": "context",
    "counted": false,
-   "reading": "2.6%",
-   "detail": "10-year TIPS yield on 2026-11-04. Markets tend to push this up when they expect faster growth, but deficits and Fed policy move it too. In the late-1990s boom it was about 3.5–4.5% (Klein's estimate).",
+   "reading": "2.9%",
+   "detail": "10-year TIPS yield on 2026-11-12. Markets tend to push this up when they expect faster growth, but deficits and Fed policy move it too. In the late-1990s boom it was about 3.5–4.5% (Klein's estimate).",
    "trend": {
     "dir": "up",
     "text": "Oct 2026 average: 2.8%, up from 1.8% a year earlier"
@@ -627,7 +627,7 @@
  "verdictOct30": "Not yet",
  "chances": {
   "pace": 10,
-  "efficiency": 71,
+  "efficiency": 65,
   "industries": 6,
   "graduates": 65,
   "exposedJobs": 11,
@@ -5777,10 +5777,10 @@
   "avg0719": 1.52
  },
  "firms": {
-  "last": "Sep 2026",
-  "now": 145861,
-  "at2023": 154712,
-  "at2019": 110192
+  "last": "Oct 2026",
+  "now": 146005,
+  "at2023": 153498,
+  "at2019": 110185
  },
  "from2022": {
   "gradsChange": 0.69,
@@ -7479,26 +7479,26 @@
     },
     {
      "label": "2020–23",
-     "lp": 2.15,
+     "lp": 2.16,
      "capital": 0.84,
      "itcap": 0.51,
      "othcap": 0.32,
      "labor": 0.22,
-     "util": -0.18,
-     "eff": 1.27
+     "util": -0.21,
+     "eff": 1.3
     },
     {
      "label": "Since 2023",
-     "lp": 2.52,
-     "capital": 1.12,
-     "itcap": 0.57,
+     "lp": 2.64,
+     "capital": 1.15,
+     "itcap": 0.59,
      "othcap": 0.56,
-     "labor": 0.3,
-     "util": 0.98,
-     "eff": 0.12
+     "labor": 0.25,
+     "util": 0.97,
+     "eff": 0.28
     }
    ],
-   "last": "2026Q2"
+   "last": "2026Q3"
   },
   "occupations": {
    "points": [
@@ -11079,8 +11079,8 @@
   },
   "watch": {
    "nextQForClear": 5.1,
-   "effNextQForSuggestive": 12.7,
-   "effNextQForClear": 19.7,
+   "effNextQForSuggestive": 11.8,
+   "effNextQForClear": 19.1,
    "effMaxQ0419": 10.7
   }
  }
