@@ -1,4 +1,4 @@
-data as of 2026-11-14
+data as of 2026-11-21
 FACTS (the narrative must agree with these):
   TIERS: chance <=5% clear signal, 5-20% suggestive, >20% or wrong direction no signal. Stage statuses count clear signals only.
   verdict: Not yet  (output tests: 0 clear, 2 suggestive; {'pace': 'suggestive', 'efficiency': 'no signal', 'industries': 'suggestive'}); under Oct 30 test definitions: Not yet; under pre-Oct-30 rules: Not yet
@@ -39,4 +39,4 @@ FACTS (the narrative must agree with these):
      6 labor share 93.7 (record low True)
      watch: next-quarter productivity growth needed for a clear pace signal 5.1% annualized; efficiency needed next quarter to become suggestive 11.8%
   new businesses (high-propensity applications, 12m avg) Oct 2026: 146005 (end-2023 153498, 2019 110185)
-  rates: daily 2.86 on 2026-11-12; Oct 2026 avg 2.78 (year ago 1.76)
+  rates: daily 2.88 on 2026-11-19; Oct 2026 avg 2.78 (year ago 1.76)

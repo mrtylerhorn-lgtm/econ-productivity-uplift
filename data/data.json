@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-14",
+ "asOf": "2026-11-21",
  "series": {
   "oph": {
    "id": "OPHNFB",
@@ -329,7 +329,7 @@
     121.922
    ],
    "updated": "2026-08-06 7:38 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ophnfc": {
    "id": "PRS88003093",
@@ -510,7 +510,7 @@
     121.802
    ],
    "updated": "2026-09-03 7:38 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "gdpc1": {
    "id": "GDPC1",
@@ -692,7 +692,7 @@
     24611.077
    ],
    "updated": "2026-10-29 8:03 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "gdi_real": {
    "id": "A261RX1Q020SBEA",
@@ -873,7 +873,7 @@
     24550.051
    ],
    "updated": "2026-09-30 7:59 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "tfp_bls_annual": {
    "id": "MFPNFBS",
@@ -962,7 +962,7 @@
     108.441
    ],
    "updated": "2026-03-23 2:42 PM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "awhman": {
    "id": "AWHMAN",
@@ -1115,7 +1115,7 @@
     41.8
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "fii10": {
    "id": "FII10",
@@ -1412,7 +1412,7 @@
     2.78
    ],
    "updated": "2026-10-01 3:16 PM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ipe_nom": {
    "id": "Y034RC1Q027SBEA",
@@ -1742,7 +1742,7 @@
     933.903
    ],
    "updated": "2026-10-29 8:04 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ipe_real": {
    "id": "Y034RX1Q020SBEA",
@@ -1832,7 +1832,7 @@
     854.918
    ],
    "updated": "2026-10-29 8:04 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "software_real": {
    "id": "B985RX1Q020SBEA",
@@ -1922,7 +1922,7 @@
     985.703
    ],
    "updated": "2026-10-29 8:03 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "imports_computers": {
    "id": "B852RX1Q020SBEA",
@@ -2012,7 +2012,7 @@
     635.007
    ],
    "updated": "2026-10-29 8:03 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "contrib_ipe": {
    "id": "Y034RY2Q224SBEA",
@@ -2150,7 +2150,7 @@
     0.86
    ],
    "updated": "2026-10-29 8:04 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "contrib_software": {
    "id": "B985RY2Q224SBEA",
@@ -2288,7 +2288,7 @@
     0.23
    ],
    "updated": "2026-10-29 8:03 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_info": {
    "id": "RVAI",
@@ -2380,7 +2380,7 @@
     2089.8
    ],
    "updated": "2026-09-30 7:39 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "hrs_info": {
    "id": "CES5000000016",
@@ -2638,7 +2638,7 @@
     92.4
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_pbs": {
    "id": "RVAPBS",
@@ -2730,7 +2730,7 @@
     3501.7
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "hrs_pbs": {
    "id": "CES6000000016",
@@ -2988,7 +2988,7 @@
     130.1
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_retail": {
    "id": "RVAR",
@@ -3080,7 +3080,7 @@
     1356.7
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "hrs_retail": {
    "id": "CES4200000016",
@@ -3338,7 +3338,7 @@
     95.3
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_health": {
    "id": "RVAESHS",
@@ -3430,7 +3430,7 @@
     2238.9
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "hrs_health": {
    "id": "CES6500000016",
@@ -3688,7 +3688,7 @@
     150.3
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_leisure": {
    "id": "RVAAERAF",
@@ -3780,7 +3780,7 @@
     881.3
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "hrs_leisure": {
    "id": "CES7000000016",
@@ -4038,7 +4038,7 @@
     123.4
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_construction": {
    "id": "RVAC",
@@ -4130,7 +4130,7 @@
     870.0
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "hrs_construction": {
    "id": "CES2000000016",
@@ -4388,7 +4388,7 @@
     113.6
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_mfg": {
    "id": "RVAMA",
@@ -4480,7 +4480,7 @@
     2470.6
    ],
    "updated": "2026-09-30 7:40 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "hrs_mfg": {
    "id": "CES3000000016",
@@ -4738,7 +4738,7 @@
     92.4
    ],
    "updated": "2026-10-02 8:26 AM CDT",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_use_work": {
    "id": "RPSGENAIUSAGESHAREWORK",
@@ -4768,7 +4768,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_daily_work": {
    "id": "RPSGENAIUSAGESHAREEDLWWOR",
@@ -4798,7 +4798,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_timesave": {
    "id": "RPSGENAITSALL",
@@ -4826,7 +4826,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_use_mgmt": {
    "id": "RPSGENAIUSAGESHAREOCC1",
@@ -4856,7 +4856,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_use_comp": {
    "id": "RPSGENAIUSAGESHAREOCC3",
@@ -4886,7 +4886,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_use_office": {
    "id": "RPSGENAIUSAGESHAREOCC17",
@@ -4916,7 +4916,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_use_transport": {
    "id": "RPSGENAIUSAGESHAREOCC22",
@@ -4946,7 +4946,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "software_nom": {
    "id": "B985RC1Q027SBEA",
@@ -5228,7 +5228,7 @@
    ],
    "updated": "",
    "start": "1959Q1",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "comp_employees": {
    "id": "COE",
@@ -5558,7 +5558,7 @@
    ],
    "updated": "",
    "start": "1947Q1",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "unemp_grads_2024": {
    "id": "CGBD2024",
@@ -5894,7 +5894,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "unemp_grads_25plus": {
    "id": "CGBD25O",
@@ -6230,7 +6230,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "unemp_2024": {
    "id": "LNS14000036",
@@ -6566,7 +6566,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_private": {
    "id": "USPRIV",
@@ -6899,7 +6899,7 @@
    ],
    "updated": "",
    "start": "2000-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_compsys": {
    "id": "CES6054150001",
@@ -7232,7 +7232,7 @@
    ],
    "updated": "",
    "start": "2000-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_consulting": {
    "id": "CES6054160001",
@@ -7565,7 +7565,7 @@
    ],
    "updated": "",
    "start": "2000-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_info": {
    "id": "USINFO",
@@ -7898,7 +7898,7 @@
    ],
    "updated": "",
    "start": "2000-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "occ_office": {
    "id": "LNU02032207",
@@ -8234,7 +8234,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "occ_mgmt": {
    "id": "LNU02032202",
@@ -8570,7 +8570,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "jolts_open_pbs": {
    "id": "JTS540099JOR",
@@ -8890,7 +8890,7 @@
    ],
    "updated": "",
    "start": "2001-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "jolts_open_all": {
    "id": "JTSJOR",
@@ -9210,7 +9210,7 @@
    ],
    "updated": "",
    "start": "2001-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "jolts_hire_pbs": {
    "id": "JTS540099HIR",
@@ -9530,7 +9530,7 @@
    ],
    "updated": "",
    "start": "2001-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "jolts_hire_all": {
    "id": "JTSHIR",
@@ -9850,7 +9850,7 @@
    ],
    "updated": "",
    "start": "2001-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "pay_mgmt": {
    "id": "LEU0254524700Q",
@@ -9971,7 +9971,7 @@
    "allowGaps": [
     "2025Q4"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "pay_office": {
    "id": "LEU0254552200Q",
@@ -10092,7 +10092,7 @@
    "allowGaps": [
     "2025Q4"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "pay_sales": {
    "id": "LEU0254550300Q",
@@ -10213,7 +10213,7 @@
    "allowGaps": [
     "2025Q4"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "pay_all": {
    "id": "LEU0252881500Q",
@@ -10334,7 +10334,7 @@
    "allowGaps": [
     "2025Q4"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ahe_private": {
    "id": "CES0500000003",
@@ -10583,7 +10583,7 @@
    ],
    "updated": "",
    "start": "2007-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ahe_info": {
    "id": "CES5000000003",
@@ -10832,7 +10832,7 @@
    ],
    "updated": "",
    "start": "2007-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ahe_pbs": {
    "id": "CES6000000003",
@@ -11081,7 +11081,7 @@
    ],
    "updated": "",
    "start": "2007-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ahe_retail": {
    "id": "CES4200000003",
@@ -11330,7 +11330,7 @@
    ],
    "updated": "",
    "start": "2007-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ahe_leisure": {
    "id": "CES7000000003",
@@ -11579,7 +11579,7 @@
    ],
    "updated": "",
    "start": "2007-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "labor_share": {
    "id": "PRS85006173",
@@ -11909,7 +11909,7 @@
    ],
    "updated": "",
    "start": "1947Q1",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "biz_apps_hp": {
    "id": "BAHBATOTALSAUS",
@@ -12182,7 +12182,7 @@
    ],
    "updated": "",
    "start": "2005-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "usrec": {
    "id": "USREC",
@@ -13151,7 +13151,7 @@
     0.0
    ],
    "start": "1947-01",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "unrate": {
    "id": "UNRATE",
@@ -13487,7 +13487,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "gdp_growth": {
    "id": "A191RL1Q225SBEA",
@@ -13625,7 +13625,7 @@
     3.4
    ],
    "start": "1995Q1",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "gdp_nom": {
    "id": "GDP",
@@ -13763,7 +13763,7 @@
     33010.036
    ],
    "start": "1995Q1",
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "imports_computers_nom": {
    "id": "B852RC1Q027SBEA",
@@ -13902,7 +13902,7 @@
    ],
    "start": "1995Q1",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_wholesale": {
    "id": "RVAW",
@@ -14000,7 +14000,7 @@
    ],
    "start": "2005Q1",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "hrs_wholesale": {
    "id": "CES4142000016",
@@ -14260,7 +14260,7 @@
    ],
    "start": "2006-03",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_transport": {
    "id": "RVAT",
@@ -14358,7 +14358,7 @@
    ],
    "start": "2005Q1",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "hrs_transport": {
    "id": "CES4300000016",
@@ -14618,7 +14618,7 @@
    ],
    "start": "2006-03",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_finance": {
    "id": "RVAFI",
@@ -14716,7 +14716,7 @@
    ],
    "start": "2005Q1",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "va_pst": {
    "id": "RVAPST",
@@ -14814,7 +14814,7 @@
    ],
    "start": "2005Q1",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_1": {
    "id": "RPSGENAIUSAGESHAREIND1",
@@ -14845,7 +14845,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_2": {
    "id": "RPSGENAIUSAGESHAREIND2",
@@ -14876,7 +14876,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_3": {
    "id": "RPSGENAIUSAGESHAREIND3",
@@ -14907,7 +14907,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_4": {
    "id": "RPSGENAIUSAGESHAREIND4",
@@ -14938,7 +14938,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_5": {
    "id": "RPSGENAIUSAGESHAREIND5",
@@ -14969,7 +14969,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_6": {
    "id": "RPSGENAIUSAGESHAREIND6",
@@ -15000,7 +15000,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_7": {
    "id": "RPSGENAIUSAGESHAREIND7",
@@ -15031,7 +15031,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_8": {
    "id": "RPSGENAIUSAGESHAREIND8",
@@ -15062,7 +15062,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_9": {
    "id": "RPSGENAIUSAGESHAREIND9",
@@ -15093,7 +15093,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_10": {
    "id": "RPSGENAIUSAGESHAREIND10",
@@ -15124,7 +15124,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_11": {
    "id": "RPSGENAIUSAGESHAREIND11",
@@ -15155,7 +15155,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_12": {
    "id": "RPSGENAIUSAGESHAREIND12",
@@ -15186,7 +15186,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_13": {
    "id": "RPSGENAIUSAGESHAREIND13",
@@ -15217,7 +15217,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_14": {
    "id": "RPSGENAIUSAGESHAREIND14",
@@ -15248,7 +15248,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_15": {
    "id": "RPSGENAIUSAGESHAREIND15",
@@ -15279,7 +15279,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_16": {
    "id": "RPSGENAIUSAGESHAREIND16",
@@ -15310,7 +15310,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_17": {
    "id": "RPSGENAIUSAGESHAREIND17",
@@ -15341,7 +15341,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_18": {
    "id": "RPSGENAIUSAGESHAREIND18",
@@ -15372,7 +15372,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_19": {
    "id": "RPSGENAIUSAGESHAREIND19",
@@ -15403,7 +15403,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_ind_20": {
    "id": "RPSGENAIUSAGESHAREIND20",
@@ -15434,7 +15434,7 @@
     "2026-07-01"
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_educ": {
    "id": "CES6561000001",
@@ -15588,7 +15588,7 @@
    ],
    "start": "2015-01",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_health": {
    "id": "CES6562000001",
@@ -15742,7 +15742,7 @@
    ],
    "start": "2015-01",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_arts": {
    "id": "CES7071000001",
@@ -15896,7 +15896,7 @@
    ],
    "start": "2015-01",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_accom": {
    "id": "CES7072000001",
@@ -16050,7 +16050,7 @@
    ],
    "start": "2015-01",
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_finance": {
    "id": "CES5552000001",
@@ -16312,7 +16312,7 @@
     6640.8
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "awh_finance": {
    "id": "AWHAEFA",
@@ -16572,7 +16572,7 @@
     37.5
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "emp_pst": {
    "id": "CES6054000001",
@@ -16834,7 +16834,7 @@
     10881.3
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "awh_pst": {
    "id": "AWHAEPBS",
@@ -17094,7 +17094,7 @@
     36.8
    ],
    "optional": true,
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_1": {
    "id": "RPSGENAIUSAGESHAREOCC1",
@@ -17124,7 +17124,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_2": {
    "id": "RPSGENAIUSAGESHAREOCC2",
@@ -17154,7 +17154,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_3": {
    "id": "RPSGENAIUSAGESHAREOCC3",
@@ -17184,7 +17184,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_4": {
    "id": "RPSGENAIUSAGESHAREOCC4",
@@ -17214,7 +17214,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_5": {
    "id": "RPSGENAIUSAGESHAREOCC5",
@@ -17244,7 +17244,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_6": {
    "id": "RPSGENAIUSAGESHAREOCC6",
@@ -17274,7 +17274,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_7": {
    "id": "RPSGENAIUSAGESHAREOCC7",
@@ -17304,7 +17304,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_8": {
    "id": "RPSGENAIUSAGESHAREOCC8",
@@ -17334,7 +17334,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_9": {
    "id": "RPSGENAIUSAGESHAREOCC9",
@@ -17364,7 +17364,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_10": {
    "id": "RPSGENAIUSAGESHAREOCC10",
@@ -17394,7 +17394,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_11": {
    "id": "RPSGENAIUSAGESHAREOCC11",
@@ -17424,7 +17424,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_12": {
    "id": "RPSGENAIUSAGESHAREOCC12",
@@ -17454,7 +17454,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_13": {
    "id": "RPSGENAIUSAGESHAREOCC13",
@@ -17484,7 +17484,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_14": {
    "id": "RPSGENAIUSAGESHAREOCC14",
@@ -17514,7 +17514,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_15": {
    "id": "RPSGENAIUSAGESHAREOCC15",
@@ -17544,7 +17544,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_16": {
    "id": "RPSGENAIUSAGESHAREOCC16",
@@ -17574,7 +17574,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_17": {
    "id": "RPSGENAIUSAGESHAREOCC17",
@@ -17604,7 +17604,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_18": {
    "id": "RPSGENAIUSAGESHAREOCC18",
@@ -17634,7 +17634,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_19": {
    "id": "RPSGENAIUSAGESHAREOCC19",
@@ -17664,7 +17664,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_20": {
    "id": "RPSGENAIUSAGESHAREOCC20",
@@ -17694,7 +17694,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_21": {
    "id": "RPSGENAIUSAGESHAREOCC21",
@@ -17724,7 +17724,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "ai_occ_22": {
    "id": "RPSGENAIUSAGESHAREOCC22",
@@ -17754,7 +17754,7 @@
     "2026-04-01",
     "2026-07-01"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "occ_prof": {
    "id": "LNU02032203",
@@ -18090,7 +18090,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "occ_service": {
    "id": "LNU02032204",
@@ -18426,7 +18426,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "occ_sales": {
    "id": "LNU02032206",
@@ -18762,7 +18762,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "occ_constr": {
    "id": "LNU02032210",
@@ -19098,7 +19098,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "occ_install": {
    "id": "LNU02032211",
@@ -19434,7 +19434,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "occ_prod": {
    "id": "LNU02032213",
@@ -19770,7 +19770,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   },
   "occ_transport": {
    "id": "LNU02032214",
@@ -20106,7 +20106,7 @@
    "allowGaps": [
     "2025-10"
    ],
-   "fetched": "2026-11-14"
+   "fetched": "2026-11-21"
   }
  },
  "sectors": [
@@ -23114,7 +23114,7 @@
   ]
  },
  "tipsLatestDaily": {
-  "date": "2026-11-12",
-  "value": 2.86
+  "date": "2026-11-19",
+  "value": 2.88
  }
 }

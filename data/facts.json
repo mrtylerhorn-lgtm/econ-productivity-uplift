@@ -390,8 +390,8 @@
   "ipeNom": 934
  },
  "rates": {
-  "daily": 2.86,
-  "dailyDate": "2026-11-12",
+  "daily": 2.88,
+  "dailyDate": "2026-11-19",
   "monthly": 2.78,
   "month": "Oct 2026",
   "yearAgo": 1.76,
@@ -608,7 +608,7 @@
    "lean": "context",
    "counted": false,
    "reading": "2.9%",
-   "detail": "10-year TIPS yield on 2026-11-12. Markets tend to push this up when they expect faster growth, but deficits and Fed policy move it too. In the late-1990s boom it was about 3.5–4.5% (Klein's estimate).",
+   "detail": "10-year TIPS yield on 2026-11-19. Markets tend to push this up when they expect faster growth, but deficits and Fed policy move it too. In the late-1990s boom it was about 3.5–4.5% (Klein's estimate).",
    "trend": {
     "dir": "up",
     "text": "Oct 2026 average: 2.8%, up from 1.8% a year earlier"
